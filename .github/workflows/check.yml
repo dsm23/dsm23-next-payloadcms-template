@@ -1,0 +1,59 @@
+name: Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  HUSKY: 0
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    # container:
+    #   image: mcr.microsoft.com/playwright:v1.48.0-jammy
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      - uses: actions/cache@v4
+        with:
+          # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
+          path: .next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          # We want to ensure that the Node.js version running here respects our supported versions
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Format check
+        run: pnpm fmt.check
+      - name: Lint check
+        run: pnpm lint
+      # - name: Unit & Integration tests
+      #   run: pnpm test -- --coverage
+      # - name: Build
+      #   run: pnpm build
+      # - name: Smoke & Acceptance tests
+      #   run: |
+      #     pnpm build-storybook --quiet
+      #     pnpm dlx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+      #       "pnpm dlx http-server storybook-static --port 6006 --silent" \
+      #       "pnpm dlx wait-on tcp:127.0.0.1:6006 && pnpm test-storybook"
