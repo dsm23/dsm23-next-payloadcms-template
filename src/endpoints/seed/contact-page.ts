@@ -1,48 +1,48 @@
-import type { Page } from '@/payload-types'
+import type { Page } from "@/payload-types";
 
 export const contact: Partial<Page> = {
-  slug: 'contact',
-  _status: 'published',
+  slug: "contact",
+  _status: "published",
   hero: {
-    type: 'none',
+    type: "none",
   },
   layout: [
     {
-      blockType: 'formBlock',
+      blockType: "formBlock",
       enableIntro: true,
       // @ts-ignore
-      form: '{{CONTACT_FORM_ID}}',
+      form: "{{CONTACT_FORM_ID}}",
       introContent: {
         root: {
-          type: 'root',
+          type: "root",
           children: [
             {
-              type: 'heading',
+              type: "heading",
               children: [
                 {
-                  type: 'text',
+                  type: "text",
                   detail: 0,
                   format: 0,
-                  mode: 'normal',
-                  style: '',
-                  text: 'Example contact form:',
+                  mode: "normal",
+                  style: "",
+                  text: "Example contact form:",
                   version: 1,
                 },
               ],
-              direction: 'ltr',
-              format: '',
+              direction: "ltr",
+              format: "",
               indent: 0,
-              tag: 'h3',
+              tag: "h3",
               version: 1,
             },
           ],
-          direction: 'ltr',
-          format: '',
+          direction: "ltr",
+          format: "",
           indent: 0,
           version: 1,
         },
       },
     },
   ],
-  title: 'Contact',
-}
+  title: "Contact",
+};
