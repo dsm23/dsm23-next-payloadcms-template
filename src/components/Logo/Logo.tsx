@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const Logo = () => {
   return (
@@ -8,5 +8,5 @@ export const Logo = () => {
       className="max-w-[9.375rem] invert dark:invert-0"
       src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/payload/src/admin/assets/images/payload-logo-light.svg"
     />
-  )
-}
+  );
+};
