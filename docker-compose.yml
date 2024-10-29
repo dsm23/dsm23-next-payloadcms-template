@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   payload:
     image: node:22-alpine
@@ -12,8 +10,8 @@ services:
     command: sh -c "pnpm install && pnpm dev"
     depends_on:
       - mongo
-    env_file:
-      - .env
+    environment:
+      - PAYLOAD_SECRET=${PAYLOAD_SECRET}
 
   mongo:
     image: mongo:latest
