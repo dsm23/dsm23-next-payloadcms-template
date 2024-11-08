@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import * as React from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";

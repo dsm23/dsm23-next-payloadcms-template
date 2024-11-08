@@ -102,7 +102,7 @@ const config = {
           to: { height: "0" },
         },
       },
-      typography: ({ theme }) => ({
+      typography: {
         DEFAULT: {
           css: {
             "--tw-prose-body": "var(--text)",
@@ -114,7 +114,7 @@ const config = {
             },
           },
         },
-      }),
+      },
     },
   },
 } satisfies Config;
