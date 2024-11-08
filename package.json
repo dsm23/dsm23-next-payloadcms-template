@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "prepare": "node .husky/install.js",
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev --turbopack",
     "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
@@ -77,6 +78,8 @@
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "gzip-size": "^7.0.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "mkdirp": "^3.0.1",
     "postcss": "^8.4.38",
     "prettier": "^3.3.3",
