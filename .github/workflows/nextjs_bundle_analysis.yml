@@ -1,0 +1,146 @@
+name: "Next.js Bundle Analysis"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  HUSKY: 0
+
+defaults:
+  run:
+    # change this if your nextjs app does not live at the root of the repo
+    working-directory: ./
+
+jobs:
+  analyze-bundle:
+    env:
+      SKIP_ENV_VALIDATION: true
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          # We want to ensure that the Node.js version running here respects our supported versions
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Restore next build
+        uses: actions/cache@v4
+        id: restore-build-cache
+        env:
+          cache-name: cache-next-build
+        with:
+          path: .next/cache
+          # change this if you prefer a more strict cache
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
+
+      - name: Run docker compose
+        run: docker compose up -d
+        env:
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+
+      - name: Build next.js app
+        env:
+          SKIP_BUILD_PRODUCT_REDIRECTS: 1
+          DATABASE_URI: ${{ vars.DATABASE_URI }}
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+          PAYLOAD_PUBLIC_SERVER_URL: ${{ vars.PAYLOAD_PUBLIC_SERVER_URL }}
+          NEXT_PUBLIC_SERVER_URL: ${{ vars.NEXT_PUBLIC_SERVER_URL }}
+        # change this if your site requires a custom build command
+        run: pnpm build
+
+      - name: Stop docker compose
+        run: docker compose down
+
+      # Here's the first place where next-bundle-analysis' own script is used
+      # This step pulls the raw bundle stats for the current bundle
+      - name: Analyze bundle
+        run: node ./scripts/report-bundle-size.js
+
+      - name: Upload bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle
+          path: .next/analyze/__bundle_analysis.json
+
+      - name: Download base branch bundle stats
+        uses: dawidd6/action-download-artifact@v6
+        if: success() && github.event.number
+        with:
+          workflow: nextjs_bundle_analysis.yml
+          branch: ${{ github.event.pull_request.base.ref }}
+          path: .next/analyze/base
+
+      # And here's the second place - this runs after we have both the current and
+      # base branch bundle stats, and will compare them to determine what changed.
+      # There are two configurable arguments that come from package.json:
+      #
+      # - budget: optional, set a budget (bytes) against which size changes are measured
+      #           it's set to 350kb here by default, as informed by the following piece:
+      #           https://infrequently.org/2021/03/the-performance-inequality-gap/
+      #
+      # - red-status-percentage: sets the percent size increase where you get a red
+      #                          status indicator, defaults to 20%
+      #
+      # Either of these arguments can be changed or removed by editing the `nextBundleAnalysis`
+      # entry in your package.json file.
+      - name: Compare with base branch bundle
+        if: success() && github.event.number
+        run: ls -laR .next/analyze/base && pnpm --package=nextjs-bundle-analysis dlx compare
+
+      - name: Get comment body
+        id: get-comment-body
+        if: success() && github.event.number
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            const fs = require('fs')
+            const comment = fs.readFileSync('.next/analyze/__bundle_analysis_comment.txt', 'utf8')
+            core.setOutput('body', comment)
+
+      - name: Find Comment
+        uses: peter-evans/find-comment@v3
+        if: success() && github.event.number
+        id: fc
+        with:
+          issue-number: ${{ github.event.number }}
+          body-includes: "<!-- __NEXTJS_BUNDLE -->"
+
+      - name: Create Comment
+        uses: peter-evans/create-or-update-comment@v4
+        if: success() && github.event.number && steps.fc.outputs.comment-id == 0
+        with:
+          issue-number: ${{ github.event.number }}
+          body: ${{ steps.get-comment-body.outputs.body }}
+
+      - name: Update Comment
+        uses: peter-evans/create-or-update-comment@v4
+        if: success() && github.event.number && steps.fc.outputs.comment-id != 0
+        with:
+          issue-number: ${{ github.event.number }}
+          body: ${{ steps.get-comment-body.outputs.body }}
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          edit-mode: replace
