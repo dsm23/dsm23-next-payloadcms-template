@@ -8,3 +8,9 @@ node_modules
 
 # Payload default media upload directory
 public/media/
+
+# Cache Files
+.eslintcache
+.eslintmdcache
+.stylelintcache
+.prettiercache
