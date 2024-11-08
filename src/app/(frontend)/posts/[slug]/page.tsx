@@ -1,4 +1,4 @@
-import React, { cache } from "react";
+import { cache } from "react";
 import { draftMode } from "next/headers";
 import type { Metadata } from "next";
 import { RelatedPosts } from "@/blocks/RelatedPosts/Component";

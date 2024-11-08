@@ -1,4 +1,3 @@
-import React from "react";
 import type { Metadata } from "next/types";
 import { CollectionArchive } from "@/components/CollectionArchive";
 import { PageRange } from "@/components/PageRange";

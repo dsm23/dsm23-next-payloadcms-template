@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import { CMSLink } from "@/components/Link";
 import { ThemeSelector } from "@/providers/Theme/ThemeSelector";

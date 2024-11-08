@@ -3,7 +3,6 @@ import type { Post } from "@/payload-types";
 export const post1: Partial<Post> = {
   slug: "digital-horizons",
   _status: "published",
-  // @ts-ignore
   authors: ["{{AUTHOR}}"],
   content: {
     root: {
@@ -296,7 +295,6 @@ export const post1: Partial<Post> = {
   meta: {
     description:
       "Dive into the marvels of modern innovation, where the only constant is change. A journey where pixels and data converge to craft the future.",
-    // @ts-ignore
     image: "{{IMAGE_1}}",
     title: "Digital Horizons: A Glimpse into Tomorrow",
   },
