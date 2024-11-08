@@ -1,0 +1,44 @@
+pull_request_rules:
+  # approve
+  - name: automatic approval
+    conditions:
+      - author=dsm23
+      - check-success=analyze-bundle
+      - check-success=check
+      - check-success~=codeql \([a-z]*\)
+      - check-success=dependency-review
+      - check-success=gitleaks
+      # - check-success~=playwright-tests \(\d, \d\)
+      - "#check-success>=6"
+    actions:
+      review:
+        type: APPROVE
+        message: Automatically approving dsm23
+  - name: automatic approval for Dependabot pull requests
+    conditions:
+      - author=dependabot[bot]
+      - check-success=analyze-bundle
+      - check-success=check
+      - check-success~=codeql \([a-z]*\)
+      - check-success=dependency-review
+      - check-success=gitleaks
+      # - check-success~=playwright-tests \(\d, \d\)
+      - "#check-success>=6"
+    actions:
+      review:
+        type: APPROVE
+        message: Automatically approving dependabot
+  # merge
+  - name: Automatically merge when GitHub Actions jobs succeed
+    conditions:
+      - check-success=analyze-bundle
+      - check-success=check
+      - check-success~=codeql \([a-z]*\)
+      - check-success=dependency-review
+      - check-success=gitleaks
+      # - check-success~=playwright-tests \(\d, \d\)
+      - "#check-success>=6"
+      - "#approved-reviews-by>=1"
+    actions:
+      merge:
+        method: merge
