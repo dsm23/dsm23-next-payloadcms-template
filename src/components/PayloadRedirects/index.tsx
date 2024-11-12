@@ -1,4 +1,4 @@
-import type React from "react";
+import type { FunctionComponent } from "react";
 import { notFound, redirect } from "next/navigation";
 import { getCachedDocument } from "@/utilities/getDocument";
 import { getCachedRedirects } from "@/utilities/getRedirects";
@@ -10,7 +10,7 @@ interface Props {
 }
 
 /* This component helps us with SSR based dynamic redirects */
-export const PayloadRedirects: React.FC<Props> = async ({
+export const PayloadRedirects: FunctionComponent<Props> = async ({
   disableNotFound,
   url,
 }) => {

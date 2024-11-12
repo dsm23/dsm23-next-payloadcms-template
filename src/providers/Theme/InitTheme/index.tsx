@@ -1,8 +1,8 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 import Script from "next/script";
 import { defaultTheme, themeLocalStorageKey } from "../ThemeSelector/types";
 
-export const InitTheme: React.FC = () => {
+export const InitTheme: FunctionComponent = () => {
   return (
     // eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
     <Script

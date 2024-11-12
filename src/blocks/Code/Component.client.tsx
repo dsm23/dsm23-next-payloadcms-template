@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import type { FunctionComponent } from "react";
 import { Highlight, themes } from "prism-react-renderer";
 import { CopyButton } from "./CopyButton";
 
@@ -9,7 +9,7 @@ type Props = {
   language?: string;
 };
 
-export const Code: React.FC<Props> = ({ code, language = "" }) => {
+export const Code: FunctionComponent<Props> = ({ code, language = "" }) => {
   if (!code) return null;
 
   return (

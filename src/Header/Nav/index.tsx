@@ -1,12 +1,16 @@
 "use client";
 
-import React from "react";
+import type { FunctionComponent } from "react";
 import Link from "next/link";
 import { CMSLink } from "@/components/Link";
 import { SearchIcon } from "lucide-react";
 import type { Header as HeaderType } from "@/payload-types";
 
-export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
+type Props = {
+  header: HeaderType;
+};
+
+export const HeaderNav: FunctionComponent<Props> = ({ header }) => {
   const navItems = header?.navItems || [];
 
   return (

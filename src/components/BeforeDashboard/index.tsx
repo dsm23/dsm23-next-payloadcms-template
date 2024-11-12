@@ -1,4 +1,4 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 import { Banner } from "@payloadcms/ui/elements/Banner";
 import { SeedButton } from "./SeedButton";
 
@@ -6,7 +6,7 @@ import "./index.scss";
 
 const baseClass = "before-dashboard";
 
-const BeforeDashboard: React.FC = () => {
+const BeforeDashboard: FunctionComponent = () => {
   return (
     <div className={baseClass}>
       <Banner className={`${baseClass}__banner`} type="success">

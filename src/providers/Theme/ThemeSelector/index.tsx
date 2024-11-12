@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import type { FunctionComponent } from "react";
 import {
   Select,
   SelectContent,
@@ -12,7 +13,7 @@ import { useTheme } from "..";
 import { themeLocalStorageKey } from "./types";
 import type { Theme } from "./types";
 
-export const ThemeSelector: React.FC = () => {
+export const ThemeSelector: FunctionComponent = () => {
   const { setTheme } = useTheme();
   const [value, setValue] = useState("");
 
@@ -26,7 +27,7 @@ export const ThemeSelector: React.FC = () => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const preference = window.localStorage.getItem(themeLocalStorageKey);
     setValue(preference ?? "auto");
   }, []);

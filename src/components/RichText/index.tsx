@@ -1,4 +1,4 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 import { cn } from "@/utilities/cn";
 import { serializeLexical } from "./serialize";
 
@@ -9,7 +9,7 @@ type Props = {
   enableProse?: boolean;
 };
 
-const RichText: React.FC<Props> = ({
+const RichText: FunctionComponent<Props> = ({
   className,
   content,
   enableGutter = true,

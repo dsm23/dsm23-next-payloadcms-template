@@ -1,16 +1,17 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { Fragment, useEffect } from "react";
+import type { FunctionComponent } from "react";
 import { useHeaderTheme } from "@/providers/HeaderTheme";
 
-const PageClient: React.FC = () => {
+const PageClient: FunctionComponent = () => {
   /* Force the header to be dark mode while we have an image behind it */
   const { setHeaderTheme } = useHeaderTheme();
 
   useEffect(() => {
     setHeaderTheme("dark");
   }, [setHeaderTheme]);
-  return <React.Fragment />;
+  return <Fragment />;
 };
 
 export default PageClient;

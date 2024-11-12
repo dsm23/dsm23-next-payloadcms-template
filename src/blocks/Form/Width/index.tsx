@@ -1,7 +1,7 @@
-import * as React from "react";
+import type { FunctionComponent, ReactNode } from "react";
 
-export const Width: React.FC<{
-  children: React.ReactNode;
+export const Width: FunctionComponent<{
+  children: ReactNode;
   className?: string;
   width?: number | string;
 }> = ({ children, className, width }) => {

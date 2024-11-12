@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import type { FunctionComponent } from "react";
 import { ArchiveBlock } from "@/blocks/ArchiveBlock/Component";
 import { CallToActionBlock } from "@/blocks/CallToAction/Component";
 import { ContentBlock } from "@/blocks/Content/Component";
@@ -14,7 +14,7 @@ const blockComponents = {
   mediaBlock: MediaBlock,
 };
 
-export const RenderBlocks: React.FC<{
+export const RenderBlocks: FunctionComponent<{
   blocks: Page["layout"][0][];
 }> = (props) => {
   const { blocks } = props;
@@ -23,7 +23,7 @@ export const RenderBlocks: React.FC<{
 
   if (hasBlocks) {
     return (
-      <Fragment>
+      <>
         {blocks.map((block, index) => {
           const { blockType } = block;
 
@@ -41,7 +41,7 @@ export const RenderBlocks: React.FC<{
           }
           return null;
         })}
-      </Fragment>
+      </>
     );
   }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 import type { Control, FieldErrorsImpl, FieldValues } from "react-hook-form";
 import { Label } from "@/components/ui/label";
 import {
@@ -13,7 +13,7 @@ import type { SelectField } from "@payloadcms/plugin-form-builder/types";
 import { Error } from "../Error";
 import { Width } from "../Width";
 
-export const Select: React.FC<
+export const Select: FunctionComponent<
   SelectField & {
     control: Control<FieldValues, any>;
     errors: Partial<

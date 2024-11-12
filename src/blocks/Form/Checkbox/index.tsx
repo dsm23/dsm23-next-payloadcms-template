@@ -1,4 +1,4 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 import type {
   FieldErrorsImpl,
   FieldValues,
@@ -11,7 +11,7 @@ import type { CheckboxField } from "@payloadcms/plugin-form-builder/types";
 import { Error } from "../Error";
 import { Width } from "../Width";
 
-export const Checkbox: React.FC<
+export const Checkbox: FunctionComponent<
   CheckboxField & {
     errors: Partial<
       FieldErrorsImpl<{
