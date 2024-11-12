@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 import { beforeSyncWithSearch } from "@/search/beforeSync";
 import { searchFields } from "@/search/fieldOverrides";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { payloadCloud } from "@payloadcms/plugin-cloud";
+import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
 import { formBuilderPlugin } from "@payloadcms/plugin-form-builder";
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 import { redirectsPlugin } from "@payloadcms/plugin-redirects";
@@ -18,6 +18,7 @@ import {
   ItalicFeature,
   lexicalEditor,
   LinkFeature,
+  ParagraphFeature,
   UnderlineFeature,
 } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload";
@@ -90,6 +91,7 @@ export default buildConfig({
   editor: lexicalEditor({
     features: () => {
       return [
+        ParagraphFeature(),
         UnderlineFeature(),
         BoldFeature(),
         ItalicFeature(),
@@ -122,8 +124,7 @@ export default buildConfig({
     url: process.env.DATABASE_URI || "",
   }),
   collections: [Pages, Posts, Media, Categories, Users],
-  cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ""].filter(Boolean),
-  csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ""].filter(Boolean),
+  cors: [process.env.NEXT_PUBLIC_SERVER_URL || ""].filter(Boolean),
   endpoints: [
     // The seed endpoint is used to populate the database with some example data
     // You should delete this endpoint before deploying your site to production
@@ -202,9 +203,9 @@ export default buildConfig({
         },
       },
     }),
-    payloadCloud(), // storage-adapter-placeholder
+    payloadCloudPlugin(), // storage-adapter-placeholder
   ],
-  secret: process.env.PAYLOAD_SECRET!,
+  secret: process.env.PAYLOAD_SECRET,
   sharp,
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
