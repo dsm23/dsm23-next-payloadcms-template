@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import { useState } from "react";
+import type { FunctionComponent } from "react";
 import NextImage from "next/image";
 import type { StaticImageData } from "next/image";
 import cssVariables from "@/cssVariables";
@@ -9,7 +10,7 @@ import type { Props as MediaProps } from "../types";
 
 const { breakpoints } = cssVariables;
 
-export const ImageMedia: React.FC<MediaProps> = (props) => {
+export const ImageMedia: FunctionComponent<MediaProps> = (props) => {
   const {
     alt: altFromProps,
     fill,
@@ -22,7 +23,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     src: srcFromProps,
   } = props;
 
-  const [, setIsLoading] = React.useState(true);
+  const [, setIsLoading] = useState(true);
 
   let width: number | undefined;
   let height: number | undefined;

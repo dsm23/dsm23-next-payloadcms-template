@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
+import type { FunctionComponent } from "react";
 import { useRouter } from "next/navigation";
 import RichText from "@/components/RichText";
 import { Button } from "@/components/ui/button";
@@ -29,7 +30,7 @@ export type FormBlockType = {
   }[];
 };
 
-export const FormBlock: React.FC<
+export const FormBlock: FunctionComponent<
   {
     id?: string;
   } & FormBlockType
@@ -157,7 +158,8 @@ export const FormBlock: React.FC<
               {formFromProps &&
                 formFromProps.fields &&
                 formFromProps.fields?.map((field, index) => {
-                  const Field: React.FC<any> = fields?.[field.blockType];
+                  const Field: FunctionComponent<any> =
+                    fields?.[field.blockType];
                   if (Field) {
                     return (
                       <div className="mb-6 last:mb-0" key={index}>

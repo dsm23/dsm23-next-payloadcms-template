@@ -1,4 +1,4 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 import type {
   FieldErrorsImpl,
   FieldValues,
@@ -10,7 +10,7 @@ import type { TextField } from "@payloadcms/plugin-form-builder/types";
 import { Error } from "../Error";
 import { Width } from "../Width";
 
-export const Textarea: React.FC<
+export const Textarea: FunctionComponent<
   TextField & {
     errors: Partial<
       FieldErrorsImpl<{

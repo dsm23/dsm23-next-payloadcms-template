@@ -1,4 +1,4 @@
-import React from "react";
+import type { ReactNode } from "react";
 import { draftMode } from "next/headers";
 import type { Metadata } from "next";
 import { AdminBar } from "@/components/AdminBar";
@@ -17,7 +17,7 @@ import "./globals.css";
 export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   const { isEnabled } = await draftMode();
 

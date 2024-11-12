@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import type { FunctionComponent } from "react";
 import { useRouter } from "next/navigation";
 import {
   Pagination as PaginationComponent,
@@ -13,11 +13,13 @@ import {
 } from "@/components/ui/pagination";
 import { cn } from "@/utilities/cn";
 
-export const Pagination: React.FC<{
+type Props = {
   className?: string;
   page: number;
   totalPages: number;
-}> = (props) => {
+};
+
+export const Pagination: FunctionComponent<Props> = (props) => {
   const router = useRouter();
 
   const { className, page, totalPages } = props;

@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useCallback, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
+import type { FunctionComponent, PropsWithChildren } from "react";
 import canUseDOM from "@/utilities/canUseDOM";
 import type { Theme } from "@/providers/Theme/types";
 
@@ -16,10 +17,8 @@ const initialContext: ContextType = {
 
 const HeaderThemeContext = createContext(initialContext);
 
-export const HeaderThemeProvider = ({
+export const HeaderThemeProvider: FunctionComponent<PropsWithChildren> = ({
   children,
-}: {
-  children: React.ReactNode;
 }) => {
   const [headerTheme, setThemeState] = useState<Theme | undefined | null>(
     canUseDOM

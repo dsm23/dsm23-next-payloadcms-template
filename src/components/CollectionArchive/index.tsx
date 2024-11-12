@@ -1,4 +1,4 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 import { Card } from "@/components/Card";
 import { cn } from "src/utilities/cn";
 import type { Post } from "@/payload-types";
@@ -7,7 +7,7 @@ export type Props = {
   posts: Post[];
 };
 
-export const CollectionArchive: React.FC<Props> = (props) => {
+export const CollectionArchive: FunctionComponent<Props> = (props) => {
   const { posts } = props;
 
   return (

@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import type { FunctionComponent } from "react";
 import { CMSLink } from "@/components/Link";
 import { Media } from "@/components/Media";
 import RichText from "@/components/RichText";
 import { useHeaderTheme } from "@/providers/HeaderTheme";
 import type { Page } from "@/payload-types";
 
-export const HighImpactHero: React.FC<Page["hero"]> = ({
+export const HighImpactHero: FunctionComponent<Page["hero"]> = ({
   links,
   media,
   richText,
@@ -47,7 +48,7 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
       </div>
       <div className="min-h-[80vh] select-none">
         {media && typeof media === "object" && (
-          <React.Fragment>
+          <>
             <Media
               fill
               imgClassName="-z-10 object-cover"
@@ -55,7 +56,7 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
               resource={media}
             />
             <div className="pointer-events-none absolute bottom-0 left-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent" />
-          </React.Fragment>
+          </>
         )}
       </div>
     </div>

@@ -1,9 +1,10 @@
-import React from "react";
+import { Fragment } from "react";
+import type { FunctionComponent } from "react";
 import { Media } from "@/components/Media";
 import { formatDateTime } from "src/utilities/formatDateTime";
 import type { Post } from "@/payload-types";
 
-export const PostHero: React.FC<{
+export const PostHero: FunctionComponent<{
   post: Post;
 }> = ({ post }) => {
   const {
@@ -28,10 +29,10 @@ export const PostHero: React.FC<{
                 const isLast = index === categories.length - 1;
 
                 return (
-                  <React.Fragment key={index}>
+                  <Fragment key={index}>
                     {titleToUse}
-                    {!isLast && <React.Fragment>, &nbsp;</React.Fragment>}
-                  </React.Fragment>
+                    {!isLast && <>, &nbsp;</>}
+                  </Fragment>
                 );
               }
               return null;
@@ -54,18 +55,14 @@ export const PostHero: React.FC<{
                     const secondToLast = index === populatedAuthors.length - 2;
 
                     return (
-                      <React.Fragment key={index}>
+                      <Fragment key={index}>
                         {name}
-                        {secondToLast && populatedAuthors.length > 2 && (
-                          <React.Fragment>, </React.Fragment>
-                        )}
+                        {secondToLast && populatedAuthors.length > 2 && <>, </>}
                         {secondToLast && populatedAuthors.length === 2 && (
-                          <React.Fragment> </React.Fragment>
+                          <> </>
                         )}
-                        {!isLast && populatedAuthors.length > 1 && (
-                          <React.Fragment>and </React.Fragment>
-                        )}
-                      </React.Fragment>
+                        {!isLast && populatedAuthors.length > 1 && <>and </>}
+                      </Fragment>
                     );
                   })}
                 </div>

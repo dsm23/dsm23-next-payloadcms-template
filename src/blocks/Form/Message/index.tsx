@@ -1,8 +1,8 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 import RichText from "@/components/RichText";
 import { Width } from "../Width";
 
-export const Message: React.FC = ({
+export const Message: FunctionComponent = ({
   message,
 }: {
   message: Record<string, any>;

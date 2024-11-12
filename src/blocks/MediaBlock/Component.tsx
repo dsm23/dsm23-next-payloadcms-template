@@ -1,4 +1,4 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 import type { StaticImageData } from "next/image";
 import RichText from "@/components/RichText";
 import { cn } from "src/utilities/cn";
@@ -15,7 +15,7 @@ type Props = MediaBlockProps & {
   disableInnerContainer?: boolean;
 };
 
-export const MediaBlock: React.FC<Props> = (props) => {
+export const MediaBlock: FunctionComponent<Props> = (props) => {
   const {
     captionClassName,
     className,

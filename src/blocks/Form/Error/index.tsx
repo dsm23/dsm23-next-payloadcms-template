@@ -1,6 +1,6 @@
-import * as React from "react";
+import type { FunctionComponent } from "react";
 
-export const Error: React.FC = () => {
+export const Error: FunctionComponent = () => {
   return (
     <div className="mt-2 text-sm text-red-500">This field is required</div>
   );

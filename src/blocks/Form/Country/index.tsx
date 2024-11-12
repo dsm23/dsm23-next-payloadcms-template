@@ -1,4 +1,4 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 import type { Control, FieldErrorsImpl, FieldValues } from "react-hook-form";
 import { Label } from "@/components/ui/label";
 import {
@@ -14,7 +14,7 @@ import { Error } from "../Error";
 import { Width } from "../Width";
 import { countryOptions } from "./options";
 
-export const Country: React.FC<
+export const Country: FunctionComponent<
   CountryField & {
     control: Control<FieldValues, any>;
     errors: Partial<

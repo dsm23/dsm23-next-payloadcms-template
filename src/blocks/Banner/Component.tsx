@@ -1,4 +1,4 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 import RichText from "@/components/RichText";
 import { cn } from "src/utilities/cn";
 import type { BannerBlock as BannerBlockProps } from "src/payload-types";
@@ -7,7 +7,11 @@ type Props = {
   className?: string;
 } & BannerBlockProps;
 
-export const BannerBlock: React.FC<Props> = ({ className, content, style }) => {
+export const BannerBlock: FunctionComponent<Props> = ({
+  className,
+  content,
+  style,
+}) => {
   return (
     <div className={cn("mx-auto my-8 w-full", className)}>
       <div

@@ -1,9 +1,10 @@
 "use client";
 
-import React, { Fragment, useCallback, useState } from "react";
+import { Fragment, useCallback, useState } from "react";
+import type { FunctionComponent } from "react";
 import { toast } from "@payloadcms/ui";
 
-const SuccessMessage: React.FC = () => (
+const SuccessMessage: FunctionComponent = () => (
   <div>
     Database seeded! You can now{" "}
     <a target="_blank" href="/">
@@ -12,7 +13,7 @@ const SuccessMessage: React.FC = () => (
   </div>
 );
 
-export const SeedButton: React.FC = () => {
+export const SeedButton: FunctionComponent = () => {
   const [loading, setLoading] = useState(false);
   const [seeded, setSeeded] = useState(false);
   const [error, setError] = useState(null);

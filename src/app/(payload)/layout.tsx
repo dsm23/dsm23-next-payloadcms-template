@@ -4,17 +4,17 @@ import config from "@payload-config";
 
 import "@payloadcms/next/css";
 
-import React from "react";
+import type { FunctionComponent, ReactNode } from "react";
 import { RootLayout } from "@payloadcms/next/layouts";
 import { importMap } from "./admin/importMap.js";
 
 import "./custom.scss";
 
 type Args = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
-const Layout = ({ children }: Args) => (
+const Layout: FunctionComponent<Args> = ({ children }) => (
   <RootLayout config={config} importMap={importMap}>
     {children}
   </RootLayout>

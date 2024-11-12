@@ -1,12 +1,13 @@
 "use client";
 
-import React, {
+import {
   createContext,
   useCallback,
   useContext,
   useEffect,
   useState,
 } from "react";
+import type { FunctionComponent, PropsWithChildren } from "react";
 import canUseDOM from "@/utilities/canUseDOM";
 import {
   defaultTheme,
@@ -23,7 +24,9 @@ const initialContext: ThemeContextType = {
 
 const ThemeContext = createContext(initialContext);
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+export const ThemeProvider: FunctionComponent<PropsWithChildren> = ({
+  children,
+}) => {
   const [theme, setThemeState] = useState<Theme | undefined>(
     canUseDOM
       ? (document.documentElement.getAttribute("data-theme") as Theme)

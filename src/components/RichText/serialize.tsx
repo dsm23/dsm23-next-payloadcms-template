@@ -1,4 +1,4 @@
-import React, { Fragment, JSX } from "react";
+import { Fragment, JSX } from "react";
 import { BannerBlock } from "@/blocks/Banner/Component";
 import { CallToActionBlock } from "@/blocks/CallToAction/Component";
 import { CodeBlock, CodeBlockProps } from "@/blocks/Code/Component";
@@ -35,14 +35,14 @@ type Props = {
 
 export function serializeLexical({ nodes }: Props): JSX.Element {
   return (
-    <Fragment>
+    <>
       {nodes?.map((node, index): JSX.Element | null => {
         if (node == null) {
           return null;
         }
 
         if (node.type === "text") {
-          let text = <React.Fragment key={index}>{node.text}</React.Fragment>;
+          let text = <Fragment key={index}>{node.text}</Fragment>;
           if (node.format & IS_BOLD) {
             text = <strong key={index}>{text}</strong>;
           }
@@ -217,6 +217,6 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
           }
         }
       })}
-    </Fragment>
+    </>
   );
 }
