@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 import { beforeSyncWithSearch } from "@/search/beforeSync";
 import { searchFields } from "@/search/fieldOverrides";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { payloadCloudPlugin } from "@payloadcms/plugin-cloud";
+import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { formBuilderPlugin } from "@payloadcms/plugin-form-builder";
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 import { redirectsPlugin } from "@payloadcms/plugin-redirects";
@@ -202,7 +202,7 @@ export default buildConfig({
         },
       },
     }),
-    payloadCloudPlugin(), // storage-adapter-placeholder
+    payloadCloud(), // storage-adapter-placeholder
   ],
   secret: process.env.PAYLOAD_SECRET!,
   sharp,
