@@ -42,7 +42,7 @@ export default async function RootLayout({
           <LivePreviewListener />
 
           <Header />
-          {children}
+          <main>{children}</main>
           <Footer />
         </Providers>
       </body>
