@@ -74,6 +74,7 @@ export async function GET(
     try {
       const docs = await payload.find({
         collection: collection,
+        draft: true,
         where: {
           slug: {
             equals: slug,

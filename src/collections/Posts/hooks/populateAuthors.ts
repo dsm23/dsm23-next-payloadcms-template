@@ -21,7 +21,9 @@ export const populateAuthors: CollectionAfterReadHook = async ({
         req,
       });
 
-      authorDocs.push(authorDoc);
+      if (authorDoc) {
+        authorDocs.push(authorDoc);
+      }
     }
 
     doc.populatedAuthors = authorDocs.map((authorDoc) => ({

@@ -1,15 +1,12 @@
 import React from "react";
 import { CMSLink } from "@/components/Link";
 import RichText from "@/components/RichText";
-import type { Page } from "@/payload-types";
+import type { CallToActionBlock as CTABlockProps } from "@/payload-types";
 
-type Props = Extract<Page["layout"][0], { blockType: "cta" }>;
-
-export const CallToActionBlock: React.FC<
-  Props & {
-    id?: string;
-  }
-> = ({ links, richText }) => {
+export const CallToActionBlock: React.FC<CTABlockProps> = ({
+  links,
+  richText,
+}) => {
   return (
     <div className="container">
       <div className="flex flex-col gap-8 rounded border border-border bg-card p-4 md:flex-row md:items-center md:justify-between">

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Highlight, themes } from "prism-react-renderer";
+import { CopyButton } from "./CopyButton";
 
 type Props = {
   code: string;
@@ -27,6 +28,7 @@ export const Code: React.FC<Props> = ({ code, language = "" }) => {
               </span>
             </div>
           ))}
+          <CopyButton code={code} />
         </pre>
       )}
     </Highlight>

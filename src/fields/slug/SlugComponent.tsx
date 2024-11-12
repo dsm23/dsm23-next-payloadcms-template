@@ -10,11 +10,10 @@ import {
   useForm,
   useFormFields,
 } from "@payloadcms/ui";
+import { TextFieldClientProps } from "payload";
 import { formatSlug } from "./formatSlug";
 
 import "./index.scss";
-
-import { TextFieldClientProps } from "payload";
 
 type SlugComponentProps = {
   fieldToUse: string;
@@ -25,15 +24,16 @@ export const SlugComponent: React.FC<SlugComponentProps> = ({
   field,
   fieldToUse,
   checkboxFieldPath: checkboxFieldPathFromProps,
+  readOnly: readOnlyFromProps,
 }) => {
   const { label } = field;
-  const { path, readOnly: readOnlyFromProps } = useFieldProps();
+  const { path } = useFieldProps();
 
-  const checkboxFieldPath = path.includes(".")
+  const checkboxFieldPath = path?.includes(".")
     ? `${path}.${checkboxFieldPathFromProps}`
     : checkboxFieldPathFromProps;
 
-  const { value, setValue } = useField<string>({ path });
+  const { value, setValue } = useField<string>({ path: path || field.name });
 
   const { dispatchFields } = useForm();
 
@@ -78,7 +78,7 @@ export const SlugComponent: React.FC<SlugComponentProps> = ({
   return (
     <div className="field-type slug-field-component">
       <div className="label-wrapper">
-        <FieldLabel field={field} htmlFor={`field-${path}`} label={label} />
+        <FieldLabel htmlFor={`field-${path}`} label={label} />
 
         <Button className="lock-button" buttonStyle="none" onClick={handleLock}>
           {checkboxValue ? "Unlock" : "Lock"}
@@ -88,7 +88,7 @@ export const SlugComponent: React.FC<SlugComponentProps> = ({
       <TextInput
         value={value}
         onChange={setValue}
-        path={path}
+        path={path || field.name}
         readOnly={Boolean(readOnly)}
       />
     </div>

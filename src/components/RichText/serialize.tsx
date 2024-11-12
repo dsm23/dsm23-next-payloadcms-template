@@ -8,7 +8,11 @@ import {
   DefaultNodeTypes,
   SerializedBlockNode,
 } from "@payloadcms/richtext-lexical";
-import type { BannerBlock as BannerBlockProps, Page } from "@/payload-types";
+import type {
+  BannerBlock as BannerBlockProps,
+  CallToActionBlock as CTABlockProps,
+  MediaBlock as MediaBlockProps,
+} from "@/payload-types";
 import {
   IS_BOLD,
   IS_CODE,
@@ -22,10 +26,7 @@ import {
 export type NodeTypes =
   | DefaultNodeTypes
   | SerializedBlockNode<
-      | Extract<Page["layout"][0], { blockType: "cta" }>
-      | Extract<Page["layout"][0], { blockType: "mediaBlock" }>
-      | BannerBlockProps
-      | CodeBlockProps
+      CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps
     >;
 
 type Props = {
