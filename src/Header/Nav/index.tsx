@@ -14,7 +14,7 @@ export const HeaderNav: FunctionComponent<Props> = ({ header }) => {
   const navItems = header?.navItems || [];
 
   return (
-    <nav className="flex items-center gap-3">
+    <nav className="flex items-center gap-3" aria-label="Primary">
       {navItems.map(({ link }, i) => {
         return <CMSLink key={i} {...link} appearance="link" />;
       })}

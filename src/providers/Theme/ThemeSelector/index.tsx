@@ -34,7 +34,10 @@ export const ThemeSelector: FunctionComponent = () => {
 
   return (
     <Select onValueChange={onThemeChange} value={value}>
-      <SelectTrigger className="w-auto gap-2 border-none bg-transparent pl-0 md:pl-3">
+      <SelectTrigger
+        className="w-auto gap-2 border-none bg-transparent pl-0 md:pl-3"
+        aria-label="Theme switcher"
+      >
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent>

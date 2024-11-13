@@ -1,4 +1,4 @@
-name: Check
+name: Playwright Tests
 
 on:
   push:
@@ -7,16 +7,22 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch: null
 
 env:
   HUSKY: 0
 
 jobs:
-  check:
+  playwright-tests:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
-    # container:
-    #   image: mcr.microsoft.com/playwright:v1.48.0-jammy
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        shardTotal: [9]
+    container:
+      image: mcr.microsoft.com/playwright:v1.48.2-noble
     services:
       mongo:
         image: mongo:latest
@@ -32,7 +38,10 @@ jobs:
         uses: step-security/harden-runner@v2
         with:
           egress-policy: audit
-      - uses: actions/checkout@v4
+      - name: Git Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -54,22 +63,15 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Format check
-        run: pnpm fmt.check
-      - name: Lint check
-        run: pnpm lint
-      # - name: Unit & Integration tests
-      #   run: pnpm test -- --coverage
-      - name: Build
-        run: pnpm build
+      - name: Run Playwright tests
+        run: pnpm exec playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
         env:
-          DATABASE_URI: ${{ vars.DATABASE_URI }}
-          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
-          PAYLOAD_PUBLIC_SERVER_URL: ${{ vars.PAYLOAD_PUBLIC_SERVER_URL }}
-          NEXT_PUBLIC_SERVER_URL: ${{ vars.NEXT_PUBLIC_SERVER_URL }}
-        # - name: Smoke & Acceptance tests
-        #   run: |
-      #     pnpm build-storybook --quiet
-      #     pnpm dlx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-      #       "pnpm dlx http-server storybook-static --port 6006 --silent" \
-      #       "pnpm dlx wait-on tcp:127.0.0.1:6006 && pnpm test-storybook"
+          # Required for firefox
+          HOME: /root
+      - name: Upload playwright report to GitHub Actions Artifacts
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ matrix.shardIndex }}
+          path: playwright-report/
+          retention-days: 1

@@ -24,6 +24,16 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
+    services:
+      mongo:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd mongo
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@v2
@@ -56,11 +66,6 @@ jobs:
           # change this if you prefer a more strict cache
           key: ${{ runner.os }}-build-${{ env.cache-name }}
 
-      - name: Run docker compose
-        run: docker compose up -d
-        env:
-          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
-
       - name: Build next.js app
         env:
           SKIP_BUILD_PRODUCT_REDIRECTS: 1
@@ -70,9 +75,6 @@ jobs:
           NEXT_PUBLIC_SERVER_URL: ${{ vars.NEXT_PUBLIC_SERVER_URL }}
         # change this if your site requires a custom build command
         run: pnpm build
-
-      - name: Stop docker compose
-        run: docker compose down
 
       # Here's the first place where next-bundle-analysis' own script is used
       # This step pulls the raw bundle stats for the current bundle

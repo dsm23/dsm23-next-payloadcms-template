@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import { useCallback, useState } from "react";
+import type { FunctionComponent } from "react";
 import { useRouter, useSelectedLayoutSegments } from "next/navigation";
 import { cn } from "@/utilities/cn";
 import { PayloadAdminBar } from "payload-admin-bar";
@@ -25,9 +26,9 @@ const collectionLabels = {
   },
 };
 
-const Title: React.FC = () => <span>Dashboard</span>;
+const Title: FunctionComponent = () => <span>Dashboard</span>;
 
-export const AdminBar: React.FC<{
+export const AdminBar: FunctionComponent<{
   adminBarProps?: PayloadAdminBarProps;
 }> = (props) => {
   const { adminBarProps } = props || {};
@@ -38,7 +39,7 @@ export const AdminBar: React.FC<{
     : "pages";
   const router = useRouter();
 
-  const onAuthChange = React.useCallback((user) => {
+  const onAuthChange = useCallback((user) => {
     setShow(user?.id);
   }, []);
 
