@@ -17,6 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     # container:
     #   image: mcr.microsoft.com/playwright:v1.48.0-jammy
+    services:
+      mongo:
+        image: mongo:8
+        ports:
+          - 27017:27017
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@v2
@@ -50,10 +55,6 @@ jobs:
         run: pnpm lint
       # - name: Unit & Integration tests
       #   run: pnpm test -- --coverage
-      - name: Run docker compose
-        run: docker compose up -d
-        env:
-          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
       - name: Build
         run: pnpm build
         env:
@@ -61,8 +62,6 @@ jobs:
           PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
           PAYLOAD_PUBLIC_SERVER_URL: ${{ vars.PAYLOAD_PUBLIC_SERVER_URL }}
           NEXT_PUBLIC_SERVER_URL: ${{ vars.NEXT_PUBLIC_SERVER_URL }}
-      - name: Stop docker compose
-        run: docker compose down
         # - name: Smoke & Acceptance tests
         #   run: |
       #     pnpm build-storybook --quiet
