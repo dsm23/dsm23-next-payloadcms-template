@@ -1,11 +1,16 @@
 import type { FunctionComponent } from "react";
+import { headers } from "next/headers";
 import Script from "next/script";
 import { defaultTheme, themeLocalStorageKey } from "../ThemeSelector/types";
 
-export const InitTheme: FunctionComponent = () => {
+export const InitTheme: FunctionComponent = async () => {
+  const headersList = await headers();
+  const nonce = headersList.get("x-nonce") ?? undefined;
+
   return (
-    // eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
+    // TODO: might need this lint rule later: eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
     <Script
+      nonce={nonce}
       dangerouslySetInnerHTML={{
         __html: `
   (function () {
@@ -43,7 +48,12 @@ export const InitTheme: FunctionComponent = () => {
   `,
       }}
       id="theme-script"
-      strategy="beforeInteractive"
+      // handle CSP issues in dev
+      strategy={
+        process.env.NODE_ENV === "production"
+          ? "beforeInteractive"
+          : "afterInteractive"
+      }
     />
   );
 };
