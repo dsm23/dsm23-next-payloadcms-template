@@ -9,6 +9,14 @@ node_modules
 # Payload default media upload directory
 public/media/
 
+# Misc
+.DS_Store
+*.pem
+
+# Settings
+.vscode/settings.json
+.idea/
+
 # Cache Files
 .eslintcache
 .eslintmdcache
