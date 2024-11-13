@@ -27,7 +27,8 @@ jobs:
         uses: step-security/harden-runner@v2
         with:
           egress-policy: audit
-      - uses: actions/checkout@v4
+      - name: Git Checkout
+        uses: actions/checkout@v4
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
