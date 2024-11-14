@@ -1,9 +1,9 @@
 import type { FunctionComponent } from "react";
-import { CollectionArchive } from "@/components/CollectionArchive";
-import RichText from "@/components/RichText";
 import configPromise from "@payload-config";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
-import type { ArchiveBlock as ArchiveBlockProps, Post } from "@/payload-types";
+import { CollectionArchive } from "~/components/CollectionArchive";
+import RichText from "~/components/RichText";
+import type { ArchiveBlock as ArchiveBlockProps, Post } from "~/payload-types";
 
 export const ArchiveBlock: FunctionComponent<
   ArchiveBlockProps & {

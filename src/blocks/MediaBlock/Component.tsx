@@ -1,9 +1,9 @@
 import type { FunctionComponent } from "react";
 import type { StaticImageData } from "next/image";
-import RichText from "@/components/RichText";
-import { cn } from "src/utilities/cn";
-import type { MediaBlock as MediaBlockProps } from "@/payload-types";
-import { Media } from "../../components/Media";
+import { Media } from "~/components/Media";
+import RichText from "~/components/RichText";
+import { cn } from "~/utilities/cn";
+import type { MediaBlock as MediaBlockProps } from "~/payload-types";
 
 type Props = MediaBlockProps & {
   breakout?: boolean;

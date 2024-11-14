@@ -1,6 +1,3 @@
-import { default as default_1a7510af427896d367a49dbf838d2de6 } from "@/components/BeforeDashboard";
-import { default as default_8a7ab0eb7ab5c511aba12e68480bfe5e } from "@/components/BeforeLogin";
-import { SlugComponent as SlugComponent_92cc057d0a2abb4f6cf0307edf59f986 } from "@/fields/slug/SlugComponent";
 import { LinkToDoc as LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634 } from "@payloadcms/plugin-search/client";
 import {
   MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860,
@@ -25,6 +22,9 @@ import {
   RscEntryLexicalCell as RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
   RscEntryLexicalField as RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e,
 } from "@payloadcms/richtext-lexical/rsc";
+import { default as default_f76ec18c68fb7b0b36f8ba232eb389cb } from "~/components/BeforeDashboard";
+import { default as default_bc0dfd06314899e9581563b1d9fee736 } from "~/components/BeforeLogin";
+import { SlugComponent as SlugComponent_84bda7c99e919abc122af118325c1296 } from "~/fields/slug/SlugComponent";
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell":
@@ -57,15 +57,15 @@ export const importMap = {
     MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#PreviewComponent":
     PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
-  "@/fields/slug/SlugComponent#SlugComponent":
-    SlugComponent_92cc057d0a2abb4f6cf0307edf59f986,
+  "~/fields/slug/SlugComponent#SlugComponent":
+    SlugComponent_84bda7c99e919abc122af118325c1296,
   "@payloadcms/richtext-lexical/client#HorizontalRuleFeatureClient":
     HorizontalRuleFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#BlocksFeatureClient":
     BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/plugin-search/client#LinkToDoc":
     LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634,
-  "@/components/BeforeDashboard#default":
-    default_1a7510af427896d367a49dbf838d2de6,
-  "@/components/BeforeLogin#default": default_8a7ab0eb7ab5c511aba12e68480bfe5e,
+  "~/components/BeforeDashboard#default":
+    default_f76ec18c68fb7b0b36f8ba232eb389cb,
+  "~/components/BeforeLogin#default": default_bc0dfd06314899e9581563b1d9fee736,
 };

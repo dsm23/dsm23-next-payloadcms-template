@@ -1,5 +1,5 @@
-import deepMerge from "@/utilities/deepMerge";
 import type { Field } from "payload";
+import deepMerge from "~/utilities/deepMerge";
 
 export type LinkAppearances = "default" | "outline";
 

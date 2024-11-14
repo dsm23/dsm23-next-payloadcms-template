@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import { forwardRef } from "react";
 import type { HTMLAttributes } from "react";
-import { cn } from "src/utilities/cn";
+import { cn } from "~/utilities/cn";
 
 const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (

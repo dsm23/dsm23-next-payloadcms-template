@@ -1,9 +1,9 @@
 import type { FunctionComponent, ReactNode } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { cn } from "src/utilities/cn";
-import type { ButtonProps } from "@/components/ui/button";
-import type { Page, Post } from "@/payload-types";
+import { Button } from "~/components/ui/button";
+import { cn } from "~/utilities/cn";
+import type { ButtonProps } from "~/components/ui/button";
+import type { Page, Post } from "~/payload-types";
 
 type CMSLinkType = {
   appearance?: "inline" | ButtonProps["variant"];

@@ -1,14 +1,14 @@
 import { cache } from "react";
 import { draftMode } from "next/headers";
 import type { Metadata } from "next";
-import { RelatedPosts } from "@/blocks/RelatedPosts/Component";
-import { PayloadRedirects } from "@/components/PayloadRedirects";
-import RichText from "@/components/RichText";
-import { PostHero } from "@/heros/PostHero";
-import { generateMeta } from "@/utilities/generateMeta";
 import configPromise from "@payload-config";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
-import type { Post } from "@/payload-types";
+import { RelatedPosts } from "~/blocks/RelatedPosts/Component";
+import { PayloadRedirects } from "~/components/PayloadRedirects";
+import RichText from "~/components/RichText";
+import { PostHero } from "~/heros/PostHero";
+import { generateMeta } from "~/utilities/generateMeta";
+import type { Post } from "~/payload-types";
 import PageClient from "./page.client";
 
 export async function generateStaticParams() {

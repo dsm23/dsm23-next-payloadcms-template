@@ -1,7 +1,7 @@
 import type { FunctionComponent } from "react";
-import { Card } from "@/components/Card";
-import { cn } from "src/utilities/cn";
-import type { Post } from "@/payload-types";
+import { Card } from "~/components/Card";
+import { cn } from "~/utilities/cn";
+import type { Post } from "~/payload-types";
 
 export type Props = {
   posts: Post[];

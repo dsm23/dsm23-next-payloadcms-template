@@ -1,7 +1,7 @@
 import type { FunctionComponent } from "react";
-import { CMSLink } from "@/components/Link";
-import RichText from "@/components/RichText";
-import type { CallToActionBlock as CTABlockProps } from "@/payload-types";
+import { CMSLink } from "~/components/Link";
+import RichText from "~/components/RichText";
+import type { CallToActionBlock as CTABlockProps } from "~/payload-types";
 
 export const CallToActionBlock: FunctionComponent<CTABlockProps> = ({
   links,

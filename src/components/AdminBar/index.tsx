@@ -3,9 +3,9 @@
 import { useCallback, useState } from "react";
 import type { FunctionComponent } from "react";
 import { useRouter, useSelectedLayoutSegments } from "next/navigation";
-import { cn } from "@/utilities/cn";
 import { PayloadAdminBar } from "payload-admin-bar";
 import type { PayloadAdminBarProps } from "payload-admin-bar";
+import { cn } from "~/utilities/cn";
 
 import "./index.scss";
 

@@ -1,6 +1,6 @@
 import { revalidatePath } from "next/cache";
 import type { CollectionAfterChangeHook } from "payload";
-import type { Post } from "../../../payload-types";
+import type { Post } from "~/payload-types";
 
 export const revalidatePost: CollectionAfterChangeHook<Post> = ({
   doc,
