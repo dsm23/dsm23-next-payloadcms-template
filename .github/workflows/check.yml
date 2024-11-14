@@ -54,8 +54,8 @@ jobs:
         run: pnpm fmt.check
       - name: Lint check
         run: pnpm lint
-      # - name: Unit & Integration tests
-      #   run: pnpm test -- --coverage
+      - name: Unit & Integration tests
+        run: pnpm test -- --coverage
       - name: Build
         run: pnpm build
         env:

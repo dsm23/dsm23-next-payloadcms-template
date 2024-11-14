@@ -17,6 +17,9 @@ public/media/
 .vscode/settings.json
 .idea/
 
+# Coverage
+coverage/
+
 # Cache Files
 .eslintcache
 .eslintmdcache
