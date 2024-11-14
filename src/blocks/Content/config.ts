@@ -1,4 +1,3 @@
-import { link } from "@/fields/link";
 import {
   FixedToolbarFeature,
   HeadingFeature,
@@ -6,6 +5,7 @@ import {
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
 import type { Block, Field } from "payload";
+import { link } from "~/fields/link";
 
 const columnFields: Field[] = [
   {

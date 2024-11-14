@@ -10,8 +10,8 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
-import { cn } from "@/utilities/cn";
+} from "~/components/ui/pagination";
+import { cn } from "~/utilities/cn";
 
 type Props = {
   className?: string;

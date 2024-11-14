@@ -1,16 +1,16 @@
 import type { ReactNode } from "react";
 import { draftMode } from "next/headers";
 import type { Metadata } from "next";
-import { AdminBar } from "@/components/AdminBar";
-import { LivePreviewListener } from "@/components/LivePreviewListener";
-import { Footer } from "@/Footer/Component";
-import { Header } from "@/Header/Component";
-import { Providers } from "@/providers";
-import { InitTheme } from "@/providers/Theme/InitTheme";
-import { mergeOpenGraph } from "@/utilities/mergeOpenGraph";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
-import { cn } from "src/utilities/cn";
+import { AdminBar } from "~/components/AdminBar";
+import { LivePreviewListener } from "~/components/LivePreviewListener";
+import { Footer } from "~/Footer/Component";
+import { Header } from "~/Header/Component";
+import { Providers } from "~/providers";
+import { InitTheme } from "~/providers/Theme/InitTheme";
+import { cn } from "~/utilities/cn";
+import { mergeOpenGraph } from "~/utilities/mergeOpenGraph";
 
 import "./globals.css";
 

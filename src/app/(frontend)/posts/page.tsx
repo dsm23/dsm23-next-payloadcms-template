@@ -1,9 +1,9 @@
 import type { Metadata } from "next/types";
-import { CollectionArchive } from "@/components/CollectionArchive";
-import { PageRange } from "@/components/PageRange";
-import { Pagination } from "@/components/Pagination";
 import configPromise from "@payload-config";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { CollectionArchive } from "~/components/CollectionArchive";
+import { PageRange } from "~/components/PageRange";
+import { Pagination } from "~/components/Pagination";
 import PageClient from "./page.client";
 
 export const dynamic = "force-static";

@@ -1,5 +1,5 @@
 import type { FunctionComponent } from "react";
-import RichText from "@/components/RichText";
+import RichText from "~/components/RichText";
 import { Width } from "../Width";
 
 export const Message: FunctionComponent = ({

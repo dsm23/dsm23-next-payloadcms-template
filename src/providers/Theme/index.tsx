@@ -8,7 +8,7 @@ import {
   useState,
 } from "react";
 import type { FunctionComponent, PropsWithChildren } from "react";
-import canUseDOM from "@/utilities/canUseDOM";
+import canUseDOM from "~/utilities/canUseDOM";
 import {
   defaultTheme,
   getImplicitPreference,

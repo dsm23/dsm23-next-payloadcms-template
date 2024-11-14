@@ -1,6 +1,6 @@
-import { seed as seedScript } from "@/endpoints/seed";
 import { commitTransaction, initTransaction } from "payload";
 import type { PayloadHandler } from "payload";
+import { seed as seedScript } from "~/endpoints/seed";
 
 export const seedHandler: PayloadHandler = async (req): Promise<Response> => {
   const { payload, user } = req;

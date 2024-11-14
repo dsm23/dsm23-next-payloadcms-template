@@ -1,14 +1,14 @@
 import { cache } from "react";
 import { draftMode } from "next/headers";
 import type { Metadata } from "next";
-import { RenderBlocks } from "@/blocks/RenderBlocks";
-import { PayloadRedirects } from "@/components/PayloadRedirects";
-import { homeStatic } from "@/endpoints/seed/home-static";
-import { RenderHero } from "@/heros/RenderHero";
-import { generateMeta } from "@/utilities/generateMeta";
 import configPromise from "@payload-config";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
-import type { Page as PageType } from "@/payload-types";
+import { RenderBlocks } from "~/blocks/RenderBlocks";
+import { PayloadRedirects } from "~/components/PayloadRedirects";
+import { homeStatic } from "~/endpoints/seed/home-static";
+import { RenderHero } from "~/heros/RenderHero";
+import { generateMeta } from "~/utilities/generateMeta";
+import type { Page as PageType } from "~/payload-types";
 import PageClient from "./page.client";
 
 export async function generateStaticParams() {

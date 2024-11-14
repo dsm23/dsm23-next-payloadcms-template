@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 import type { ComponentPropsWithoutRef, ComponentRef } from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
-import { cn } from "src/utilities/cn";
+import { cn } from "~/utilities/cn";
 
 const Select = SelectPrimitive.Root;
 

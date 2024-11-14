@@ -4,9 +4,9 @@ import { useState } from "react";
 import type { FunctionComponent } from "react";
 import NextImage from "next/image";
 import type { StaticImageData } from "next/image";
-import cssVariables from "@/cssVariables";
-import { cn } from "src/utilities/cn";
-import type { Props as MediaProps } from "../types";
+import cssVariables from "~/cssVariables";
+import { cn } from "~/utilities/cn";
+import type { Props as MediaProps } from "~/components/Media/types";
 
 const { breakpoints } = cssVariables;
 

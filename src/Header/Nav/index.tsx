@@ -2,9 +2,9 @@
 
 import type { FunctionComponent } from "react";
 import Link from "next/link";
-import { CMSLink } from "@/components/Link";
 import { SearchIcon } from "lucide-react";
-import type { Header as HeaderType } from "@/payload-types";
+import { CMSLink } from "~/components/Link";
+import type { Header as HeaderType } from "~/payload-types";
 
 type Props = {
   header: HeaderType;

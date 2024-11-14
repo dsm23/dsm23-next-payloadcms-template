@@ -3,10 +3,10 @@
 import { useCallback, useState } from "react";
 import type { FunctionComponent } from "react";
 import { useRouter } from "next/navigation";
-import RichText from "@/components/RichText";
-import { Button } from "@/components/ui/button";
 import { FormProvider, useForm } from "react-hook-form";
 import type { Form as FormType } from "@payloadcms/plugin-form-builder/types";
+import RichText from "~/components/RichText";
+import { Button } from "~/components/ui/button";
 import { buildInitialFormState } from "./buildInitialFormState";
 import { fields } from "./fields";
 

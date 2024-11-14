@@ -1,10 +1,10 @@
 import type { FunctionComponent } from "react";
-import { ArchiveBlock } from "@/blocks/ArchiveBlock/Component";
-import { CallToActionBlock } from "@/blocks/CallToAction/Component";
-import { ContentBlock } from "@/blocks/Content/Component";
-import { FormBlock } from "@/blocks/Form/Component";
-import { MediaBlock } from "@/blocks/MediaBlock/Component";
-import type { Page } from "@/payload-types";
+import { ArchiveBlock } from "~/blocks/ArchiveBlock/Component";
+import { CallToActionBlock } from "~/blocks/CallToAction/Component";
+import { ContentBlock } from "~/blocks/Content/Component";
+import { FormBlock } from "~/blocks/Form/Component";
+import { MediaBlock } from "~/blocks/MediaBlock/Component";
+import type { Page } from "~/payload-types";
 
 const blockComponents = {
   archive: ArchiveBlock,

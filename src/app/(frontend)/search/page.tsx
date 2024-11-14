@@ -1,9 +1,9 @@
 import type { Metadata } from "next/types";
-import { CollectionArchive } from "@/components/CollectionArchive";
-import { Post } from "@/payload-types";
-import { Search } from "@/search/Component";
 import configPromise from "@payload-config";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { CollectionArchive } from "~/components/CollectionArchive";
+import { Post } from "~/payload-types";
+import { Search } from "~/search/Component";
 import PageClient from "./page.client";
 
 type Args = {
