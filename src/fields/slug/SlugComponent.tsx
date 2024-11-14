@@ -7,7 +7,6 @@ import {
   FieldLabel,
   TextInput,
   useField,
-  useFieldProps,
   useForm,
   useFormFields,
 } from "@payloadcms/ui";
@@ -25,10 +24,10 @@ export const SlugComponent: FunctionComponent<SlugComponentProps> = ({
   field,
   fieldToUse,
   checkboxFieldPath: checkboxFieldPathFromProps,
+  path,
   readOnly: readOnlyFromProps,
 }) => {
   const { label } = field;
-  const { path } = useFieldProps();
 
   const checkboxFieldPath = path?.includes(".")
     ? `${path}.${checkboxFieldPathFromProps}`
