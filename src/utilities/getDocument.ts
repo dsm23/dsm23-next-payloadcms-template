@@ -1,12 +1,12 @@
 import { unstable_cache } from "next/cache";
 import configPromise from "@payload-config";
-import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { getPayload } from "payload";
 import type { Config } from "~/payload-types";
 
 type Collection = keyof Config["collections"];
 
 async function getDocument(collection: Collection, slug: string, depth = 0) {
-  const payload = await getPayloadHMR({ config: configPromise });
+  const payload = await getPayload({ config: configPromise });
 
   const page = await payload.find({
     collection,

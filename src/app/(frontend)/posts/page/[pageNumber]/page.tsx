@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next/types";
 import configPromise from "@payload-config";
-import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { getPayload } from "payload";
 import { CollectionArchive } from "~/components/CollectionArchive";
 import { PageRange } from "~/components/PageRange";
 import { Pagination } from "~/components/Pagination";
@@ -17,7 +17,7 @@ type Args = {
 
 export default async function Page({ params: paramsPromise }: Args) {
   const { pageNumber } = await paramsPromise;
-  const payload = await getPayloadHMR({ config: configPromise });
+  const payload = await getPayload({ config: configPromise });
 
   const sanitizedPageNumber = Number(pageNumber);
 
@@ -70,7 +70,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const payload = await getPayloadHMR({ config: configPromise });
+  const payload = await getPayload({ config: configPromise });
   const posts = await payload.find({
     collection: "posts",
     depth: 0,
