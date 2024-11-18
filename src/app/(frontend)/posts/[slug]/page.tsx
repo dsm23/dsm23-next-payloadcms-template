@@ -2,7 +2,7 @@ import { cache } from "react";
 import { draftMode } from "next/headers";
 import type { Metadata } from "next";
 import configPromise from "@payload-config";
-import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { getPayload } from "payload";
 import { RelatedPosts } from "~/blocks/RelatedPosts/Component";
 import { PayloadRedirects } from "~/components/PayloadRedirects";
 import RichText from "~/components/RichText";
@@ -12,7 +12,7 @@ import type { Post } from "~/payload-types";
 import PageClient from "./page.client";
 
 export async function generateStaticParams() {
-  const payload = await getPayloadHMR({ config: configPromise });
+  const payload = await getPayload({ config: configPromise });
   const posts = await payload.find({
     collection: "posts",
     draft: false,
@@ -81,7 +81,7 @@ export async function generateMetadata({
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
   const { isEnabled: draft } = await draftMode();
 
-  const payload = await getPayloadHMR({ config: configPromise });
+  const payload = await getPayload({ config: configPromise });
 
   const result = await payload.find({
     collection: "posts",

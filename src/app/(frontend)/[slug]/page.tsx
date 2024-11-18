@@ -2,7 +2,7 @@ import { cache } from "react";
 import { draftMode } from "next/headers";
 import type { Metadata } from "next";
 import configPromise from "@payload-config";
-import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { getPayload } from "payload";
 import { RenderBlocks } from "~/blocks/RenderBlocks";
 import { PayloadRedirects } from "~/components/PayloadRedirects";
 import { homeStatic } from "~/endpoints/seed/home-static";
@@ -12,7 +12,7 @@ import type { Page as PageType } from "~/payload-types";
 import PageClient from "./page.client";
 
 export async function generateStaticParams() {
-  const payload = await getPayloadHMR({ config: configPromise });
+  const payload = await getPayload({ config: configPromise });
   const pages = await payload.find({
     collection: "pages",
     draft: false,
@@ -84,7 +84,7 @@ export async function generateMetadata({
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
   const { isEnabled: draft } = await draftMode();
 
-  const payload = await getPayloadHMR({ config: configPromise });
+  const payload = await getPayload({ config: configPromise });
 
   const result = await payload.find({
     collection: "pages",
