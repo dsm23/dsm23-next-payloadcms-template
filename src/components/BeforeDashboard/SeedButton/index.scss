@@ -1,0 +1,12 @@
+.seedButton {
+  appearance: none;
+  padding: 0;
+  border: none;
+  background: none;
+  text-decoration: underline;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.85;
+  }
+}

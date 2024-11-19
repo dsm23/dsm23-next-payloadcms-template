@@ -22,7 +22,7 @@ jobs:
         shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9]
         shardTotal: [9]
     container:
-      image: mcr.microsoft.com/playwright:v1.48.2-noble
+      image: mcr.microsoft.com/playwright:v1.49.0-noble
     services:
       mongo:
         image: mongo:8
