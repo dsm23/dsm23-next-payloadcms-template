@@ -25,7 +25,7 @@ const config = {
     ".css$",
   ],
   importOrderParserPlugins: ["typescript", "jsx", "importAttributes"],
-  importOrderTypeScriptVersion: "5.6.2",
+  importOrderTypeScriptVersion: "5.7.2",
   tailwindFunctions: ["clsx", "cn", "cva", "cx"],
 };
 
