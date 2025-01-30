@@ -114,13 +114,5 @@
   "engines": {
     "node": ">=22.0.0"
   },
-  "packageManager": "pnpm@9.15.0",
-  "pnpm": {
-    "overrides": {
-      "axios": "1.7.7"
-    }
-  },
-  "overrides": {
-    "axios": "1.7.7"
-  }
+  "packageManager": "pnpm@9.15.0"
 }
