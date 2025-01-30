@@ -1,7 +1,6 @@
 import withBundleAnalyzer from "@next/bundle-analyzer";
 import type { NextConfig } from "next";
 import { withPayload } from "@payloadcms/next/withPayload";
-import { env } from "./env";
 import redirects from "./redirects.js";
 
 const NEXT_PUBLIC_SERVER_URL =
@@ -34,7 +33,10 @@ const nextConfig: NextConfig = {
 };
 
 export default () => {
-  const plugins = [withPayload, withBundleAnalyzer({ enabled: env.ANALYZE })];
+  const plugins = [
+    withPayload,
+    withBundleAnalyzer({ enabled: process.env.ANALYZE }),
+  ];
 
   const config = plugins.reduce((acc, next) => next(acc), {
     ...nextConfig,
