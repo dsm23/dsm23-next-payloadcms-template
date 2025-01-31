@@ -7,6 +7,7 @@ import { PageRange } from "~/components/PageRange";
 import { Pagination } from "~/components/Pagination";
 import PageClient from "./page.client";
 
+export const dynamic = "force-static";
 export const revalidate = 600;
 
 type Args = {

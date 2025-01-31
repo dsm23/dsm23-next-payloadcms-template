@@ -17,11 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     # container:
     #   image: mcr.microsoft.com/playwright:v1.48.0-jammy
-    services:
-      mongo:
-        image: mongo:8
-        ports:
-          - 27017:27017
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@v2

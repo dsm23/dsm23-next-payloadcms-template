@@ -11,6 +11,8 @@ import { generateMeta } from "~/utilities/generateMeta";
 import type { Page as PageType } from "~/payload-types";
 import PageClient from "./page.client";
 
+export const dynamic = "force-static";
+
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise });
   const pages = await payload.find({
