@@ -23,11 +23,6 @@ jobs:
         shardTotal: [9]
     container:
       image: mcr.microsoft.com/playwright:v1.50.0-noble
-    services:
-      mongo:
-        image: mongo:8
-        ports:
-          - 27017:27017
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@v2
