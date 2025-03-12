@@ -16,3 +16,6 @@ public/sitemap*.xml
 .eslintmdcache
 .stylelintcache
 .prettiercache
+
+# Unit test coverage
+coverage/
