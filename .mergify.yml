@@ -3,10 +3,11 @@ pull_request_rules:
   - name: automatic approval
     conditions:
       - author=dsm23
+      - check-success~=codeql \([a-z]*\)
       - check-success=format
       - check-success=lint
       - check-success=zizmor
-      - "#check-success>=3"
+      - "#check-success>=4"
     actions:
       review:
         type: APPROVE
@@ -14,10 +15,11 @@ pull_request_rules:
   - name: automatic approval for Renovate pull requests
     conditions:
       - author=renovate[bot]
+      - check-success~=codeql \([a-z]*\)
       - check-success=format
       - check-success=lint
       - check-success=zizmor
-      - "#check-success>=3"
+      - "#check-success>=4"
     actions:
       review:
         type: APPROVE
@@ -25,10 +27,11 @@ pull_request_rules:
   # merge
   - name: Automatically merge when GitHub Actions jobs succeed
     conditions:
+      - check-success~=codeql \([a-z]*\)
       - check-success=format
       - check-success=lint
       - check-success=zizmor
-      - "#check-success>=3"
+      - "#check-success>=4"
       - "#approved-reviews-by>=1"
     actions:
       merge:
