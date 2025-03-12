@@ -10,7 +10,7 @@ import React, {
 
 import type { Theme, ThemeContextType } from "./types";
 
-import canUseDOM from "@/utilities/canUseDOM";
+import canUseDOM from "~/utilities/canUseDOM";
 import {
   defaultTheme,
   getImplicitPreference,
