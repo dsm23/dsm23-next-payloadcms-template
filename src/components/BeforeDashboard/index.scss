@@ -1,4 +1,4 @@
-@import '~@payloadcms/ui/scss';
+@import "~@payloadcms/ui/scss";
 
 .dashboard .before-dashboard {
   margin-bottom: base(1.5);
@@ -10,8 +10,8 @@
   }
 
   &__instructions {
-    list-style: decimal;
     margin-bottom: base(0.5);
+    list-style: decimal;
 
     & li {
       width: 100%;
