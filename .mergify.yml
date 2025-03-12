@@ -5,7 +5,8 @@ pull_request_rules:
       - author=dsm23
       - check-success=format
       - check-success=lint
-      - "#check-success>=2"
+      - check-success=zizmor
+      - "#check-success>=3"
     actions:
       review:
         type: APPROVE
@@ -15,7 +16,8 @@ pull_request_rules:
       - author=renovate[bot]
       - check-success=format
       - check-success=lint
-      - "#check-success>=2"
+      - check-success=zizmor
+      - "#check-success>=3"
     actions:
       review:
         type: APPROVE
@@ -25,7 +27,8 @@ pull_request_rules:
     conditions:
       - check-success=format
       - check-success=lint
-      - "#check-success>=2"
+      - check-success=zizmor
+      - "#check-success>=3"
       - "#approved-reviews-by>=1"
     actions:
       merge:
