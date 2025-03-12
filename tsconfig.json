@@ -4,7 +4,7 @@
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-    
+
     "baseUrl": ".",
     "esModuleInterop": true,
     "target": "ES2022",
@@ -37,7 +37,7 @@
       "react": [
         "./node_modules/@types/react"
       ],
-      "@/*": [
+      "~/*": [
         "./src/*"
       ],
     }
