@@ -11,3 +11,8 @@ public/media/
 
 public/robots.txt
 public/sitemap*.xml
+
+# Cache Files
+.eslintmdcache
+.stylelintcache
+.prettiercache

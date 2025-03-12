@@ -1,24 +1,24 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 
-import { RelatedPosts } from '@/blocks/RelatedPosts/Component'
-import { PayloadRedirects } from '@/components/PayloadRedirects'
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
-import { draftMode } from 'next/headers'
-import React, { cache } from 'react'
-import RichText from '@/components/RichText'
+import { RelatedPosts } from "@/blocks/RelatedPosts/Component";
+import { PayloadRedirects } from "@/components/PayloadRedirects";
+import configPromise from "@payload-config";
+import { getPayload } from "payload";
+import { draftMode } from "next/headers";
+import React, { cache } from "react";
+import RichText from "@/components/RichText";
 
-import type { Post } from '@/payload-types'
+import type { Post } from "@/payload-types";
 
-import { PostHero } from '@/heros/PostHero'
-import { generateMeta } from '@/utilities/generateMeta'
-import PageClient from './page.client'
-import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { PostHero } from "@/heros/PostHero";
+import { generateMeta } from "@/utilities/generateMeta";
+import PageClient from "./page.client";
+import { LivePreviewListener } from "@/components/LivePreviewListener";
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
+  const payload = await getPayload({ config: configPromise });
   const posts = await payload.find({
-    collection: 'posts',
+    collection: "posts",
     draft: false,
     limit: 1000,
     overrideAccess: false,
@@ -26,31 +26,31 @@ export async function generateStaticParams() {
     select: {
       slug: true,
     },
-  })
+  });
 
   const params = posts.docs.map(({ slug }) => {
-    return { slug }
-  })
+    return { slug };
+  });
 
-  return params
+  return params;
 }
 
 type Args = {
   params: Promise<{
-    slug?: string
-  }>
-}
+    slug?: string;
+  }>;
+};
 
 export default async function Post({ params: paramsPromise }: Args) {
-  const { isEnabled: draft } = await draftMode()
-  const { slug = '' } = await paramsPromise
-  const url = '/posts/' + slug
-  const post = await queryPostBySlug({ slug })
+  const { isEnabled: draft } = await draftMode();
+  const { slug = "" } = await paramsPromise;
+  const url = "/posts/" + slug;
+  const post = await queryPostBySlug({ slug });
 
-  if (!post) return <PayloadRedirects url={url} />
+  if (!post) return <PayloadRedirects url={url} />;
 
   return (
-    <article className="pt-16 pb-16">
+    <article className="pb-16 pt-16">
       <PageClient />
 
       {/* Allows redirects for valid pages too */}
@@ -62,33 +62,41 @@ export default async function Post({ params: paramsPromise }: Args) {
 
       <div className="flex flex-col items-center gap-4 pt-8">
         <div className="container">
-          <RichText className="max-w-[48rem] mx-auto" data={post.content} enableGutter={false} />
+          <RichText
+            className="mx-auto max-w-[48rem]"
+            data={post.content}
+            enableGutter={false}
+          />
           {post.relatedPosts && post.relatedPosts.length > 0 && (
             <RelatedPosts
-              className="mt-12 max-w-[52rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr]"
-              docs={post.relatedPosts.filter((post) => typeof post === 'object')}
+              className="col-span-3 col-start-1 mt-12 max-w-[52rem] grid-rows-[2fr] lg:grid lg:grid-cols-subgrid"
+              docs={post.relatedPosts.filter(
+                (post) => typeof post === "object",
+              )}
             />
           )}
         </div>
       </div>
     </article>
-  )
+  );
 }
 
-export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { slug = '' } = await paramsPromise
-  const post = await queryPostBySlug({ slug })
+export async function generateMetadata({
+  params: paramsPromise,
+}: Args): Promise<Metadata> {
+  const { slug = "" } = await paramsPromise;
+  const post = await queryPostBySlug({ slug });
 
-  return generateMeta({ doc: post })
+  return generateMeta({ doc: post });
 }
 
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
-  const { isEnabled: draft } = await draftMode()
+  const { isEnabled: draft } = await draftMode();
 
-  const payload = await getPayload({ config: configPromise })
+  const payload = await getPayload({ config: configPromise });
 
   const result = await payload.find({
-    collection: 'posts',
+    collection: "posts",
     draft,
     limit: 1,
     overrideAccess: draft,
@@ -98,7 +106,7 @@ const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
         equals: slug,
       },
     },
-  })
+  });
 
-  return result.docs?.[0] || null
-})
+  return result.docs?.[0] || null;
+});
