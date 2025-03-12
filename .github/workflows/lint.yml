@@ -53,3 +53,5 @@ jobs:
 
       - name: Lint check
         run: pnpm lint
+        env:
+          FORCE_COLOR: 1
