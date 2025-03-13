@@ -178,7 +178,7 @@ importers:
         specifier: 29.7.0
         version: 29.7.0
       npm-run-all2:
-        specifier: ^7.0.2
+        specifier: 7.0.2
         version: 7.0.2
       postcss:
         specifier: 8.5.3
