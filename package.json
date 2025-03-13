@@ -64,7 +64,7 @@
     "@eslint/eslintrc": "3.3.0",
     "@jest/globals": "29.7.0",
     "@jest/types": "29.6.3",
-    "@tailwindcss/postcss": "4.0.13",
+    "@tailwindcss/postcss": "4.0.14",
     "@tailwindcss/typography": "0.5.16",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.2.0",
@@ -91,7 +91,7 @@
     "stylelint-config-standard": "37.0.0",
     "stylelint-order": "6.0.4",
     "stylelint-selector-bem-pattern": "4.0.1",
-    "tailwindcss": "4.0.13",
+    "tailwindcss": "4.0.14",
     "typescript": "5.8.2"
   },
   "packageManager": "pnpm@10.6.3+sha512.bb45e34d50a9a76e858a95837301bfb6bd6d35aea2c5d52094fa497a467c43f5c440103ce2511e9e0a2f89c3d6071baac3358fc68ac6fb75e2ceb3d2736065e6",
