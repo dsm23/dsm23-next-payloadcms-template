@@ -1,17 +1,17 @@
 import { MediaBlock } from "~/blocks/MediaBlock/Component";
-import {
+import type {
   DefaultNodeTypes,
   SerializedBlockNode,
   SerializedLinkNode,
-  type DefaultTypedEditorState,
+  DefaultTypedEditorState,
 } from "@payloadcms/richtext-lexical";
 import {
-  JSXConvertersFunction,
+  type JSXConvertersFunction,
   LinkJSXConverter,
   RichText as ConvertRichText,
 } from "@payloadcms/richtext-lexical/react";
 
-import { CodeBlock, CodeBlockProps } from "~/blocks/Code/Component";
+import { CodeBlock, type CodeBlockProps } from "~/blocks/Code/Component";
 
 import type {
   BannerBlock as BannerBlockProps,

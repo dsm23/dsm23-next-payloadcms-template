@@ -3,7 +3,7 @@ import { mongooseAdapter } from "@payloadcms/db-mongodb";
 
 import sharp from "sharp"; // sharp-import
 import path from "path";
-import { buildConfig, PayloadRequest } from "payload";
+import { buildConfig, type PayloadRequest } from "payload";
 import { fileURLToPath } from "url";
 
 import { Categories } from "./collections/Categories";
