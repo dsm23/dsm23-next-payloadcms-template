@@ -2,7 +2,7 @@
 
 import type { Theme } from "~/providers/Theme/types";
 
-import React, { createContext, useCallback, useContext, useState } from "react";
+import React, { createContext, useCallback, use, useState } from "react";
 
 import canUseDOM from "~/utilities/canUseDOM";
 
@@ -34,10 +34,10 @@ export const HeaderThemeProvider = ({
   }, []);
 
   return (
-    <HeaderThemeContext.Provider value={{ headerTheme, setHeaderTheme }}>
+    <HeaderThemeContext value={{ headerTheme, setHeaderTheme }}>
       {children}
-    </HeaderThemeContext.Provider>
+    </HeaderThemeContext>
   );
 };
 
-export const useHeaderTheme = (): ContextType => useContext(HeaderThemeContext);
+export const useHeaderTheme = (): ContextType => use(HeaderThemeContext);

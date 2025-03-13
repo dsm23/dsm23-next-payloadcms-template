@@ -3,7 +3,7 @@
 import React, {
   createContext,
   useCallback,
-  useContext,
+  use,
   useEffect,
   useState,
 } from "react";
@@ -66,11 +66,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     setThemeState(themeToSet);
   }, []);
 
-  return (
-    <ThemeContext.Provider value={{ setTheme, theme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext value={{ setTheme, theme }}>{children}</ThemeContext>;
 };
 
-export const useTheme = (): ThemeContextType => useContext(ThemeContext);
+export const useTheme = (): ThemeContextType => use(ThemeContext);
