@@ -1,11 +1,10 @@
 import type { Metadata } from "next/types";
-
-import { CollectionArchive } from "~/components/CollectionArchive";
-import configPromise from "@payload-config";
 import { getPayload } from "payload";
+import configPromise from "@payload-config";
+import { CollectionArchive } from "~/components/CollectionArchive";
 import { Search } from "~/search/Component";
-import PageClient from "./page.client";
 import type { CardPostData } from "~/components/Card";
+import PageClient from "./page.client";
 
 type Args = {
   searchParams: Promise<{

@@ -1,12 +1,12 @@
 "use client";
+
+import { Fragment } from "react";
+import type { FunctionComponent } from "react";
+import Link from "next/link";
+import { Media } from "~/components/Media";
 import { cn } from "~/utilities/ui";
 import useClickableCard from "~/utilities/useClickableCard";
-import Link from "next/link";
-import { Fragment, type FunctionComponent } from "react";
-
 import type { Post } from "~/payload-types";
-
-import { Media } from "~/components/Media";
 
 export type CardPostData = Pick<Post, "slug" | "categories" | "meta" | "title">;
 

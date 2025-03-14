@@ -1,17 +1,7 @@
 "use client";
 
-import {
-  createContext,
-  useCallback,
-  use,
-  useEffect,
-  useState,
-  type FunctionComponent,
-  type PropsWithChildren,
-} from "react";
-
-import type { Theme, ThemeContextType } from "./types";
-
+import { createContext, use, useCallback, useEffect, useState } from "react";
+import type { FunctionComponent, PropsWithChildren } from "react";
 import canUseDOM from "~/utilities/canUseDOM";
 import {
   defaultTheme,
@@ -19,6 +9,7 @@ import {
   themeLocalStorageKey,
 } from "./shared";
 import { themeIsValid } from "./types";
+import type { Theme, ThemeContextType } from "./types";
 
 const initialContext: ThemeContextType = {
   setTheme: () => null,

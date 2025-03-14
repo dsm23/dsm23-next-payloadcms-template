@@ -1,15 +1,14 @@
 "use client";
 
+import { useCallback, useState } from "react";
+import type { FunctionComponent } from "react";
+import { useRouter, useSelectedLayoutSegments } from "next/navigation";
+import { PayloadAdminBar } from "@payloadcms/admin-bar";
 import type {
   PayloadAdminBarProps,
   PayloadMeUser,
 } from "@payloadcms/admin-bar";
-
 import { cn } from "~/utilities/ui";
-import { useSelectedLayoutSegments } from "next/navigation";
-import { PayloadAdminBar } from "@payloadcms/admin-bar";
-import { useCallback, useState, type FunctionComponent } from "react";
-import { useRouter } from "next/navigation";
 
 import "./index.scss";
 

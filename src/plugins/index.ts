@@ -1,22 +1,21 @@
+import type { Plugin } from "payload";
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
 import { formBuilderPlugin } from "@payloadcms/plugin-form-builder";
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 import { redirectsPlugin } from "@payloadcms/plugin-redirects";
-import { seoPlugin } from "@payloadcms/plugin-seo";
 import { searchPlugin } from "@payloadcms/plugin-search";
-import type { Plugin } from "payload";
-import { revalidateRedirects } from "~/hooks/revalidateRedirects";
-import type { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
+import { seoPlugin } from "@payloadcms/plugin-seo";
 import {
   FixedToolbarFeature,
   HeadingFeature,
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
-import { searchFields } from "~/search/fieldOverrides";
+import type { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
+import { revalidateRedirects } from "~/hooks/revalidateRedirects";
 import { beforeSyncWithSearch } from "~/search/beforeSync";
-
-import type { Page, Post } from "~/payload-types";
+import { searchFields } from "~/search/fieldOverrides";
 import { getServerSideURL } from "~/utilities/getURL";
+import type { Page, Post } from "~/payload-types";
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title

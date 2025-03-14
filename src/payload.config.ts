@@ -1,10 +1,11 @@
-import { mongooseAdapter } from "@payloadcms/db-mongodb";
-
-import sharp from "sharp";
 import path from "node:path";
-import { buildConfig, type PayloadRequest } from "payload";
 import { fileURLToPath } from "node:url";
-
+import { buildConfig } from "payload";
+import type { PayloadRequest } from "payload";
+import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import sharp from "sharp";
+import { minioStorage } from "~/adapters/storage";
+import { defaultLexical } from "~/fields/defaultLexical";
 import { Categories } from "./collections/Categories";
 import { Media } from "./collections/Media";
 import { Pages } from "./collections/Pages";
@@ -13,9 +14,7 @@ import { Users } from "./collections/Users";
 import { Footer } from "./Footer/config";
 import { Header } from "./Header/config";
 import { plugins } from "./plugins";
-import { defaultLexical } from "~/fields/defaultLexical";
 import { getServerSideURL } from "./utilities/getURL";
-import { minioStorage } from "~/adapters/storage";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);

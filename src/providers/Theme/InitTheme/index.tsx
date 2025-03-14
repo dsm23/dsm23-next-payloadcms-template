@@ -1,7 +1,6 @@
-import Script from "next/script";
-
-import { defaultTheme, themeLocalStorageKey } from "../ThemeSelector/types";
 import type { FunctionComponent } from "react";
+import Script from "next/script";
+import { defaultTheme, themeLocalStorageKey } from "../ThemeSelector/types";
 
 export const InitTheme: FunctionComponent = () => {
   return (

@@ -1,5 +1,4 @@
 import type { FunctionComponent } from "react";
-
 import { Code } from "./Component.client";
 
 export type CodeBlockProps = {

@@ -1,4 +1,7 @@
 "use client";
+
+import type { FunctionComponent } from "react";
+import { useRouter } from "next/navigation";
 import {
   Pagination as PaginationComponent,
   PaginationContent,
@@ -9,8 +12,6 @@ import {
   PaginationPrevious,
 } from "~/components/ui/pagination";
 import { cn } from "~/utilities/ui";
-import { useRouter } from "next/navigation";
-import type { FunctionComponent } from "react";
 
 export const Pagination: FunctionComponent<{
   className?: string;

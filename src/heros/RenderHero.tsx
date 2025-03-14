@@ -1,10 +1,8 @@
 import type { FunctionComponent } from "react";
-
-import type { Page } from "~/payload-types";
-
 import { HighImpactHero } from "~/heros/HighImpact";
 import { LowImpactHero } from "~/heros/LowImpact";
 import { MediumImpactHero } from "~/heros/MediumImpact";
+import type { Page } from "~/payload-types";
 
 const heroes = {
   highImpact: HighImpactHero,

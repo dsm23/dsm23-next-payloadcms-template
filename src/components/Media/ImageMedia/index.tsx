@@ -1,15 +1,12 @@
 "use client";
 
-import type { StaticImageData } from "next/image";
-
-import { cn } from "~/utilities/ui";
+import type { FunctionComponent } from "react";
 import NextImage from "next/image";
-
-import type { Props as MediaProps } from "../types";
-
+import type { StaticImageData } from "next/image";
 import { cssVariables } from "~/cssVariables";
 import { getClientSideURL } from "~/utilities/getURL";
-import type { FunctionComponent } from "react";
+import { cn } from "~/utilities/ui";
+import type { Props as MediaProps } from "../types";
 
 const { breakpoints } = cssVariables;
 

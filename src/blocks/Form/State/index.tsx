@@ -1,6 +1,7 @@
-import type { StateField } from "@payloadcms/plugin-form-builder/types";
+import type { FunctionComponent } from "react";
 import type { Control, FieldErrorsImpl } from "react-hook-form";
-
+import { Controller } from "react-hook-form";
+import type { StateField } from "@payloadcms/plugin-form-builder/types";
 import { Label } from "~/components/ui/label";
 import {
   Select,
@@ -9,9 +10,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import type { FunctionComponent } from "react";
-import { Controller } from "react-hook-form";
-
 import { Error } from "../Error";
 import { Width } from "../Width";
 import { stateOptions } from "./options";

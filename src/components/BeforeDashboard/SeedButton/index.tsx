@@ -1,11 +1,7 @@
 "use client";
 
-import {
-  useCallback,
-  useState,
-  type FunctionComponent,
-  type MouseEvent,
-} from "react";
+import { useCallback, useState } from "react";
+import type { FunctionComponent, MouseEvent } from "react";
 import { toast } from "@payloadcms/ui";
 
 import "./index.scss";

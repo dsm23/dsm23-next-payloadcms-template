@@ -1,9 +1,8 @@
-import { Fragment, type FunctionComponent } from "react";
-
-import type { Props } from "./types";
-
+import { Fragment } from "react";
+import type { FunctionComponent } from "react";
 import { ImageMedia } from "./ImageMedia";
 import { VideoMedia } from "./VideoMedia";
+import type { Props } from "./types";
 
 export const Media: FunctionComponent<Props> = (props) => {
   const { className, htmlElement = "div", resource } = props;

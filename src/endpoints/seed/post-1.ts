@@ -1,5 +1,5 @@
-import type { Media, User } from "~/payload-types";
 import type { RequiredDataFromCollectionSlug } from "payload";
+import type { Media, User } from "~/payload-types";
 
 export type PostArgs = {
   heroImage: Media;

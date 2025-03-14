@@ -2,12 +2,12 @@ import type { TextFieldSingleValidation } from "payload";
 import {
   BoldFeature,
   ItalicFeature,
+  lexicalEditor,
   LinkFeature,
   ParagraphFeature,
-  lexicalEditor,
   UnderlineFeature,
-  type LinkFields,
 } from "@payloadcms/richtext-lexical";
+import type { LinkFields } from "@payloadcms/richtext-lexical";
 
 export const defaultLexical = lexicalEditor({
   features: [

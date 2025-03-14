@@ -1,8 +1,7 @@
-import RichText from "~/components/RichText";
 import type { FunctionComponent } from "react";
-
-import { Width } from "../Width";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
+import RichText from "~/components/RichText";
+import { Width } from "../Width";
 
 export const Message: FunctionComponent<{ message: SerializedEditorState }> = ({
   message,
