@@ -1,4 +1,4 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 
 const defaultLabels = {
   plural: "Docs",
@@ -12,7 +12,7 @@ const defaultCollectionLabels = {
   },
 };
 
-export const PageRange: React.FC<{
+export const PageRange: FunctionComponent<{
   className?: string;
   collection?: keyof typeof defaultCollectionLabels;
   collectionLabels?: {

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { cn } from "~/utilities/ui";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
-import React from "react";
+import type { ReactNode } from "react";
 
 import { AdminBar } from "~/components/AdminBar";
 import { Footer } from "~/Footer/Component";
@@ -19,7 +19,7 @@ import { getServerSideURL } from "~/utilities/getURL";
 export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   const { isEnabled } = await draftMode();
 

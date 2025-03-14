@@ -10,9 +10,9 @@ import {
 } from "~/components/ui/pagination";
 import { cn } from "~/utilities/ui";
 import { useRouter } from "next/navigation";
-import React from "react";
+import type { FunctionComponent } from "react";
 
-export const Pagination: React.FC<{
+export const Pagination: FunctionComponent<{
   className?: string;
   page: number;
   totalPages: number;

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React from "react";
+import type { FunctionComponent } from "react";
 import RichText from "~/components/RichText";
 
 import type { Post } from "~/payload-types";
@@ -13,7 +13,7 @@ export type RelatedPostsProps = {
   introContent?: SerializedEditorState;
 };
 
-export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {
+export const RelatedPosts: FunctionComponent<RelatedPostsProps> = (props) => {
   const { className, docs, introContent } = props;
 
   return (

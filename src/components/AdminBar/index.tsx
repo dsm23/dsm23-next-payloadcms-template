@@ -8,7 +8,7 @@ import type {
 import { cn } from "~/utilities/ui";
 import { useSelectedLayoutSegments } from "next/navigation";
 import { PayloadAdminBar } from "@payloadcms/admin-bar";
-import React, { useState } from "react";
+import { useCallback, useState, type FunctionComponent } from "react";
 import { useRouter } from "next/navigation";
 
 import "./index.scss";
@@ -32,9 +32,9 @@ const collectionLabels = {
   },
 };
 
-const Title: React.FC = () => <span>Dashboard</span>;
+const Title: FunctionComponent = () => <span>Dashboard</span>;
 
-export const AdminBar: React.FC<{
+export const AdminBar: FunctionComponent<{
   adminBarProps?: PayloadAdminBarProps;
 }> = (props) => {
   const { adminBarProps } = props || {};
@@ -47,7 +47,7 @@ export const AdminBar: React.FC<{
   ) as keyof typeof collectionLabels;
   const router = useRouter();
 
-  const onAuthChange = React.useCallback((user: PayloadMeUser) => {
+  const onAuthChange = useCallback((user: PayloadMeUser) => {
     setShow(Boolean(user?.id));
   }, []);
 

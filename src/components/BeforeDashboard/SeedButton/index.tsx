@@ -1,11 +1,16 @@
 "use client";
 
-import React, { Fragment, useCallback, useState } from "react";
+import {
+  useCallback,
+  useState,
+  type FunctionComponent,
+  type MouseEvent,
+} from "react";
 import { toast } from "@payloadcms/ui";
 
 import "./index.scss";
 
-const SuccessMessage: React.FC = () => (
+const SuccessMessage: FunctionComponent = () => (
   <div>
     Database seeded! You can now{" "}
     <a target="_blank" href="/">
@@ -14,13 +19,13 @@ const SuccessMessage: React.FC = () => (
   </div>
 );
 
-export const SeedButton: React.FC = () => {
+export const SeedButton: FunctionComponent = () => {
   const [loading, setLoading] = useState(false);
   const [seeded, setSeeded] = useState(false);
   const [error, setError] = useState<null | string>(null);
 
   const handleClick = useCallback(
-    async (e: React.MouseEvent<HTMLButtonElement>) => {
+    async (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
 
       if (seeded) {
@@ -78,11 +83,11 @@ export const SeedButton: React.FC = () => {
   if (error) message = ` (error: ${error})`;
 
   return (
-    <Fragment>
+    <>
       <button className="seedButton" onClick={handleClick}>
         Seed your database
       </button>
       {message}
-    </Fragment>
+    </>
   );
 };
