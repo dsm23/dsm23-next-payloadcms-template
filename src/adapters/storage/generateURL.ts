@@ -11,7 +11,7 @@ export const getGenerateURL =
   ({ bucket, config: { endPoint } }: Args): GenerateURL =>
   ({ filename, prefix = "" }) => {
     const stringifiedEndpoint =
-      // @ts-ignore
+      // @ts-expect-error endPoint is probably a string
       typeof endPoint === "string" ? endPoint : endPoint.toString();
     return `${stringifiedEndpoint}/${bucket}/${path.posix.join(prefix, filename)}`;
   };

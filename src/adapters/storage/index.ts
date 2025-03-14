@@ -84,7 +84,7 @@ export const minioStorage: S3StoragePlugin =
     const config = {
       ...incomingConfig,
       collections: (incomingConfig.collections || []).map((collection) => {
-        // @ts-ignore
+        // @ts-expect-error collectionsWithAdapter should accept strings
         if (!collectionsWithAdapter[collection.slug]) {
           return collection;
         }
