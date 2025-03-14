@@ -1,10 +1,9 @@
-// storage-adapter-import-placeholder
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 
-import sharp from "sharp"; // sharp-import
-import path from "path";
+import sharp from "sharp";
+import path from "node:path";
 import { buildConfig, type PayloadRequest } from "payload";
-import { fileURLToPath } from "url";
+import { fileURLToPath } from "node:url";
 
 import { Categories } from "./collections/Categories";
 import { Media } from "./collections/Media";
