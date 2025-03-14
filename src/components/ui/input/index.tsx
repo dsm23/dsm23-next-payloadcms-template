@@ -1,10 +1,10 @@
+import type { FunctionComponent, InputHTMLAttributes, Ref } from "react";
 import { cn } from "~/utilities/ui";
-import * as React from "react";
 
-const Input: React.FC<
+const Input: FunctionComponent<
   {
-    ref?: React.Ref<HTMLInputElement>;
-  } & React.InputHTMLAttributes<HTMLInputElement>
+    ref?: Ref<HTMLInputElement>;
+  } & InputHTMLAttributes<HTMLInputElement>
 > = ({ type, className, ref, ...props }) => {
   return (
     <input
