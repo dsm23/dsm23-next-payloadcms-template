@@ -19,6 +19,7 @@ export const ImageMedia: FunctionComponent<MediaProps> = (props) => {
     alt: altFromProps,
     fill,
     imgClassName,
+    pictureClassName,
     priority,
     resource,
     size: sizeFromProps,
@@ -58,7 +59,7 @@ export const ImageMedia: FunctionComponent<MediaProps> = (props) => {
         .join(", ");
 
   return (
-    <picture>
+    <picture className={cn(pictureClassName)}>
       <NextImage
         alt={alt || ""}
         className={cn(imgClassName)}
