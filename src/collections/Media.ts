@@ -5,8 +5,8 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
-import path from "path";
-import { fileURLToPath } from "url";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import { anyone } from "../access/anyone";
 import { authenticated } from "../access/authenticated";
