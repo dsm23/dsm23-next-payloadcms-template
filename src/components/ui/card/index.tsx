@@ -1,7 +1,7 @@
+import type { FunctionComponent, HTMLAttributes } from "react";
 import { cn } from "~/utilities/ui";
-import * as React from "react";
 
-const Card: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+const Card: FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
   className,
   ...props
 }) => {
@@ -17,7 +17,7 @@ const Card: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   );
 };
 
-const CardHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+const CardHeader: FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
   className,
   ...props
 }) => {
@@ -30,7 +30,7 @@ const CardHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   );
 };
 
-const CardTitle: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({
+const CardTitle: FunctionComponent<HTMLAttributes<HTMLHeadingElement>> = ({
   className,
   ...props
 }) => {
@@ -46,10 +46,9 @@ const CardTitle: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({
   );
 };
 
-const CardDescription: React.FC<React.HTMLAttributes<HTMLParagraphElement>> = ({
-  className,
-  ...props
-}) => {
+const CardDescription: FunctionComponent<
+  HTMLAttributes<HTMLParagraphElement>
+> = ({ className, ...props }) => {
   return (
     <p
       data-slot="card-description"
@@ -59,7 +58,7 @@ const CardDescription: React.FC<React.HTMLAttributes<HTMLParagraphElement>> = ({
   );
 };
 
-const CardContent: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+const CardContent: FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
   className,
   ...props
 }) => {
@@ -72,7 +71,7 @@ const CardContent: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   );
 };
 
-const CardFooter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+const CardFooter: FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
   className,
   ...props
 }) => {

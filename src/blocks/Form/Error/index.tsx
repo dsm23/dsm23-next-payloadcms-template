@@ -1,9 +1,9 @@
 "use client";
 
-import * as React from "react";
+import type { FunctionComponent } from "react";
 import { useFormContext } from "react-hook-form";
 
-export const Error = ({ name }: { name: string }) => {
+export const Error: FunctionComponent<{ name: string }> = ({ name }) => {
   const {
     formState: { errors },
   } = useFormContext();

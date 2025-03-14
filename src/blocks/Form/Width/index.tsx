@@ -1,10 +1,15 @@
-import * as React from "react";
+import type { FunctionComponent, PropsWithChildren } from "react";
 
-export const Width: React.FC<{
-  children: React.ReactNode;
+type Props = PropsWithChildren & {
   className?: string;
   width?: number | string;
-}> = ({ children, className, width }) => {
+};
+
+export const Width: FunctionComponent<Props> = ({
+  children,
+  className,
+  width,
+}) => {
   return (
     <div
       className={className}

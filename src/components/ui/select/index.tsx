@@ -3,28 +3,28 @@
 import { cn } from "~/utilities/ui";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
-import * as React from "react";
+import type { ComponentProps, FunctionComponent } from "react";
 
-const Select: React.FC<React.ComponentProps<typeof SelectPrimitive.Root>> = (
+const Select: FunctionComponent<ComponentProps<typeof SelectPrimitive.Root>> = (
   props,
 ) => {
   return <SelectPrimitive.Root data-slot="select" {...props} />;
 };
 
-const SelectGroup: React.FC<
-  React.ComponentProps<typeof SelectPrimitive.Group>
+const SelectGroup: FunctionComponent<
+  ComponentProps<typeof SelectPrimitive.Group>
 > = (props) => {
   return <SelectPrimitive.Group data-slot="select-group" {...props} />;
 };
 
-const SelectValue: React.FC<
-  React.ComponentProps<typeof SelectPrimitive.Value>
+const SelectValue: FunctionComponent<
+  ComponentProps<typeof SelectPrimitive.Value>
 > = (props) => {
   return <SelectPrimitive.Value data-slot="select-value" {...props} />;
 };
 
-const SelectTrigger: React.FC<
-  React.ComponentProps<typeof SelectPrimitive.Trigger>
+const SelectTrigger: FunctionComponent<
+  ComponentProps<typeof SelectPrimitive.Trigger>
 > = ({ children, className, ...props }) => {
   return (
     <SelectPrimitive.Trigger
@@ -43,8 +43,8 @@ const SelectTrigger: React.FC<
   );
 };
 
-const SelectContent: React.FC<
-  React.ComponentProps<typeof SelectPrimitive.Content>
+const SelectContent: FunctionComponent<
+  ComponentProps<typeof SelectPrimitive.Content>
 > = ({ children, className, position = "popper", ...props }) => {
   return (
     <SelectPrimitive.Portal>
@@ -75,8 +75,8 @@ const SelectContent: React.FC<
   );
 };
 
-const SelectLabel: React.FC<
-  React.ComponentProps<typeof SelectPrimitive.Label>
+const SelectLabel: FunctionComponent<
+  ComponentProps<typeof SelectPrimitive.Label>
 > = ({ className, ...props }) => {
   return (
     <SelectPrimitive.Label
@@ -87,8 +87,8 @@ const SelectLabel: React.FC<
   );
 };
 
-const SelectItem: React.FC<
-  React.ComponentProps<typeof SelectPrimitive.Item>
+const SelectItem: FunctionComponent<
+  ComponentProps<typeof SelectPrimitive.Item>
 > = ({ children, className, ...props }) => {
   return (
     <SelectPrimitive.Item
@@ -109,8 +109,8 @@ const SelectItem: React.FC<
   );
 };
 
-const SelectSeparator: React.FC<
-  React.ComponentProps<typeof SelectPrimitive.Separator>
+const SelectSeparator: FunctionComponent<
+  ComponentProps<typeof SelectPrimitive.Separator>
 > = ({ className, ...props }) => {
   return (
     <SelectPrimitive.Separator
@@ -121,8 +121,8 @@ const SelectSeparator: React.FC<
   );
 };
 
-const SelectScrollUpButton: React.FC<
-  React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>
+const SelectScrollUpButton: FunctionComponent<
+  ComponentProps<typeof SelectPrimitive.ScrollUpButton>
 > = ({ className, ...props }) => {
   return (
     <SelectPrimitive.ScrollUpButton
@@ -138,8 +138,8 @@ const SelectScrollUpButton: React.FC<
   );
 };
 
-const SelectScrollDownButton: React.FC<
-  React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>
+const SelectScrollDownButton: FunctionComponent<
+  ComponentProps<typeof SelectPrimitive.ScrollDownButton>
 > = ({ className, ...props }) => {
   return (
     <SelectPrimitive.ScrollDownButton
