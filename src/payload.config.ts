@@ -16,6 +16,7 @@ import { Header } from "./Header/config";
 import { plugins } from "./plugins";
 import { defaultLexical } from "~/fields/defaultLexical";
 import { getServerSideURL } from "./utilities/getURL";
+import { minioStorage } from "~/adapters/storage";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -67,7 +68,19 @@ export default buildConfig({
   globals: [Header, Footer],
   plugins: [
     ...plugins,
-    // storage-adapter-placeholder
+    minioStorage({
+      collections: {
+        media: true,
+      },
+      bucket: process.env.MINIO_BUCKET,
+      config: {
+        useSSL: process.env.MINIO_ENDPOINT.startsWith("https"),
+        endPoint: process.env.MINIO_ENDPOINT.split("://")[1],
+        port: process.env.MINIO_PORT,
+        accessKey: process.env.MINIO_ACCESS_KEY,
+        secretKey: process.env.MINIO_SECRET_KEY,
+      },
+    }),
   ],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
