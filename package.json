@@ -16,7 +16,7 @@
     "fmt": "prettier . --write --cache --cache-strategy=content --cache-location=.prettiercache",
     "fmt.check": "prettier . --check --cache --cache-strategy=content --cache-location=.prettiercache",
     "lint:css": "stylelint \"**/*.css\" --max-warnings 0 --allow-empty-input --cache --cache-strategy=content --cache-location=.stylelintcache",
-    "lint:js": "next lint",
+    "lint:js": "next lint --max-warnings 0",
     "lint": "run-p lint:js lint:css",
     "lint:fix": "next lint --fix",
     "payload": "payload",

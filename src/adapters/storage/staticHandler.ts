@@ -17,9 +17,9 @@ const isNodeReadableStream = (body: unknown): body is Readable => {
     typeof body === "object" &&
     body !== null &&
     "pipe" in body &&
-    typeof (body as any).pipe === "function" &&
+    typeof (body as Readable).pipe === "function" &&
     "destroy" in body &&
-    typeof (body as any).destroy === "function"
+    typeof (body as Readable).destroy === "function"
   );
 };
 

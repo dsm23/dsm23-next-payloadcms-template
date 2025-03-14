@@ -74,7 +74,7 @@ export default buildConfig({
       bucket: process.env.MINIO_BUCKET,
       config: {
         useSSL: process.env.MINIO_ENDPOINT.startsWith("https"),
-        endPoint: process.env.MINIO_ENDPOINT.split("://")[1],
+        endPoint: process.env.MINIO_ENDPOINT.split("://")[1] ?? "",
         port: process.env.MINIO_PORT,
         accessKey: process.env.MINIO_ACCESS_KEY,
         secretKey: process.env.MINIO_SECRET_KEY,
