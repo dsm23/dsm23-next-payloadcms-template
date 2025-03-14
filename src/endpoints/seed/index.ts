@@ -1,11 +1,10 @@
 import type {
   CollectionSlug,
+  File,
   GlobalSlug,
   Payload,
   PayloadRequest,
-  File,
 } from "payload";
-
 import { contactForm as contactFormData } from "./contact-form";
 import { contact as contactPageData } from "./contact-page";
 import { home } from "./home";

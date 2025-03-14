@@ -1,9 +1,7 @@
-import { cn } from "~/utilities/ui";
 import type { FunctionComponent } from "react";
 import RichText from "~/components/RichText";
-
+import { cn } from "~/utilities/ui";
 import type { ContentBlock as ContentBlockProps } from "~/payload-types";
-
 import { CMSLink } from "../../components/Link";
 
 export const ContentBlock: FunctionComponent<ContentBlockProps> = (props) => {

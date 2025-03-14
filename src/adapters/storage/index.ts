@@ -1,3 +1,4 @@
+import type { Config, Plugin, UploadCollectionSlug } from "payload";
 import { cloudStoragePlugin } from "@payloadcms/plugin-cloud-storage";
 import * as Minio from "minio";
 import type {
@@ -6,7 +7,6 @@ import type {
   CollectionOptions,
   GeneratedAdapter,
 } from "@payloadcms/plugin-cloud-storage/types";
-import type { Config, Plugin, UploadCollectionSlug } from "payload";
 import { getGenerateURL } from "./generateURL";
 import { getHandleDelete } from "./handleDelete";
 import { getHandleUpload } from "./handleUpload";

@@ -1,5 +1,5 @@
-import type { Form } from "~/payload-types";
 import type { RequiredDataFromCollectionSlug } from "payload";
+import type { Form } from "~/payload-types";
 
 type ContactArgs = {
   contactForm: Form;

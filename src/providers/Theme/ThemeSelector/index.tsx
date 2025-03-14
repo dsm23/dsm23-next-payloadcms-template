@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import type { FunctionComponent } from "react";
 import {
   Select,
   SelectContent,
@@ -7,12 +9,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import { useEffect, useState, type FunctionComponent } from "react";
-
-import type { Theme } from "./types";
-
 import { useTheme } from "..";
 import { themeLocalStorageKey } from "./types";
+import type { Theme } from "./types";
 
 export const ThemeSelector: FunctionComponent = () => {
   const { setTheme } = useTheme();

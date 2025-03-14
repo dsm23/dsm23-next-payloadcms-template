@@ -1,9 +1,11 @@
 "use client";
+
+import { useEffect, useState } from "react";
+import type { FunctionComponent } from "react";
+import { useRouter } from "next/navigation";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
-import { useState, useEffect, type FunctionComponent } from "react";
 import { useDebounce } from "~/utilities/useDebounce";
-import { useRouter } from "next/navigation";
 
 export const Search: FunctionComponent = () => {
   const [value, setValue] = useState("");

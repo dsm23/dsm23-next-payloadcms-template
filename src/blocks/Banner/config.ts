@@ -1,5 +1,4 @@
 import type { Block } from "payload";
-
 import {
   FixedToolbarFeature,
   InlineToolbarFeature,

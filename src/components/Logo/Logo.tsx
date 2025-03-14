@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import type { FunctionComponent } from "react";
+import clsx from "clsx";
 
 interface Props {
   className?: string;

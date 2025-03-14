@@ -1,8 +1,6 @@
 import type { FunctionComponent } from "react";
-
-import type { Page } from "~/payload-types";
-
 import RichText from "~/components/RichText";
+import type { Page } from "~/payload-types";
 
 type LowImpactHeroType =
   | {

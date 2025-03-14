@@ -1,9 +1,9 @@
 import path from "node:path";
+import type { Readable } from "node:stream";
+import type { CollectionConfig } from "payload";
 import { getFilePrefix } from "@payloadcms/plugin-cloud-storage/utilities";
 import type { StaticHandler } from "@payloadcms/plugin-cloud-storage/types";
 import type { Client } from "minio";
-import type { CollectionConfig } from "payload";
-import type { Readable } from "node:stream";
 
 interface Args {
   bucket: string;

@@ -1,7 +1,7 @@
-import { Banner } from "@payloadcms/ui/elements/Banner";
 import type { FunctionComponent } from "react";
-
+import { Banner } from "@payloadcms/ui/elements/Banner";
 import { SeedButton } from "./SeedButton";
+
 import "./index.scss";
 
 const baseClass = "before-dashboard";

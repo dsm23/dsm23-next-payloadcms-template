@@ -1,9 +1,7 @@
-import type { CollectionSlug, PayloadRequest } from "payload";
-import { getPayload } from "payload";
-
 import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
-
+import { getPayload } from "payload";
+import type { CollectionSlug, PayloadRequest } from "payload";
 import configPromise from "@payload-config";
 
 export async function GET(
