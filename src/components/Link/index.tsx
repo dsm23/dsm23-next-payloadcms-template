@@ -1,7 +1,7 @@
 import { Button, type ButtonProps } from "~/components/ui/button";
 import { cn } from "~/utilities/ui";
 import Link from "next/link";
-import React from "react";
+import type { FunctionComponent } from "react";
 
 import type { Page, Post } from "~/payload-types";
 
@@ -20,7 +20,7 @@ type CMSLinkType = {
   url?: string | null;
 };
 
-export const CMSLink: React.FC<CMSLinkType> = (props) => {
+export const CMSLink: FunctionComponent<CMSLinkType> = (props) => {
   const {
     type,
     appearance = "inline",

@@ -2,7 +2,7 @@
 import { useHeaderTheme } from "~/providers/HeaderTheme";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, type FunctionComponent } from "react";
 
 import type { Header } from "~/payload-types";
 
@@ -13,7 +13,9 @@ interface HeaderClientProps {
   data: Header;
 }
 
-export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
+export const HeaderClient: FunctionComponent<HeaderClientProps> = ({
+  data,
+}) => {
   /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState<string | null>(null);
   const { headerTheme, setHeaderTheme } = useHeaderTheme();

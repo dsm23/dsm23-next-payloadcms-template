@@ -7,12 +7,12 @@ import type {
 
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
-import React from "react";
+import type { FunctionComponent } from "react";
 
 import { Error } from "../Error";
 import { Width } from "../Width";
 
-export const Text: React.FC<
+export const Text: FunctionComponent<
   TextField & {
     errors: Partial<FieldErrorsImpl>;
     register: UseFormRegister<FieldValues>;

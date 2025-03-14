@@ -5,7 +5,7 @@ import type {
 } from "@payloadcms/plugin-form-builder/types";
 
 import { useRouter } from "next/navigation";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState, type FunctionComponent } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import RichText from "~/components/RichText";
 import { Button } from "~/components/ui/button";
@@ -22,7 +22,7 @@ export type FormBlockType = {
   introContent?: SerializedEditorState;
 };
 
-export const FormBlock: React.FC<
+export const FormBlock: FunctionComponent<
   {
     id?: string;
   } & FormBlockType
@@ -152,7 +152,7 @@ export const FormBlock: React.FC<
                   formFromProps.fields &&
                   formFromProps.fields?.map((field, index) => {
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    const Field: React.FC<any> =
+                    const Field: FunctionComponent<any> =
                       fields?.[field.blockType as keyof typeof fields];
                     if (Field) {
                       return (

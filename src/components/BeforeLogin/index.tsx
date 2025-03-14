@@ -1,6 +1,6 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 
-const BeforeLogin: React.FC = () => {
+const BeforeLogin: FunctionComponent = () => {
   return (
     <div>
       <p>

@@ -9,14 +9,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import React from "react";
+import type { FunctionComponent } from "react";
 import { Controller } from "react-hook-form";
 
 import { Error } from "../Error";
 import { Width } from "../Width";
 import { countryOptions } from "./options";
 
-export const Country: React.FC<
+export const Country: FunctionComponent<
   CountryField & {
     control: Control;
     errors: Partial<FieldErrorsImpl>;

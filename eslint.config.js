@@ -34,6 +34,15 @@ const eslintConfig = [
           allow: ["debug", "error", "info", "trace", "warn"],
         },
       ],
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector:
+            "ImportDeclaration[source.value='react'][specifiers.0.type='ImportDefaultSpecifier']",
+          message:
+            "Default React import not allowed since we use the TypeScript jsx-transform. If you need a global type that collides with a React named export (such as `MouseEvent`), try using `globalThis.MouseHandler`",
+        },
+      ],
     },
   },
   {

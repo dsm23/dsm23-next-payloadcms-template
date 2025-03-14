@@ -7,12 +7,12 @@ import type {
 
 import { Label } from "~/components/ui/label";
 import { Textarea as TextAreaComponent } from "~/components/ui/textarea";
-import React from "react";
+import type { FunctionComponent } from "react";
 
 import { Error } from "../Error";
 import { Width } from "../Width";
 
-export const Textarea: React.FC<
+export const Textarea: FunctionComponent<
   TextField & {
     errors: Partial<FieldErrorsImpl>;
     register: UseFormRegister<FieldValues>;

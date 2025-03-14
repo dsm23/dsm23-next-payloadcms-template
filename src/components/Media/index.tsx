@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
+import { Fragment, type FunctionComponent } from "react";
 
 import type { Props } from "./types";
 
 import { ImageMedia } from "./ImageMedia";
 import { VideoMedia } from "./VideoMedia";
 
-export const Media: React.FC<Props> = (props) => {
+export const Media: FunctionComponent<Props> = (props) => {
   const { className, htmlElement = "div", resource } = props;
 
   const isVideo =

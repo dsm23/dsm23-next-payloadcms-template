@@ -2,12 +2,12 @@ import type { Post, ArchiveBlock as ArchiveBlockProps } from "~/payload-types";
 
 import configPromise from "@payload-config";
 import { getPayload } from "payload";
-import React from "react";
+import type { FunctionComponent } from "react";
 import RichText from "~/components/RichText";
 
 import { CollectionArchive } from "~/components/CollectionArchive";
 
-export const ArchiveBlock: React.FC<
+export const ArchiveBlock: FunctionComponent<
   ArchiveBlockProps & {
     id?: string;
   }

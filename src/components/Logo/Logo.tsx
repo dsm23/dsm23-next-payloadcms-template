@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React from "react";
+import type { FunctionComponent } from "react";
 
 interface Props {
   className?: string;
@@ -7,7 +7,7 @@ interface Props {
   priority?: "auto" | "high" | "low";
 }
 
-export const Logo = (props: Props) => {
+export const Logo: FunctionComponent<Props> = (props) => {
   const {
     loading: loadingFromProps,
     priority: priorityFromProps,

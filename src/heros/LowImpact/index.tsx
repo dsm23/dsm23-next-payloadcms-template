@@ -1,4 +1,4 @@
-import React from "react";
+import type { FunctionComponent } from "react";
 
 import type { Page } from "~/payload-types";
 
@@ -14,7 +14,7 @@ type LowImpactHeroType =
       richText?: Page["hero"]["richText"];
     });
 
-export const LowImpactHero: React.FC<LowImpactHeroType> = ({
+export const LowImpactHero: FunctionComponent<LowImpactHeroType> = ({
   children,
   richText,
 }) => {

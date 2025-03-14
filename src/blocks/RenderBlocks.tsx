@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import type { FunctionComponent } from "react";
 
 import type { Page } from "~/payload-types";
 
@@ -16,7 +16,7 @@ const blockComponents = {
   mediaBlock: MediaBlock,
 };
 
-export const RenderBlocks: React.FC<{
+export const RenderBlocks: FunctionComponent<{
   blocks: Page["layout"][0][];
 }> = (props) => {
   const { blocks } = props;
@@ -25,7 +25,7 @@ export const RenderBlocks: React.FC<{
 
   if (hasBlocks) {
     return (
-      <Fragment>
+      <>
         {blocks.map((block, index) => {
           const { blockType } = block;
 
@@ -43,7 +43,7 @@ export const RenderBlocks: React.FC<{
           }
           return null;
         })}
-      </Fragment>
+      </>
     );
   }
 
