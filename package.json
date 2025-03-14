@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "prepare": "node .husky/install.js",
     "build": "next build",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "dev": "next dev",
@@ -79,6 +80,7 @@
     "cz-conventional-changelog": "3.3.0",
     "eslint": "9.22.0",
     "eslint-config-next": "15.2.2",
+    "husky": "9.1.7",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "npm-run-all2": "7.0.2",
