@@ -20,8 +20,9 @@ services:
       - MINIO_ROOT_USER=${MINIO_ROOT_USER}
       - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}
     volumes:
-      - "~/minio/data:/data/minio"
+      - "bucket:/data/minio"
 
 volumes:
+  bucket:
   data:
   node_modules:
