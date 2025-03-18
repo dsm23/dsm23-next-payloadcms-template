@@ -82,7 +82,7 @@
     "copyfiles": "2.4.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "9.22.0",
-    "eslint-config-next": "15.2.2",
+    "eslint-config-next": "15.2.3",
     "husky": "9.1.7",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
