@@ -48,7 +48,7 @@
     "graphql": "16.10.0",
     "lucide-react": "0.482.0",
     "minio": "8.0.5",
-    "next": "15.2.2",
+    "next": "15.2.3",
     "next-sitemap": "4.2.3",
     "payload": "3.28.1",
     "prism-react-renderer": "2.4.1",
