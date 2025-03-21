@@ -39,5 +39,8 @@
     }
   ],
   "rebaseWhen": "conflicted",
+  "patch": {
+    "rebaseWhen": "behind-base-branch"
+  },
   "osvVulnerabilityAlerts": true
 }
