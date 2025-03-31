@@ -91,7 +91,7 @@
     "prettier": "3.5.3",
     "prettier-plugin-css-order": "2.1.2",
     "prettier-plugin-tailwindcss": "0.6.11",
-    "stylelint": "16.16.0",
+    "stylelint": "16.17.0",
     "stylelint-config-standard": "37.0.0",
     "stylelint-order": "6.0.4",
     "stylelint-selector-bem-pattern": "4.0.1",
