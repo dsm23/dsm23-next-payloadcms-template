@@ -10,6 +10,7 @@ pull_request_rules:
       - check-success=format
       - check-success=gitleaks
       - check-success=lint
+      - check-success=pr-title
       - check-success=unit-testing
       - check-success=zizmor
     actions:
@@ -26,6 +27,7 @@ pull_request_rules:
       - check-success=format
       - check-success=gitleaks
       - check-success=lint
+      - check-success=pr-title
       - check-success=unit-testing
       - check-success=zizmor
     actions:
@@ -42,6 +44,7 @@ pull_request_rules:
       - check-success=format
       - check-success=gitleaks
       - check-success=lint
+      - check-success=pr-title
       - check-success=unit-testing
       - check-success=zizmor
       - "#approved-reviews-by>=1"
