@@ -6,7 +6,7 @@ import { PageRange } from "~/components/PageRange";
 import { Pagination } from "~/components/Pagination";
 import PageClient from "./page.client";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 export const revalidate = 600;
 
 export default async function Page() {

@@ -11,6 +11,9 @@ type Args = {
     q: string;
   }>;
 };
+
+export const dynamic = "force-dynamic";
+
 export default async function Page({
   searchParams: searchParamsPromise,
 }: Args) {
