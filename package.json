@@ -75,7 +75,7 @@
     "@total-typescript/ts-reset": "0.6.1",
     "@types/escape-html": "1.0.4",
     "@types/jest": "29.5.14",
-    "@types/node": "22.13.17",
+    "@types/node": "22.14.0",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
     "commitizen": "4.3.1",
