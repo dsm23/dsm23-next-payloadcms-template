@@ -3,6 +3,8 @@ import { fileURLToPath } from "node:url";
 import { buildConfig } from "payload";
 import type { PayloadRequest } from "payload";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
+import nodemailer from "nodemailer";
 import sharp from "sharp";
 import { minioStorage } from "~/adapters/storage";
 import { defaultLexical } from "~/fields/defaultLexical";
@@ -56,6 +58,18 @@ export default buildConfig({
       ],
     },
   },
+  email: nodemailerAdapter({
+    defaultFromAddress: process.env.SMTP_ADMIN_EMAIL,
+    defaultFromName: process.env.SMTP_SENDER_NAME,
+    transport: await nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: 1025,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    }),
+  }),
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
   db: mongooseAdapter({

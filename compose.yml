@@ -42,7 +42,24 @@ services:
       exit 0;
       "
 
+  mailpit:
+    image: axllent/mailpit:v1.23.2@sha256:71a97aac6adb07fe3ba1f789094f5388b16bbf69a8b783343d2f816de5de3dec
+    ports:
+      - 1025:1025
+      - 8025:8025
+    restart: unless-stopped
+    environment:
+      - MP_MAX_MESSAGES=5000
+      - MP_DATABASE=/data/mailpit.db
+      - MP_SMTP_AUTH_ACCEPT_ANY=1
+      - MP_SMTP_AUTH_ALLOW_INSECURE=1
+      # - MP_UI_AUTH_FILE=/data/htpasswd
+      - TZ=Europe/London
+    volumes:
+      - "mailpit-data:/data"
+
 volumes:
   bucket:
   data:
+  mailpit-data:
   node_modules:
