@@ -15,7 +15,7 @@ importers:
         specifier: 3.33.0
         version: 3.33.0(@aws-sdk/credential-providers@3.758.0)(payload@3.33.0(graphql@16.10.0)(typescript@5.8.3))
       '@payloadcms/email-nodemailer':
-        specifier: ^3.33.0
+        specifier: 3.33.0
         version: 3.33.0(payload@3.33.0(graphql@16.10.0)(typescript@5.8.3))
       '@payloadcms/live-preview-react':
         specifier: 3.33.0
@@ -87,7 +87,7 @@ importers:
         specifier: 4.2.3
         version: 4.2.3(next@15.2.4(@babel/core@7.26.10)(babel-plugin-macros@3.1.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))
       nodemailer:
-        specifier: ^6.10.0
+        specifier: 6.10.0
         version: 6.10.0
       payload:
         specifier: 3.33.0
@@ -163,7 +163,7 @@ importers:
         specifier: 22.14.0
         version: 22.14.0
       '@types/nodemailer':
-        specifier: ^6.4.17
+        specifier: 6.4.17
         version: 6.4.17
       '@types/react':
         specifier: 19.1.0
