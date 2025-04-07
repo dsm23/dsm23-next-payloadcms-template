@@ -1,5 +1,6 @@
 declare namespace NodeJS {
   interface ProcessEnv {
+    readonly ANALYZE: string;
     readonly MINIO_BUCKET: string;
     readonly MINIO_ENDPOINT: string;
     readonly MINIO_PORT: number;
