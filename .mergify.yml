@@ -3,6 +3,7 @@ pull_request_rules:
   - name: automatic approval
     conditions:
       - author=dsm23
+      - check-success=analyze-bundle
       - check-success=build
       - check-success=codeql (javascript)
       - check-success=codeql (typescript)
@@ -20,6 +21,7 @@ pull_request_rules:
   - name: automatic approval for Renovate pull requests
     conditions:
       - author=renovate[bot]
+      - check-success=analyze-bundle
       - check-success=build
       - check-success=codeql (javascript)
       - check-success=codeql (typescript)
@@ -37,6 +39,7 @@ pull_request_rules:
   # merge
   - name: Automatically merge when GitHub Actions jobs succeed
     conditions:
+      - check-success=analyze-bundle
       - check-success=build
       - check-success=codeql (javascript)
       - check-success=codeql (typescript)

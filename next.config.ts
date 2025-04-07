@@ -1,3 +1,4 @@
+import withBundleAnalyzer from "@next/bundle-analyzer";
 import type { NextConfig } from "next";
 import { withPayload } from "@payloadcms/next/withPayload";
 import redirects from "./redirects.js";
@@ -24,4 +25,16 @@ const nextConfig: NextConfig = {
   redirects,
 };
 
-export default withPayload(nextConfig, { devBundleServerPackages: false });
+export default () => {
+  const plugins = [
+    withBundleAnalyzer({ enabled: Boolean(process.env.ANALYZE) }),
+    (config: NextConfig) =>
+      withPayload(config, { devBundleServerPackages: false }),
+  ];
+
+  const config = plugins.reduce((acc, next) => next(acc), {
+    ...nextConfig,
+  });
+
+  return config;
+};
