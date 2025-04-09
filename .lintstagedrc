@@ -1,0 +1,5 @@
+{
+  "**/*.{js,mjs,ts,tsx}": ["eslint", "prettier --check"],
+  "**/*.css": ["stylelint --allow-empty-input", "prettier --check"],
+  "**/*.{json,md,mdx,yml}": ["prettier --check"]
+}
