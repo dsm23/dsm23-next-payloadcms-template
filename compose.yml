@@ -1,6 +1,6 @@
 services:
   mongo:
-    image: mongo:8.0.6-noble@sha256:8e70da4c1a64b280d641af1bc0edea6c1276bbe2d98b07ccbc2f2445286b34c3
+    image: mongo:8.0.6-noble@sha256:fbacd14159b54a8035223cc84066d7520bd4ad700833cd626ac71cafab2373d7
     ports:
       - 27017:27017
     command:
