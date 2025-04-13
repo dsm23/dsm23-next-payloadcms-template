@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { draftMode } from "next/headers";
+import { draftMode, headers } from "next/headers";
 import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
@@ -22,6 +22,9 @@ export default async function RootLayout({
 }) {
   const { isEnabled } = await draftMode();
 
+  const headersList = await headers();
+  const nonce = headersList.get("x-nonce") ?? undefined;
+
   return (
     <html
       className={cn(GeistSans.variable, GeistMono.variable)}
@@ -29,7 +32,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <InitTheme />
+        <InitTheme nonce={nonce} />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
