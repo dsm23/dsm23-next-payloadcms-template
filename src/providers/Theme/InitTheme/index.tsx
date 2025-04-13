@@ -1,11 +1,12 @@
 import type { FunctionComponent } from "react";
 import Script from "next/script";
+import type { ScriptProps } from "next/script";
 import { defaultTheme, themeLocalStorageKey } from "../ThemeSelector/types";
 
-export const InitTheme: FunctionComponent = () => {
+export const InitTheme: FunctionComponent<ScriptProps> = (props) => {
   return (
-    // eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
     <Script
+      {...props}
       dangerouslySetInnerHTML={{
         __html: `
   (function () {
@@ -43,7 +44,11 @@ export const InitTheme: FunctionComponent = () => {
   `,
       }}
       id="theme-script"
-      strategy="beforeInteractive"
+      strategy={
+        process.env.NODE_ENV === "development"
+          ? "afterInteractive"
+          : "beforeInteractive"
+      }
     />
   );
 };
