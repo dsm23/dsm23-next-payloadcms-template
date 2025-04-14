@@ -7,14 +7,14 @@ export function middleware(request: NextRequest) {
     default-src 'self';
     script-src 'self' 'nonce-${nonce}'${process.env.NODE_ENV === "development" && " 'unsafe-eval'"};
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data: https://www.gravatar.com/ https://raw.githubusercontent.com/payloadcms/payload/;
+    img-src 'self' blob: data: ${process.env.MINIO_ENDPOINT}:${process.env.MINIO_PORT} https://www.gravatar.com/ https://raw.githubusercontent.com/payloadcms/payload/;
     font-src 'self';
     object-src 'none';
     base-uri 'self';
     form-action 'self';
-    frame-ancestors 'none';
-    upgrade-insecure-requests;
-`;
+    frame-ancestors 'self';
+    ${process.env.NODE_ENV !== "development" ? "upgrade-insecure-requests;" : ""}
+  `;
   // Replace newline characters and spaces
   const contentSecurityPolicyHeaderValue = cspHeader
     .replace(/\s{2,}/g, " ")

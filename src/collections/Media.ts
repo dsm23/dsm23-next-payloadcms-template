@@ -37,8 +37,6 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     disableLocalStorage: true,
-    adminThumbnail: ({ doc }) =>
-      `${process.env.MINIO_ENDPOINT}:${process.env.MINIO_PORT}/${process.env.MINIO_BUCKET}/${doc.filename as string}`,
     focalPoint: true,
     imageSizes: [
       {
