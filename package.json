@@ -80,7 +80,7 @@
     "@types/jest": "29.5.14",
     "@types/node": "22.14.1",
     "@types/nodemailer": "6.4.17",
-    "@types/react": "19.1.1",
+    "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
     "commitizen": "4.3.1",
     "copyfiles": "2.4.1",
