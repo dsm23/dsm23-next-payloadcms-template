@@ -5,7 +5,7 @@ import type { FunctionComponent } from "react";
 import Link from "next/link";
 import { Media } from "~/components/Media";
 import { cn } from "~/utilities/ui";
-import useClickableCard from "~/utilities/useClickableCard";
+import useClickableCard from "~/utilities/use-clickable-card";
 import type { Post } from "~/payload-types";
 
 export type CardPostData = Pick<Post, "slug" | "categories" | "meta" | "title">;

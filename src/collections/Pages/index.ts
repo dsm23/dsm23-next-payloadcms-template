@@ -16,7 +16,7 @@ import { Content } from "../../blocks/Content/config";
 import { FormBlock } from "../../blocks/Form/config";
 import { MediaBlock } from "../../blocks/MediaBlock/config";
 import { populatePublishedAt } from "../../hooks/populatePublishedAt";
-import { generatePreviewPath } from "../../utilities/generatePreviewPath";
+import { generatePreviewPath } from "../../utilities/generate-preview-path";
 import { revalidateDelete, revalidatePage } from "./hooks/revalidatePage";
 
 export const Pages: CollectionConfig<"pages"> = {

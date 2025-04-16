@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import type { FunctionComponent } from "react";
 import { Media } from "~/components/Media";
-import { formatAuthors } from "~/utilities/formatAuthors";
-import { formatDateTime } from "~/utilities/formatDateTime";
+import { formatAuthors } from "~/utilities/format-authors";
+import { formatDateTime } from "~/utilities/format-date-time";
 import type { Post } from "~/payload-types";
 
 export const PostHero: FunctionComponent<{

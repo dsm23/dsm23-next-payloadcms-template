@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type { FunctionComponent } from "react";
-import { getClientSideURL } from "~/utilities/getURL";
+import { getClientSideURL } from "~/utilities/get-url";
 import { cn } from "~/utilities/ui";
 import type { Props as MediaProps } from "../types";
 

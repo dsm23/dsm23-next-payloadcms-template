@@ -8,12 +8,12 @@ import { Footer } from "~/Footer/Component";
 import { Header } from "~/Header/Component";
 import { Providers } from "~/providers";
 import { InitTheme } from "~/providers/Theme/InitTheme";
-import { mergeOpenGraph } from "~/utilities/mergeOpenGraph";
+import { mergeOpenGraph } from "~/utilities/merge-open-graph";
 import { cn } from "~/utilities/ui";
 
 import "./globals.css";
 
-import { getServerSideURL } from "~/utilities/getURL";
+import { getServerSideURL } from "~/utilities/get-url";
 
 export default async function RootLayout({
   children,

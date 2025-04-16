@@ -9,7 +9,7 @@ import { LivePreviewListener } from "~/components/LivePreviewListener";
 import { PayloadRedirects } from "~/components/PayloadRedirects";
 import { homeStatic } from "~/endpoints/seed/home-static";
 import { RenderHero } from "~/heros/RenderHero";
-import { generateMeta } from "~/utilities/generateMeta";
+import { generateMeta } from "~/utilities/generate-meta";
 import PageClient from "./page.client";
 
 // export async function generateStaticParams() {

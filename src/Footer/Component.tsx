@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CMSLink } from "~/components/Link";
 import { Logo } from "~/components/Logo/Logo";
 import { ThemeSelector } from "~/providers/Theme/ThemeSelector";
-import { getCachedGlobal } from "~/utilities/getGlobals";
+import { getCachedGlobal } from "~/utilities/get-globals";
 import type { Footer } from "~/payload-types";
 
 export async function Footer() {

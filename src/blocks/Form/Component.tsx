@@ -11,7 +11,7 @@ import type {
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import RichText from "~/components/RichText";
 import { Button } from "~/components/ui/button";
-import { getClientSideURL } from "~/utilities/getURL";
+import { getClientSideURL } from "~/utilities/get-url";
 import { fields } from "./fields";
 
 export type FormBlockType = {

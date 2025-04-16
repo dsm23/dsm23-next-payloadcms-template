@@ -1,5 +1,5 @@
 import type { ArrayField, Field } from "payload";
-import deepMerge from "~/utilities/deepMerge";
+import deepMerge from "~/utilities/deep-merge";
 import { link } from "./link";
 import type { LinkAppearances } from "./link";
 

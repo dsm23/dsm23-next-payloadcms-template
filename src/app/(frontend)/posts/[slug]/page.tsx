@@ -8,7 +8,7 @@ import { LivePreviewListener } from "~/components/LivePreviewListener";
 import { PayloadRedirects } from "~/components/PayloadRedirects";
 import RichText from "~/components/RichText";
 import { PostHero } from "~/heros/PostHero";
-import { generateMeta } from "~/utilities/generateMeta";
+import { generateMeta } from "~/utilities/generate-meta";
 import type { Post } from "~/payload-types";
 import PageClient from "./page.client";
 

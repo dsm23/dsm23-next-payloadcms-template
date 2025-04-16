@@ -1,7 +1,7 @@
 import type { FunctionComponent } from "react";
 import { notFound, redirect } from "next/navigation";
-import { getCachedDocument } from "~/utilities/getDocument";
-import { getCachedRedirects } from "~/utilities/getRedirects";
+import { getCachedDocument } from "~/utilities/get-document";
+import { getCachedRedirects } from "~/utilities/get-redirects";
 import type { Page, Post } from "~/payload-types";
 
 interface Props {

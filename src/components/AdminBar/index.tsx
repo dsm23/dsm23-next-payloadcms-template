@@ -12,7 +12,7 @@ import { cn } from "~/utilities/ui";
 
 import "./index.scss";
 
-import { getClientSideURL } from "~/utilities/getURL";
+import { getClientSideURL } from "~/utilities/get-url";
 
 const baseClass = "admin-bar";
 

@@ -5,7 +5,7 @@ import type { FunctionComponent } from "react";
 import { useRouter } from "next/navigation";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
-import { useDebounce } from "~/utilities/useDebounce";
+import { useDebounce } from "~/utilities/use-debounce";
 
 export const Search: FunctionComponent = () => {
   const [value, setValue] = useState("");

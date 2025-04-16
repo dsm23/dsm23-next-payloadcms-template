@@ -16,7 +16,7 @@ import { Users } from "./collections/Users";
 import { Footer } from "./Footer/config";
 import { Header } from "./Header/config";
 import { plugins } from "./plugins";
-import { getServerSideURL } from "./utilities/getURL";
+import { getServerSideURL } from "./utilities/get-url";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
