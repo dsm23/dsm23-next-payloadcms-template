@@ -57,3 +57,5 @@ jobs:
         run: pnpm test --coverage
         env:
           FORCE_COLOR: 1
+          NEXT_PUBLIC_SERVER_URL: ${{ vars.NEXT_PUBLIC_SERVER_URL }}
+          PREVIEW_SECRET: ${{ vars.PREVIEW_SECRET }}

@@ -2,7 +2,7 @@
 
 import { createContext, use, useCallback, useEffect, useState } from "react";
 import type { FunctionComponent, PropsWithChildren } from "react";
-import canUseDOM from "~/utilities/canUseDOM";
+import canUseDOM from "~/utilities/can-use-dom";
 import {
   defaultTheme,
   getImplicitPreference,

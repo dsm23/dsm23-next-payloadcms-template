@@ -14,7 +14,7 @@ import type { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
 import { revalidateRedirects } from "~/hooks/revalidateRedirects";
 import { beforeSyncWithSearch } from "~/search/beforeSync";
 import { searchFields } from "~/search/fieldOverrides";
-import { getServerSideURL } from "~/utilities/getURL";
+import { getServerSideURL } from "~/utilities/get-url";
 import type { Page, Post } from "~/payload-types";
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
