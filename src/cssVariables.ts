@@ -9,4 +9,4 @@ export const cssVariables = {
     md: 768,
     sm: 640,
   },
-};
+} as const;
