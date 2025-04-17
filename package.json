@@ -25,7 +25,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "15.3.0",
+    "@next/bundle-analyzer": "15.3.1",
     "@payloadcms/admin-bar": "3.35.1",
     "@payloadcms/db-mongodb": "3.35.1",
     "@payloadcms/email-nodemailer": "3.35.1",
