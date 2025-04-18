@@ -1,6 +1,7 @@
 /**
  * @jest-environment node
  */
+
 import { afterEach, describe, expect, it } from "@jest/globals";
 import { getClientSideURL, getServerSideURL } from ".";
 
