@@ -1,9 +1,9 @@
 import type { FunctionComponent } from "react";
 import clsx from "clsx";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
+import { Card } from "~/components/Card";
 import RichText from "~/components/RichText";
 import type { Post } from "~/payload-types";
-import { Card } from "../../components/Card";
 
 export type RelatedPostsProps = {
   className?: string;
