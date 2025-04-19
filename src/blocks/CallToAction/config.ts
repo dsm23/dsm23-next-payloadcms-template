@@ -5,7 +5,7 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
-import { linkGroup } from "../../fields/linkGroup";
+import { linkGroup } from "~/fields/linkGroup";
 
 export const CallToAction: Block = {
   slug: "cta",

@@ -6,17 +6,17 @@ import {
   OverviewField,
   PreviewField,
 } from "@payloadcms/plugin-seo/fields";
+import { authenticated } from "~/access/authenticated";
+import { authenticatedOrPublished } from "~/access/authenticatedOrPublished";
+import { Archive } from "~/blocks/ArchiveBlock/config";
+import { CallToAction } from "~/blocks/CallToAction/config";
+import { Content } from "~/blocks/Content/config";
+import { FormBlock } from "~/blocks/Form/config";
+import { MediaBlock } from "~/blocks/MediaBlock/config";
 import { slugField } from "~/fields/slug";
 import { hero } from "~/heros/config";
-import { authenticated } from "../../access/authenticated";
-import { authenticatedOrPublished } from "../../access/authenticatedOrPublished";
-import { Archive } from "../../blocks/ArchiveBlock/config";
-import { CallToAction } from "../../blocks/CallToAction/config";
-import { Content } from "../../blocks/Content/config";
-import { FormBlock } from "../../blocks/Form/config";
-import { MediaBlock } from "../../blocks/MediaBlock/config";
-import { populatePublishedAt } from "../../hooks/populatePublishedAt";
-import { generatePreviewPath } from "../../utilities/generate-preview-path";
+import { populatePublishedAt } from "~/hooks/populatePublishedAt";
+import { generatePreviewPath } from "~/utilities/generate-preview-path";
 import { revalidateDelete, revalidatePage } from "./hooks/revalidatePage";
 
 export const Pages: CollectionConfig<"pages"> = {
