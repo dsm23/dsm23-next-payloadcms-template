@@ -39,10 +39,10 @@
     },
     {
       "groupName": "minio images",
+      "matchDatasources": ["docker"],
       "matchManagers": ["docker-compose"],
       "matchPackageNames": ["minio/minio", "minio/mc"],
-      "versioning": "regex",
-      "extractVersion": "^RELEASE\\.(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})"
+      "versioning": "regex:^RELEASE\\.(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})T\\d{2}-\\d{2}-\\d{2}Z@sha256:\\w*"
     }
   ],
   "rebaseWhen": "conflicted",
