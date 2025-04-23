@@ -41,8 +41,8 @@
       "groupName": "minio images",
       "matchManagers": ["docker-compose"],
       "matchPackageNames": ["minio/minio", "minio/mc"],
-      "versioning": "docker",
-      "extractVersion": "^([^-]+)(?:-.*)?$"
+      "versioning": "regex",
+      "extractVersion": "^RELEASE\\.(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})"
     }
   ],
   "rebaseWhen": "conflicted",
