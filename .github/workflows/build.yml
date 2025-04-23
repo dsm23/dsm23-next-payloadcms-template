@@ -56,7 +56,7 @@ jobs:
       - name: Build check
         run: pnpm build
         env:
-          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET_URL }}
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
           MINIO_ROOT_USER: ${{ vars.MINIO_ROOT_USER }}
           MINIO_ROOT_PASSWORD: ${{ vars.MINIO_ROOT_PASSWORD }}
           MINIO_BUCKET: ${{ vars.MINIO_BUCKET }}

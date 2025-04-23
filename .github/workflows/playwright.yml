@@ -1,0 +1,126 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: null
+
+env:
+  HUSKY: 0
+
+jobs:
+  playwright-test-shard:
+    # permissions:
+    #   contents: read
+    timeout-minutes: 60
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        shardTotal: [9]
+    # container:
+    #   image: mcr.microsoft.com/playwright:v1.52.0-noble@sha256:a021500a801bab0611049217ffad6b9697d827205c15babb86a53bc1a61c02d5
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+        with:
+          egress-policy: audit
+
+      - name: Git Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+        with:
+          run_install: false
+
+      - uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+        with:
+          # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
+          path: |
+            ~/.pnpm-store
+            ${{ github.workspace }}/.next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          # We want to ensure that the Node.js version running here respects our supported versions
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+
+      - name: Set up Docker
+        uses: docker/setup-docker-action@b60f85385d03ac8acfca6d9996982511d8620a19 # v4.3.0
+        with:
+          version: latest
+
+      - name: Set up Docker Compose
+        uses: docker/setup-compose-action@364cc21a5de5b1ee4a7f5f9d3fa374ce0ccde746 #v1.2.0
+        with:
+          version: latest
+
+      - name: Run docker services
+        run: |
+          docker compose up -d --wait mongo mailpit minio
+          docker compose ps
+        env:
+          FORCE_COLOR: 1
+          MINIO_ROOT_USER: ${{ vars.MINIO_ROOT_USER }}
+          MINIO_ROOT_PASSWORD: ${{ vars.MINIO_ROOT_PASSWORD }}
+          MINIO_BUCKET: ${{ vars.MINIO_BUCKET }}
+          MINIO_ACCESS_KEY: ${{ secrets.MINIO_ACCESS_KEY }}
+          MINIO_SECRET_KEY: ${{ secrets.MINIO_SECRET_KEY }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: pnpm exec playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        env:
+          FORCE_COLOR: 1
+          DATABASE_URI: ${{ vars.DATABASE_URI }}
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+          MINIO_ROOT_USER: ${{ vars.MINIO_ROOT_USER }}
+          MINIO_ROOT_PASSWORD: ${{ vars.MINIO_ROOT_PASSWORD }}
+          MINIO_BUCKET: ${{ vars.MINIO_BUCKET }}
+          MINIO_ENDPOINT: ${{ vars.MINIO_ENDPOINT }}
+          MINIO_PORT: ${{ vars.MINIO_PORT }}
+          NEXT_PUBLIC_SERVER_URL: ${{ vars.NEXT_PUBLIC_SERVER_URL }}
+          SMTP_ADMIN_EMAIL: ${{ vars.SMTP_ADMIN_EMAIL }}
+          SMTP_HOST: ${{ vars.SMTP_HOST }}
+          SMTP_PORT: ${{ vars.SMTP_PORT }}
+          SMTP_USER: ${{ vars.SMTP_USER }}
+          SMTP_PASS: ${{ vars.SMTP_PASS }}
+          SMTP_SENDER_NAME: ${{ vars.SMTP_SENDER_NAME }}
+          # Required for firefox
+          HOME: /root
+
+      - name: Upload playwright report to GitHub Actions Artifacts
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: playwright-report-${{ matrix.shardIndex }}
+          path: playwright-report/
+          retention-days: 1
+
+  playwright-tests:
+    runs-on: ubuntu-24.04
+    needs:
+      - playwright-test-shard
+    steps:
+      - if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+        run: exit 1
