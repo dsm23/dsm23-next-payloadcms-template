@@ -42,12 +42,7 @@
       "matchManagers": ["docker-compose"],
       "matchPackageNames": ["minio/minio", "minio/mc"],
       "versioning": "docker",
-      "extractVersion": "^([^-]+)(?:-.*)?$",
-      "matchOptions": {
-        "registryAliases": {
-          "docker.io": "index.docker.io"
-        }
-      }
+      "extractVersion": "^([^-]+)(?:-.*)?$"
     }
   ],
   "rebaseWhen": "conflicted",
