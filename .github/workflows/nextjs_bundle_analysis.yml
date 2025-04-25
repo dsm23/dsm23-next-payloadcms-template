@@ -62,13 +62,6 @@ jobs:
 
       - name: Build next.js app
         env:
-          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET_URL }}
-          MINIO_ROOT_USER: ${{ vars.MINIO_ROOT_USER }}
-          MINIO_ROOT_PASSWORD: ${{ vars.MINIO_ROOT_PASSWORD }}
-          MINIO_BUCKET: ${{ vars.MINIO_BUCKET }}
-          MINIO_ENDPOINT: ${{ vars.MINIO_ENDPOINT }}
-          MINIO_PORT: ${{ vars.MINIO_PORT }}
-          NEXT_PUBLIC_SERVER_URL: ${{ vars.NEXT_PUBLIC_SERVER_URL }}
           SKIP_BUILD_PRODUCT_REDIRECTS: 1
         # change this if your site requires a custom build command
         run: pnpm build

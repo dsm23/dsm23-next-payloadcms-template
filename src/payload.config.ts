@@ -59,8 +59,8 @@ export default buildConfig({
     },
   },
   email: nodemailerAdapter({
-    defaultFromAddress: process.env.SMTP_ADMIN_EMAIL,
-    defaultFromName: process.env.SMTP_SENDER_NAME,
+    defaultFromAddress: process.env.SMTP_ADMIN_EMAIL ?? "",
+    defaultFromName: process.env.SMTP_SENDER_NAME ?? "",
     transport: await nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: 1025,
@@ -84,10 +84,10 @@ export default buildConfig({
       collections: {
         media: true,
       },
-      bucket: process.env.MINIO_BUCKET,
+      bucket: process.env.MINIO_BUCKET ?? "",
       config: {
-        useSSL: process.env.MINIO_ENDPOINT.startsWith("https"),
-        endPoint: process.env.MINIO_ENDPOINT.split("://")[1] ?? "",
+        useSSL: process.env.MINIO_ENDPOINT?.startsWith("https") ?? false,
+        endPoint: process.env.MINIO_ENDPOINT?.split("://")[1] ?? "",
         port: process.env.MINIO_PORT,
         accessKey: process.env.MINIO_ACCESS_KEY,
         secretKey: process.env.MINIO_SECRET_KEY,
