@@ -18,7 +18,16 @@ export const Select: FunctionComponent<
     control: Control;
     errors: Partial<FieldErrorsImpl>;
   }
-> = ({ name, control, errors, label, options, required, width }) => {
+> = ({
+  name,
+  control,
+  errors,
+  label,
+  options,
+  required,
+  width,
+  defaultValue,
+}) => {
   return (
     <Width width={width}>
       <Label htmlFor={name}>
@@ -31,7 +40,7 @@ export const Select: FunctionComponent<
       </Label>
       <Controller
         control={control}
-        defaultValue=""
+        defaultValue={defaultValue}
         name={name}
         render={({ field: { onChange, value } }) => {
           const controlledValue = options.find((t) => t.value === value);
