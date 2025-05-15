@@ -4,7 +4,7 @@ import type { FunctionComponent } from "react";
 import NextImage from "next/image";
 import type { StaticImageData } from "next/image";
 import { cssVariables } from "~/cssVariables";
-import { getClientSideURL } from "~/utilities/get-url";
+import { getMediaUrl } from "~/utilities/get-media-url";
 import { cn } from "~/utilities/ui";
 import type { Props as MediaProps } from "../types";
 
@@ -46,7 +46,7 @@ export const ImageMedia: FunctionComponent<MediaProps> = (props) => {
 
     const cacheTag = resource.updatedAt;
 
-    src = `${getClientSideURL()}${url}?${cacheTag}`;
+    src = getMediaUrl(url, cacheTag);
   }
 
   const loading = loadingFromProps || (!priority ? "lazy" : undefined);
