@@ -58,7 +58,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "7.56.4",
-    "sharp": "0.34.1",
+    "sharp": "0.34.2",
     "tailwind-merge": "3.3.0",
     "tailwindcss-animate": "1.0.7"
   },
