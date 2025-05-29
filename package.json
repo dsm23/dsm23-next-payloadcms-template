@@ -25,7 +25,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "15.3.2",
+    "@next/bundle-analyzer": "15.3.3",
     "@payloadcms/admin-bar": "3.39.1",
     "@payloadcms/db-mongodb": "3.39.1",
     "@payloadcms/email-nodemailer": "3.39.1",
@@ -50,7 +50,7 @@
     "graphql": "16.11.0",
     "lucide-react": "0.511.0",
     "minio": "8.0.5",
-    "next": "15.3.2",
+    "next": "15.3.3",
     "next-sitemap": "4.2.3",
     "nodemailer": "7.0.3",
     "payload": "3.39.1",
