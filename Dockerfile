@@ -6,8 +6,9 @@
 FROM node:24.1.0-alpine3.21@sha256:dfea0736e82fef246aba86b2082a5e86c4825470302692b841d097dd61253b79 AS base
 
 # corepack is broken https://github.com/nodejs/corepack/issues/612
-# TODO: remove the following when corepack is fixed
-RUN npm install -g corepack@latest
+# corepack was fixed but is will be removed from node from v25+
+# TODO: re-add corepack after it's been removed
+# RUN npm install -g corepack@latest
 
 # Install dependencies only when needed
 FROM base AS deps
