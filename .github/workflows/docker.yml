@@ -14,11 +14,13 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: "dsm23/dsm23-next-payloadcms-template"
 
+permissions:
+  contents: read
+
 jobs:
   amd64:
     runs-on: ubuntu-24.04
     permissions:
-      contents: read
       packages: write
     steps:
       - name: Harden Runner
