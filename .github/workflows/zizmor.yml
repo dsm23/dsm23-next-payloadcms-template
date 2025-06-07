@@ -8,13 +8,15 @@ on:
     branches:
       - "**"
 
+permissions:
+  contents: read
+
 jobs:
   zizmor:
     runs-on: ubuntu-24.04
     permissions:
       security-events: write
       # required for workflows in private repositories
-      contents: read
       actions: read
     steps:
       - name: Harden Runner
