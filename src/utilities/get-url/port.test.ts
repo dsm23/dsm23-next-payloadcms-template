@@ -1,5 +1,5 @@
 /**
- * @jest-environment-options {"url": "https://jestjs.io/"}
+ * @jest-environment-options {"url": "http://localhost:3000/"}
  */
 
 import { describe, expect, it } from "@jest/globals";
@@ -7,8 +7,8 @@ import { getClientSideURL } from ".";
 
 describe("utilities", () => {
   describe("getClientSideURL", () => {
-    it("in the client browser", () => {
-      expect(getClientSideURL()).toBe("https://jestjs.io");
+    it("has port in the client browser", () => {
+      expect(getClientSideURL()).toBe("http://localhost:3000");
     });
   });
 });
