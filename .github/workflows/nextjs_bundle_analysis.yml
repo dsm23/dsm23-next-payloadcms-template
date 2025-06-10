@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  HUSKY: 0
+  LEFTHOOK: 0
 
 defaults:
   run:

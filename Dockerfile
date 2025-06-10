@@ -16,10 +16,7 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-ENV HUSKY=0
-
-# for the sake of the prepare script
-COPY .husky/ ./.husky/
+ENV LEFTHOOK=0
 
 # Install dependencies based on the preferred package manager
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
