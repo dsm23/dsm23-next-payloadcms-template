@@ -1,2 +1,4 @@
 onlyBuiltDependencies:
+  - lefthook
   - sharp
+sideEffectsCache: false
