@@ -43,7 +43,7 @@ services:
       "
 
   mailpit:
-    image: axllent/mailpit:v1.26.0@sha256:dffd15d30117bb67e9f4464f6595fc9a40a6b324f99b43236c4d1675b708752e
+    image: axllent/mailpit:v1.26.1@sha256:8d0837f870458e49ecbb73a31879f89d22e5c023024b5eef18ffca64d726ce46
     ports:
       - 1025:1025
       - 8025:8025
