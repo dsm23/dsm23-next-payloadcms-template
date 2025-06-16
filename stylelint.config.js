@@ -8,10 +8,11 @@ const CUSTOM_AT_RULES = [
   "plugin",
   "responsive",
   "screen",
+  "source",
   "tailwind",
   "theme",
   "utility",
-  "variants",
+  "variant",
   // PostCSS-specific at-rules
   "define-mixin",
   "mixin",
