@@ -126,6 +126,9 @@ importers:
       '@eslint/eslintrc':
         specifier: 3.3.1
         version: 3.3.1
+      '@fast-check/jest':
+        specifier: 2.1.1
+        version: 2.1.1(@jest/expect@30.0.0)(@jest/globals@30.0.0)
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.4.2
         version: 4.4.2(prettier@3.5.3)
@@ -1045,6 +1048,18 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  '@fast-check/jest@2.1.1':
+    resolution: {integrity: sha512-t9m3u3tikj/+Ph+gRLGb7fFS/aqnIafsAc6qhXIFJytkqOFRSF70Y5yUUyTtR0idcb6Ald7AnC0AChLCLxv2Tg==}
+    peerDependencies:
+      '@fast-check/worker': '>=0.0.7 <0.6.0'
+      '@jest/expect': '>=28.0.0'
+      '@jest/globals': '>=25.5.2'
+    peerDependenciesMeta:
+      '@fast-check/worker':
+        optional: true
+      '@jest/expect':
+        optional: true
 
   '@floating-ui/core@1.6.9':
     resolution: {integrity: sha512-uMXCuQ3BItDUbAMhIXw7UPXRfAlOAvZzdK9BWpE60MCn+Svt3aLn9jsPTi/WNGlRUu2uI0v5S7JiIUsbsvh3fw==}
@@ -3495,6 +3510,10 @@ packages:
 
   fast-base64-decode@1.0.0:
     resolution: {integrity: sha512-qwaScUgUGBYeDNRnbc/KyllVU88Jk1pRHPStuF/lO7B0/RTRLj7U0lkdTAutlBblY08rwZDff6tNU9cjv6j//Q==}
+
+  fast-check@4.1.1:
+    resolution: {integrity: sha512-8+yQYeNYqBfWem0Nmm7BUnh27wm+qwGvI0xln60c8RPM5rVekxZf/Ildng2GNBfjaG6utIebFmVBPlNtZlBLxg==}
+    engines: {node: '>=12.17.0'}
 
   fast-copy@3.0.2:
     resolution: {integrity: sha512-dl0O9Vhju8IrcLndv2eU4ldt1ftXMqqfgN4H1cpmGV7P6jeB9FwpN9a2c8DPGE1Ys88rNUJVYDHq73CGAGOPfQ==}
@@ -7564,6 +7583,13 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
+  '@fast-check/jest@2.1.1(@jest/expect@30.0.0)(@jest/globals@30.0.0)':
+    dependencies:
+      '@jest/globals': 30.0.0
+      fast-check: 4.1.1
+    optionalDependencies:
+      '@jest/expect': 30.0.0
+
   '@floating-ui/core@1.6.9':
     dependencies:
       '@floating-ui/utils': 0.2.9
@@ -10534,6 +10560,10 @@ snapshots:
       tmp: 0.0.33
 
   fast-base64-decode@1.0.0: {}
+
+  fast-check@4.1.1:
+    dependencies:
+      pure-rand: 7.0.1
 
   fast-copy@3.0.2: {}
 
