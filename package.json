@@ -75,7 +75,7 @@
     "@testing-library/user-event": "14.6.1",
     "@total-typescript/ts-reset": "0.6.1",
     "@types/escape-html": "1.0.4",
-    "@types/jest": "29.5.14",
+    "@types/jest": "30.0.0",
     "@types/node": "22.15.32",
     "@types/nodemailer": "6.4.17",
     "@types/react": "19.1.8",
