@@ -67,7 +67,7 @@
     "@eslint/eslintrc": "3.3.1",
     "@fast-check/jest": "2.1.1",
     "@ianvs/prettier-plugin-sort-imports": "4.4.2",
-    "@jest/globals": "30.0.2",
+    "@jest/globals": "30.0.3",
     "@jest/types": "30.0.1",
     "@tailwindcss/postcss": "4.1.10",
     "@tailwindcss/typography": "0.5.16",
