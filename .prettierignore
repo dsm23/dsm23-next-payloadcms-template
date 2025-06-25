@@ -1,12 +1,16 @@
 **/payload-types.ts
+.DS_Store
 .tmp
+.turbo
 **/.git
 **/.hg
 **/.pnp.*
 **/.svn
 **/.yarn/**
 **/build
+**/.next/**
 **/dist/**
+**/dist-ssr/**
 **/node_modules
 **/temp
 **/docs/**

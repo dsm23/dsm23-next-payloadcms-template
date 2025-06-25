@@ -33,7 +33,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Unit tests
-        run: pnpm test --coverage --show-seed
+        run: pnpm coverage -- --show-seed
         env:
           FORCE_COLOR: 1
           NEXT_PUBLIC_SERVER_URL: ${{ vars.NEXT_PUBLIC_SERVER_URL }}

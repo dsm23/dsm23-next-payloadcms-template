@@ -16,11 +16,11 @@ pre-commit:
         - "*.yaml"
 
     stylelint:
-      run: ./node_modules/.bin/stylelint --allow-empty-input {staged_files}
+      run: ./node_modules/.bin/turbo run lint:css -- {staged_files}
       glob: "*.css"
 
     eslint:
-      run: ./node_modules/.bin/eslint {staged_files}
+      run: ./node_modules/.bin/turbo run lint:lint-staged -- {staged_files}
       glob:
         - "*.ts"
         - "*.js"
