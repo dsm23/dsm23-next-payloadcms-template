@@ -69,7 +69,7 @@
     "@ianvs/prettier-plugin-sort-imports": "4.4.2",
     "@jest/globals": "30.0.3",
     "@jest/types": "30.0.1",
-    "@tailwindcss/postcss": "4.1.10",
+    "@tailwindcss/postcss": "4.1.11",
     "@tailwindcss/typography": "0.5.16",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.3.0",
@@ -98,7 +98,7 @@
     "stylelint-config-standard": "38.0.0",
     "stylelint-order": "7.0.0",
     "stylelint-selector-bem-pattern": "4.0.1",
-    "tailwindcss": "4.1.10",
+    "tailwindcss": "4.1.11",
     "tw-animate-css": "1.3.4",
     "typed-query-selector": "2.12.0",
     "typescript": "5.8.3"
