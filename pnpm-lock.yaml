@@ -90,8 +90,8 @@ importers:
         specifier: 4.2.3
         version: 4.2.3(next@15.3.4(@babel/core@7.27.4)(babel-plugin-macros@3.1.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))
       nodemailer:
-        specifier: 7.0.3
-        version: 7.0.3
+        specifier: 7.0.4
+        version: 7.0.4
       payload:
         specifier: 3.44.0
         version: 3.44.0(graphql@16.11.0)(typescript@5.8.3)
@@ -4988,8 +4988,8 @@ packages:
     resolution: {integrity: sha512-psAuZdTIRN08HKVd/E8ObdV6NO7NTBY3KsC30F7M4H1OnmLCUNaS56FpYxyb26zWLSyYF9Ozch9KYHhHegsiOQ==}
     engines: {node: '>=6.0.0'}
 
-  nodemailer@7.0.3:
-    resolution: {integrity: sha512-Ajq6Sz1x7cIK3pN6KesGTah+1gnwMnx5gKl3piQlQQE/PwyJ4Mbc8is2psWYxK3RJTVeqsDaCv8ZzXLCDHMTZw==}
+  nodemailer@7.0.4:
+    resolution: {integrity: sha512-9O00Vh89/Ld2EcVCqJ/etd7u20UhME0f/NToPfArwPEe1Don1zy4mAIz6ariRr7mJ2RDxtaDzN0WJVdVXPtZaw==}
     engines: {node: '>=6.0.0'}
 
   noms@0.0.0:
@@ -12386,7 +12386,7 @@ snapshots:
 
   nodemailer@6.9.16: {}
 
-  nodemailer@7.0.3: {}
+  nodemailer@7.0.4: {}
 
   noms@0.0.0:
     dependencies:
