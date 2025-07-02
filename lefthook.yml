@@ -3,17 +3,6 @@ pre-commit:
   commands:
     prettier:
       run: ./node_modules/.bin/prettier --check {staged_files}
-      glob:
-        - "*.css"
-        - "*.ts"
-        - "*.js"
-        - "*.tsx"
-        - "*.jsx"
-        - "*.md"
-        - "*.mdx"
-        - "*.json"
-        - "*.yml"
-        - "*.yaml"
 
     stylelint:
       run: ./node_modules/.bin/stylelint --allow-empty-input {staged_files}
