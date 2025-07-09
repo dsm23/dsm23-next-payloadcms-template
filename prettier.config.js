@@ -29,6 +29,7 @@ const config = {
     "^(?!.*[.]css$)[./].*$",
     ".css$",
   ],
+  // renovate: datasource=npm depName=typescript
   importOrderTypeScriptVersion: "5.8.2",
   tailwindFunctions: ["clsx", "cn", "cva", "cx"],
 };
