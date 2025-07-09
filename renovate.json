@@ -11,6 +11,17 @@
     ":enableVulnerabilityAlerts",
     ":pinAllExceptPeerDependencies"
   ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)prettier.config.js$/"],
+      "depNameTemplate": "typescript",
+      "datasourceTemplate": "npm",
+      "matchStrings": [
+        "\\/\\/ renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?\\s+importOrderTypeScriptVersion\\s*\\:\\s*[\"']?(?<currentValue>.+?)[\"']"
+      ]
+    }
+  ],
   "packageRules": [
     {
       "extends": ["packages:eslint"],
