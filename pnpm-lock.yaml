@@ -18,8 +18,8 @@ importers:
         specifier: 3.47.0
         version: 3.47.0(@aws-sdk/credential-providers@3.758.0)(payload@3.47.0(graphql@16.11.0)(typescript@5.8.3))
       '@payloadcms/email-nodemailer':
-        specifier: 3.46.0
-        version: 3.46.0(payload@3.47.0(graphql@16.11.0)(typescript@5.8.3))
+        specifier: 3.47.0
+        version: 3.47.0(payload@3.47.0(graphql@16.11.0)(typescript@5.8.3))
       '@payloadcms/live-preview-react':
         specifier: 3.47.0
         version: 3.47.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1694,12 +1694,6 @@ packages:
     resolution: {integrity: sha512-JGvCNGLg9B52u6VLbnNcPZUi8if0X0pG4PLgT7mmojlDnsxycuNBME1tDed9SW+qY8nF7pb555O+tRQRdAqXSQ==}
     peerDependencies:
       payload: 3.47.0
-
-  '@payloadcms/email-nodemailer@3.46.0':
-    resolution: {integrity: sha512-Gs/Ga81idRM6LEV/wyu+ydfyfe3ADOcMfNkhw8CSYOzGoL732VvvMYyHGNLjpUdFbiyogj42fPDkJwbI4in10Q==}
-    engines: {node: ^18.20.2 || >=20.9.0}
-    peerDependencies:
-      payload: 3.46.0
 
   '@payloadcms/email-nodemailer@3.47.0':
     resolution: {integrity: sha512-jQbQTYJIBNHsDtQ0KkJQQyfPBBQW2r3VJOGHoGVqFycH/xddZNlwzD1G3D59+R/wi5iM006OR1Wj0uR/tknpxw==}
@@ -8484,11 +8478,6 @@ snapshots:
       - snappy
       - socks
       - supports-color
-
-  '@payloadcms/email-nodemailer@3.46.0(payload@3.47.0(graphql@16.11.0)(typescript@5.8.3))':
-    dependencies:
-      nodemailer: 6.9.16
-      payload: 3.47.0(graphql@16.11.0)(typescript@5.8.3)
 
   '@payloadcms/email-nodemailer@3.47.0(payload@3.47.0(graphql@16.11.0)(typescript@5.8.3))':
     dependencies:

@@ -27,7 +27,7 @@
     "@next/bundle-analyzer": "15.3.5",
     "@payloadcms/admin-bar": "3.47.0",
     "@payloadcms/db-mongodb": "3.47.0",
-    "@payloadcms/email-nodemailer": "3.46.0",
+    "@payloadcms/email-nodemailer": "3.47.0",
     "@payloadcms/live-preview-react": "3.47.0",
     "@payloadcms/next": "3.47.0",
     "@payloadcms/payload-cloud": "3.47.0",
