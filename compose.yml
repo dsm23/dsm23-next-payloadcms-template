@@ -11,7 +11,7 @@ services:
       driver: none
 
   minio:
-    image: minio/minio:RELEASE.2025-07-18T21-56-31Z@sha256:da0fe26595711d0fb93dd28e24552520f68897195f4a23f5a17ffa9924ec3fac
+    image: minio/minio:RELEASE.2025-07-23T15-54-02Z@sha256:d249d1fb6966de4d8ad26c04754b545205ff15a62e4fd19ebd0f26fa5baacbc0
     ports:
       - 9000:9000
       - 9001:9001
@@ -28,7 +28,7 @@ services:
       retries: 5
 
   createbucket:
-    image: minio/mc:RELEASE.2025-07-16T15-35-03Z@sha256:d5bccfe71e95a34b25d626d86621930342553657e8776833b65ae0bc63cf4928
+    image: minio/mc:RELEASE.2025-07-21T05-28-08Z@sha256:fb8f773eac8ef9d6da0486d5dec2f42f219358bcb8de579d1623d518c9ebd4cc
     depends_on:
       minio:
         condition: service_healthy
