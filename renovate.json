@@ -48,6 +48,14 @@
       ]
     },
     {
+      "groupName": "storybook monorepo",
+      "matchPackageNames": [
+        "@storybook/**",
+        "eslint-plugin-storybook",
+        "storybook"
+      ]
+    },
+    {
       "groupName": "minio images",
       "matchDatasources": ["docker"],
       "matchManagers": ["docker-compose"],

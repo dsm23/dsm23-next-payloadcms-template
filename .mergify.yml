@@ -15,6 +15,7 @@ pull_request_rules:
       - check-success=lint
       - check-success=pr-title
       - check-success=renovate
+      - check-success=smoke-test
       - check-success=unit-testing
       - check-success=zizmor
     actions:
@@ -36,6 +37,7 @@ pull_request_rules:
       - check-success=lint
       - check-success=pr-title
       - check-success=renovate
+      - check-success=smoke-test
       - check-success=unit-testing
       - check-success=zizmor
     actions:
@@ -57,6 +59,7 @@ pull_request_rules:
       - check-success=lint
       - check-success=pr-title
       - check-success=renovate
+      - check-success=smoke-test
       - check-success=unit-testing
       - check-success=zizmor
       - "#approved-reviews-by>=1"
