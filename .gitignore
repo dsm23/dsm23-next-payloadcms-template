@@ -35,3 +35,6 @@ docker-compose.override.yml
 *.njsproj
 *.sln
 *.sw?
+
+*storybook.log
+storybook-static
