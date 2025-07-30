@@ -96,7 +96,7 @@
     "copyfiles": "2.4.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "9.32.0",
-    "eslint-config-next": "15.4.4",
+    "eslint-config-next": "15.4.5",
     "eslint-plugin-storybook": "9.0.18",
     "jest": "30.0.5",
     "jest-environment-jsdom": "30.0.5",
