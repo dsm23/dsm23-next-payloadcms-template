@@ -247,8 +247,8 @@ importers:
         specifier: 16.23.0
         version: 16.23.0(typescript@5.8.3)
       stylelint-config-standard:
-        specifier: 38.0.0
-        version: 38.0.0(stylelint@16.23.0(typescript@5.8.3))
+        specifier: 39.0.0
+        version: 39.0.0(stylelint@16.23.0(typescript@5.8.3))
       stylelint-order:
         specifier: 7.0.0
         version: 7.0.0(stylelint@16.23.0(typescript@5.8.3))
@@ -6558,17 +6558,17 @@ packages:
       babel-plugin-macros:
         optional: true
 
-  stylelint-config-recommended@16.0.0:
-    resolution: {integrity: sha512-4RSmPjQegF34wNcK1e1O3Uz91HN8P1aFdFzio90wNK9mjgAI19u5vsU868cVZboKzCaa5XbpvtTzAAGQAxpcXA==}
+  stylelint-config-recommended@17.0.0:
+    resolution: {integrity: sha512-WaMSdEiPfZTSFVoYmJbxorJfA610O0tlYuU2aEwY33UQhSPgFbClrVJYWvy3jGJx+XW37O+LyNLiZOEXhKhJmA==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
-      stylelint: ^16.16.0
+      stylelint: ^16.23.0
 
-  stylelint-config-standard@38.0.0:
-    resolution: {integrity: sha512-uj3JIX+dpFseqd/DJx8Gy3PcRAJhlEZ2IrlFOc4LUxBX/PNMEQ198x7LCOE2Q5oT9Vw8nyc4CIL78xSqPr6iag==}
+  stylelint-config-standard@39.0.0:
+    resolution: {integrity: sha512-JabShWORb8Bmc1A47ZyJstran60P3yUdI1zWMpGYPeFiC6xzHXJMkpKAd8EjIhq3HPUplIWWMDJ/xu0AiPd+kA==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
-      stylelint: ^16.18.0
+      stylelint: ^16.23.0
 
   stylelint-order@7.0.0:
     resolution: {integrity: sha512-rSWxx0KscYfxU02wEskKXES9lkRzuuONMMNkZ7SUc6uiF3tDKm7e+sE0Ax/SBlG4TUf1sp1R6f3/SlsPGmzthg==}
@@ -14806,14 +14806,14 @@ snapshots:
       '@babel/core': 7.27.4
       babel-plugin-macros: 3.1.0
 
-  stylelint-config-recommended@16.0.0(stylelint@16.23.0(typescript@5.8.3)):
+  stylelint-config-recommended@17.0.0(stylelint@16.23.0(typescript@5.8.3)):
     dependencies:
       stylelint: 16.23.0(typescript@5.8.3)
 
-  stylelint-config-standard@38.0.0(stylelint@16.23.0(typescript@5.8.3)):
+  stylelint-config-standard@39.0.0(stylelint@16.23.0(typescript@5.8.3)):
     dependencies:
       stylelint: 16.23.0(typescript@5.8.3)
-      stylelint-config-recommended: 16.0.0(stylelint@16.23.0(typescript@5.8.3))
+      stylelint-config-recommended: 17.0.0(stylelint@16.23.0(typescript@5.8.3))
 
   stylelint-order@7.0.0(stylelint@16.23.0(typescript@5.8.3)):
     dependencies:
