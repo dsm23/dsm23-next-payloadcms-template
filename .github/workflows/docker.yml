@@ -12,7 +12,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: "dsm23/dsm23-next-payloadcms-template"
+  IMAGE_NAME: ${{ github.repository }}
 
 permissions:
   contents: read
