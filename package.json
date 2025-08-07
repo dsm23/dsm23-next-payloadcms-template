@@ -27,7 +27,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "15.4.5",
+    "@next/bundle-analyzer": "15.4.6",
     "@payloadcms/admin-bar": "3.50.0",
     "@payloadcms/db-mongodb": "3.50.0",
     "@payloadcms/email-nodemailer": "3.50.0",
@@ -52,7 +52,7 @@
     "graphql": "16.11.0",
     "lucide-react": "0.536.0",
     "minio": "8.0.5",
-    "next": "15.4.5",
+    "next": "15.4.6",
     "next-sitemap": "4.2.3",
     "nodemailer": "7.0.5",
     "payload": "3.50.0",
