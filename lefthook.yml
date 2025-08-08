@@ -18,18 +18,6 @@ pre-commit:
         - "*.md"
         - "*.mdx"
 
-prepare-commit-msg:
-  commands:
-    commitzen:
-      interactive: true
-      # Only run commitizen if no commit message was already provided.
-      run: |
-        if [ {2} != "message" ]; then
-          ./node_modules/.bin/cz --hook
-        fi
-      env:
-        LEFTHOOK: "0"
-
 commit-msg:
   commands:
     commitlint:
