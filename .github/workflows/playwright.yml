@@ -22,12 +22,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shardIndex: [1, 2, 3, 4, 5, 6]
-        shardTotal: [6]
-    container:
-      image: mcr.microsoft.com/playwright:v1.54.2@sha256:18b4bcff4f8ba0ac8c44b09f09def6a4f6cb8579e5f26381c21f38b50935d5d8
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
+        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        shardTotal: [9]
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
@@ -42,6 +38,12 @@ jobs:
       - name: Node setup
         uses: ./.github/actions/setup
 
+      - name: Set up Docker Compose
+        uses: docker/setup-compose-action@364cc21a5de5b1ee4a7f5f9d3fa374ce0ccde746 # v1.2.0
+        with:
+          # renovate: datasource=github-releases depName=docker/compose versioning=semver
+          version: v2.39.2
+
       - name: Start services with Docker Compose
         run: docker compose up -d --wait mongo mailpit minio
         env:
@@ -51,6 +53,9 @@ jobs:
           MINIO_BUCKET: ${{ vars.MINIO_BUCKET }}
           MINIO_ACCESS_KEY: ${{ secrets.MINIO_ACCESS_KEY }}
           MINIO_SECRET_KEY: ${{ secrets.MINIO_SECRET_KEY }}
+
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
 
       - name: Run Playwright tests
         run: pnpm exec playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
@@ -70,15 +75,13 @@ jobs:
           SMTP_USER: ${{ vars.SMTP_USER }}
           SMTP_PASS: ${{ vars.SMTP_PASS }}
           SMTP_SENDER_NAME: ${{ vars.SMTP_SENDER_NAME }}
-          # Required for firefox
-          HOME: /root
 
       - name: Upload playwright report to GitHub Actions Artifacts
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: blob-report-${{ matrix.shardIndex }}
-          path: blob-report/
+          path: blob-report
           retention-days: 1
 
       - name: Stop services with Docker Compose
@@ -91,33 +94,3 @@ jobs:
     steps:
       - if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
         run: exit 1
-
-      - name: Harden Runner
-        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
-        with:
-          egress-policy: audit
-
-      - name: Git Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-
-      - name: Node setup
-        uses: ./.github/actions/setup
-
-      - name: Download blob reports from GitHub Actions Artifacts
-        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
-        with:
-          path: all-blob-reports
-          pattern: blob-report-*
-          merge-multiple: true
-
-      - name: Merge into HTML Report
-        run: pnpm exec playwright merge-reports --reporter html ./all-blob-reports
-
-      - name: Upload HTML report
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: html-report--attempt-${{ github.run_attempt }}
-          path: playwright-report
-          retention-days: 7
