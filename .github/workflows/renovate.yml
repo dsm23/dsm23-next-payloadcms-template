@@ -26,10 +26,6 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Node setup
-        uses: ./.github/actions/setup
-        with:
-          pnpm-run-install: false
-
       - name: Renovate config check
-        run: pnpm --package renovate dlx renovate-config-validator
+        run: |
+          docker run --rm -i renovate/renovate renovate-config-validator --strict < renovate.json
