@@ -136,8 +136,8 @@ importers:
         specifier: 2.1.1
         version: 2.1.1(@jest/expect@30.0.5)(@jest/globals@30.0.5)
       '@ianvs/prettier-plugin-sort-imports':
-        specifier: 4.6.1
-        version: 4.6.1(prettier@3.6.2)
+        specifier: 4.6.2
+        version: 4.6.2(prettier@3.6.2)
       '@jest/globals':
         specifier: 30.0.5
         version: 30.0.5
@@ -239,7 +239,7 @@ importers:
         version: 2.1.2(postcss@8.5.6)(prettier@3.6.2)
       prettier-plugin-tailwindcss:
         specifier: 0.6.14
-        version: 0.6.14(@ianvs/prettier-plugin-sort-imports@4.6.1(prettier@3.6.2))(prettier-plugin-css-order@2.1.2(postcss@8.5.6)(prettier@3.6.2))(prettier@3.6.2)
+        version: 0.6.14(@ianvs/prettier-plugin-sort-imports@4.6.2(prettier@3.6.2))(prettier-plugin-css-order@2.1.2(postcss@8.5.6)(prettier@3.6.2))(prettier@3.6.2)
       storybook:
         specifier: 9.1.2
         version: 9.1.2(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.0.6(@types/node@24.2.1)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.77.4)(terser@5.43.1)(tsx@4.20.3))
@@ -1261,8 +1261,8 @@ packages:
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
 
-  '@ianvs/prettier-plugin-sort-imports@4.6.1':
-    resolution: {integrity: sha512-Q0gujs/g6tw1uOGd1bTVLGDzAwb/UwrCehhPCQevTCYDkho8+eQSOhA0zcy9AM0XnXM1ChBWsZeE4P7Nym0pyw==}
+  '@ianvs/prettier-plugin-sort-imports@4.6.2':
+    resolution: {integrity: sha512-kHiL1IghIodo43clNQaJJU2rPqXEioPG+Ink4/T5za46A0ggSNvIx4NM3hGgciQ2VpDaR/X8cTJIZDKRurWjPw==}
     peerDependencies:
       '@prettier/plugin-oxc': ^0.0.4
       '@vue/compiler-sfc': 2.7.x || 3.x
@@ -8360,7 +8360,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.2': {}
 
-  '@ianvs/prettier-plugin-sort-imports@4.6.1(prettier@3.6.2)':
+  '@ianvs/prettier-plugin-sort-imports@4.6.2(prettier@3.6.2)':
     dependencies:
       '@babel/generator': 7.28.0
       '@babel/parser': 7.28.0
@@ -13665,11 +13665,11 @@ snapshots:
     transitivePeerDependencies:
       - postcss
 
-  prettier-plugin-tailwindcss@0.6.14(@ianvs/prettier-plugin-sort-imports@4.6.1(prettier@3.6.2))(prettier-plugin-css-order@2.1.2(postcss@8.5.6)(prettier@3.6.2))(prettier@3.6.2):
+  prettier-plugin-tailwindcss@0.6.14(@ianvs/prettier-plugin-sort-imports@4.6.2(prettier@3.6.2))(prettier-plugin-css-order@2.1.2(postcss@8.5.6)(prettier@3.6.2))(prettier@3.6.2):
     dependencies:
       prettier: 3.6.2
     optionalDependencies:
-      '@ianvs/prettier-plugin-sort-imports': 4.6.1(prettier@3.6.2)
+      '@ianvs/prettier-plugin-sort-imports': 4.6.2(prettier@3.6.2)
       prettier-plugin-css-order: 2.1.2(postcss@8.5.6)(prettier@3.6.2)
 
   prettier@3.6.2: {}
