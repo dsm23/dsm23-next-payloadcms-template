@@ -3,9 +3,12 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
+
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}'${process.env.NODE_ENV === "development" && " 'unsafe-eval'"};
+    script-src 'self' 'nonce-${nonce}'${
+      process.env.NODE_ENV === "production" ? "" : " 'unsafe-eval'"
+    };
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: ${process.env.MINIO_ENDPOINT}:${process.env.MINIO_PORT} https://www.gravatar.com/ https://raw.githubusercontent.com/payloadcms/payload/;
     font-src 'self';
