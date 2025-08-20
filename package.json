@@ -74,7 +74,7 @@
     "@ianvs/prettier-plugin-sort-imports": "4.6.2",
     "@jest/globals": "30.0.5",
     "@jest/types": "30.0.5",
-    "@playwright/test": "1.54.2",
+    "@playwright/test": "1.55.0",
     "@storybook/addon-a11y": "9.1.2",
     "@storybook/addon-docs": "9.1.2",
     "@storybook/addon-vitest": "9.1.2",
