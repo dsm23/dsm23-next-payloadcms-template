@@ -1,4 +1,7 @@
 onlyBuiltDependencies:
   - lefthook
   - sharp
+
+savePrefix: ""
+
 sideEffectsCache: false
