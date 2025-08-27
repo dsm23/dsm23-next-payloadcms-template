@@ -71,7 +71,7 @@
     "@commitlint/types": "19.8.1",
     "@eslint/eslintrc": "3.3.1",
     "@fast-check/jest": "2.1.1",
-    "@ianvs/prettier-plugin-sort-imports": "4.6.2",
+    "@ianvs/prettier-plugin-sort-imports": "4.6.3",
     "@jest/globals": "30.0.5",
     "@jest/types": "30.0.5",
     "@playwright/test": "1.55.0",
