@@ -48,7 +48,7 @@
     "@radix-ui/react-slot": "1.2.3",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
-    "geist": "1.4.2",
+    "geist": "1.5.1",
     "graphql": "16.11.0",
     "lucide-react": "0.542.0",
     "minio": "8.0.5",
