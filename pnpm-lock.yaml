@@ -81,8 +81,8 @@ importers:
         specifier: 0.542.0
         version: 0.542.0(react@19.1.1)
       minio:
-        specifier: 8.0.5
-        version: 8.0.5
+        specifier: 8.0.6
+        version: 8.0.6
       next:
         specifier: 15.5.3
         version: 15.5.3(@babel/core@7.27.4)(@playwright/test@1.55.0)(babel-plugin-macros@3.1.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(sass@1.77.4)
@@ -5434,8 +5434,8 @@ packages:
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
-  minio@8.0.5:
-    resolution: {integrity: sha512-/vAze1uyrK2R/DSkVutE4cjVoAowvIQ18RAwn7HrqnLecLlMazFnY0oNBqfuoAWvu7mZIGX75AzpuV05TJeoHg==}
+  minio@8.0.6:
+    resolution: {integrity: sha512-sOeh2/b/XprRmEtYsnNRFtOqNRTPDvYtMWh+spWlfsuCV/+IdxNeKVUMKLqI7b5Dr07ZqCPuaRGU/rB9pZYVdQ==}
     engines: {node: ^16 || ^18 || >=20}
 
   minipass@7.1.2:
@@ -13733,7 +13733,7 @@ snapshots:
 
   minimist@1.2.8: {}
 
-  minio@8.0.5:
+  minio@8.0.6:
     dependencies:
       async: 3.2.6
       block-stream2: 2.1.0
