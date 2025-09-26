@@ -66,9 +66,9 @@
   "devDependencies": {
     "@axe-core/playwright": "4.10.2",
     "@chromatic-com/storybook": "4.1.1",
-    "@commitlint/cli": "19.8.1",
-    "@commitlint/config-conventional": "19.8.1",
-    "@commitlint/types": "19.8.1",
+    "@commitlint/cli": "20.0.0",
+    "@commitlint/config-conventional": "20.0.0",
+    "@commitlint/types": "20.0.0",
     "@eslint/eslintrc": "3.3.1",
     "@fast-check/jest": "2.1.1",
     "@ianvs/prettier-plugin-sort-imports": "4.7.0",
