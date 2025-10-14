@@ -20,6 +20,18 @@
       "matchStrings": [
         "\\/\\/ renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?\\s+importOrderTypeScriptVersion\\s*\\:\\s*[\"']?(?<currentValue>.+?)[\"']"
       ]
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/)nextjs_bundle_analysis.yml$/",
+        "/(^|/)unit-testing.yml$/"
+      ],
+      "depNameTemplate": "dawidd6/action-download-artifact",
+      "datasourceTemplate": "github-releases",
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?\\s+uses\\:\\s*dawidd6\\/action-download-artifact@(?<currentDigest>[A-Za-z0-9]*)\\s+#\\s+(?<currentValue>.+?)\\s+"
+      ]
     }
   ],
   "packageRules": [
