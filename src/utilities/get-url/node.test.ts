@@ -1,8 +1,8 @@
 /**
- * @jest-environment node
+ * @vitest-environment node
  */
 
-import { afterEach, describe, expect, it } from "@jest/globals";
+import { afterEach, describe, expect, it } from "vitest";
 import { getClientSideURL, getServerSideURL } from ".";
 
 describe("utilities", () => {

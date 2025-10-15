@@ -1,8 +1,8 @@
 /**
- * @jest-environment node
+ * @vitest-environment node
  */
 
-import { describe, expect, it } from "@jest/globals";
+import { describe, expect, it } from "vitest";
 import canUseDOM from ".";
 
 describe("utilities", () => {

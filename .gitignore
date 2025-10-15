@@ -19,6 +19,7 @@ lefthook-local.yml
 
 # Unit test coverage
 coverage/
+.vitest-reports/
 
 # Docker compose
 compose.override.yaml

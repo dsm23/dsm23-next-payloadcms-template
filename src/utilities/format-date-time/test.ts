@@ -1,17 +1,17 @@
-import { afterEach, describe, expect, it, jest } from "@jest/globals";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { formatDateTime } from ".";
 
 const localeMock = function (locale: Intl.LocalesArgument = "default") {
   const DateTimeFormat = Intl.DateTimeFormat;
 
-  jest
-    .spyOn(global.Intl, "DateTimeFormat")
-    .mockImplementation((_, options) => new DateTimeFormat(locale, options));
+  vi.spyOn(global.Intl, "DateTimeFormat").mockImplementation(
+    (_, options) => new DateTimeFormat(locale, options),
+  );
 };
 
 describe("utilities", () => {
   afterEach(() => {
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   describe("formatDateTime", () => {
@@ -23,7 +23,7 @@ describe("utilities", () => {
       });
 
       it("returns local time ", () => {
-        jest.useFakeTimers().setSystemTime(new Date("2020-04-01"));
+        vi.useFakeTimers().setSystemTime(new Date("2020-04-01"));
 
         localeMock("en-GB");
 
@@ -39,7 +39,7 @@ describe("utilities", () => {
       });
 
       it("returns local time ", () => {
-        jest.useFakeTimers().setSystemTime(new Date("2020-04-01"));
+        vi.useFakeTimers().setSystemTime(new Date("2020-04-01"));
 
         localeMock("de-DE");
 
@@ -55,7 +55,7 @@ describe("utilities", () => {
       });
 
       it("returns local time ", () => {
-        jest.useFakeTimers().setSystemTime(new Date("2020-04-01"));
+        vi.useFakeTimers().setSystemTime(new Date("2020-04-01"));
 
         localeMock("en-US");
 

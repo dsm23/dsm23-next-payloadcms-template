@@ -1,8 +1,8 @@
 /**
- * @jest-environment-options {"url": "http://localhost:3000/"}
+ * @vitest-environment-options {"url": "http://localhost:3000/"}
  */
 
-import { describe, expect, it } from "@jest/globals";
+import { describe, expect, it } from "vitest";
 import { getClientSideURL } from ".";
 
 describe("utilities", () => {

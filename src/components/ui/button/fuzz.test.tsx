@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
-import { fc, it } from "@fast-check/jest";
-import { describe, expect } from "@jest/globals";
+import { fc, it } from "@fast-check/vitest";
 import { render, screen } from "@testing-library/react";
+import { describe, expect } from "vitest";
 import { Button } from ".";
 
 describe("component", () => {

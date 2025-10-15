@@ -1,5 +1,5 @@
-import { fc, it } from "@fast-check/jest";
-import { describe, expect } from "@jest/globals";
+import { fc, it } from "@fast-check/vitest";
+import { describe, expect } from "vitest";
 import { cn } from ".";
 
 describe("utils", () => {
@@ -8,7 +8,9 @@ describe("utils", () => {
       fc.assert(
         fc.property(fc.string(), (className) => {
           if (className.trim() === "") {
-            return expect(cn(className)).toBe("");
+            expect(cn(className)).toBe("");
+
+            return;
           }
 
           expect(cn(className)).toBe(className.trim().replace(/\s{2,}/g, " "));
@@ -20,7 +22,9 @@ describe("utils", () => {
       fc.assert(
         fc.property(fc.string(), (className) => {
           if (className.trim() === "") {
-            return expect(cn("px-2 py-1", "px-4", className)).toBe("py-1 px-4");
+            expect(cn("px-2 py-1", "px-4", className)).toBe("py-1 px-4");
+
+            return;
           }
 
           expect(cn("px-2 py-1", "px-4", className)).toBe(
