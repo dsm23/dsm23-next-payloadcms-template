@@ -1,10 +1,10 @@
-import { describe, expect, it, jest } from "@jest/globals";
 import { act, renderHook } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import { useDebounce } from ".";
 
 describe("utilities", () => {
   describe("useDebounce", () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     it("should return the initial value immediately", () => {
       const initialValue = "initial";
@@ -31,7 +31,7 @@ describe("utilities", () => {
       expect(result.current).toBe(initialValue);
 
       act(() => {
-        jest.advanceTimersByTime(delay);
+        vi.advanceTimersByTime(delay);
       });
 
       expect(result.current).toBe(newValue);
@@ -53,7 +53,7 @@ describe("utilities", () => {
       rerender({ value: intermediateValue });
 
       act(() => {
-        jest.advanceTimersByTime(delay / 2);
+        vi.advanceTimersByTime(delay / 2);
       });
 
       expect(result.current).toBe(initialValue);
@@ -61,13 +61,13 @@ describe("utilities", () => {
       rerender({ value: finalValue });
 
       act(() => {
-        jest.advanceTimersByTime(delay / 2);
+        vi.advanceTimersByTime(delay / 2);
       });
 
       expect(result.current).not.toBe(intermediateValue);
 
       act(() => {
-        jest.advanceTimersByTime(delay / 2);
+        vi.advanceTimersByTime(delay / 2);
       });
 
       expect(result.current).toBe(finalValue);
@@ -90,7 +90,7 @@ describe("utilities", () => {
       rerender({ value: newValue });
 
       act(() => {
-        jest.advanceTimersByTime(defaultDelay);
+        vi.advanceTimersByTime(defaultDelay);
       });
 
       expect(result.current).toBe(newValue);
@@ -113,7 +113,7 @@ describe("utilities", () => {
       unmount();
 
       act(() => {
-        jest.advanceTimersByTime(delay);
+        vi.advanceTimersByTime(delay);
       });
 
       expect(result.current).toBe(initialValue);

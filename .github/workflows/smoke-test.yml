@@ -35,6 +35,6 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Smoke & Acceptance tests
-        run: pnpm run test:smoke --project storybook
+        run: pnpm run test run --project storybook
         env:
           FORCE_COLOR: "1"

@@ -1,5 +1,5 @@
-import { describe, expect, it, jest } from "@jest/globals";
 import { render } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import { Checkbox } from ".";
 
 class ResizeObserver {
@@ -7,9 +7,9 @@ class ResizeObserver {
   constructor(callback: globalThis.ResizeObserverCallback) {
     this.callback = callback;
   }
-  observe = jest.fn();
-  unobserve = jest.fn();
-  disconnect = jest.fn();
+  observe = vi.fn();
+  unobserve = vi.fn();
+  disconnect = vi.fn();
 }
 
 window.ResizeObserver = ResizeObserver;

@@ -1,9 +1,9 @@
-import { describe, expect, it, jest } from "@jest/globals";
+import { describe, expect, it, vi } from "vitest";
 import { generateMeta } from ".";
 
-jest.mock("~/utilities/get-url", () => ({
+vi.mock("~/utilities/get-url", () => ({
   __esModule: true,
-  getServerSideURL: jest.fn(() => "http://localhost:3000"),
+  getServerSideURL: vi.fn(() => "http://localhost:3000"),
 }));
 
 describe("utilities", () => {
