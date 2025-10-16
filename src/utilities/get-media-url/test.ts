@@ -2,11 +2,24 @@
  * @vitest-environment-options {"url": "http://localhost:3000/"}
  */
 
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import type { Mock } from "vitest";
 import { getMediaUrl } from ".";
+
+interface LocalTestContext {
+  mockFn: Mock;
+}
 
 describe("utilities", () => {
   describe("getMediaUrl", () => {
+    beforeEach<LocalTestContext>((context) => {
+      const mockFn = vi.fn();
+
+      vi.stubGlobal("encodeURIComponent", mockFn);
+
+      context.mockFn = mockFn;
+    });
+
     it("use no url", () => {
       // @ts-expect-error cope with no arguments
       expect(getMediaUrl()).toBe("");
@@ -18,20 +31,28 @@ describe("utilities", () => {
       );
     });
 
-    it("use full url with cacheTag", () => {
+    it<LocalTestContext>("use full url with cacheTag", ({ mockFn }) => {
+      mockFn.mockReturnValue("tag=tag");
+
       expect(getMediaUrl("http://localhost:3000", "tag=tag")).toBe(
         "http://localhost:3000?tag=tag",
       );
+      expect(mockFn).toHaveBeenCalledExactlyOnceWith("tag=tag");
     });
 
     it("use client browser plus endpoint", () => {
       expect(getMediaUrl("/foo")).toBe("http://localhost:3000/foo");
     });
 
-    it("use client browser plus endpoint with cacheTag", () => {
+    it<LocalTestContext>("use client browser plus endpoint with cacheTag", ({
+      mockFn,
+    }) => {
+      mockFn.mockReturnValue("tag=tag");
+
       expect(getMediaUrl("/foo", "tag=tag")).toBe(
         "http://localhost:3000/foo?tag=tag",
       );
+      expect(mockFn).toHaveBeenCalledExactlyOnceWith("tag=tag");
     });
   });
 });
