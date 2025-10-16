@@ -65,7 +65,7 @@ const BeforeDashboard: FunctionComponent = () => {
       </ul>
       {"Pro Tip: This block is a "}
       <a
-        href="https://payloadcms.com/docs/admin/custom-components/overview#base-component-overrides"
+        href="https://payloadcms.com/docs/custom-components/overview"
         rel="noopener noreferrer"
         target="_blank"
       >
