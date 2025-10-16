@@ -12,6 +12,10 @@ export const getMediaUrl = (
 ): string => {
   if (!url) return "";
 
+  if (cacheTag && cacheTag !== "") {
+    cacheTag = encodeURIComponent(cacheTag);
+  }
+
   // Check if URL already has http/https protocol
   if (url.startsWith("http://") || url.startsWith("https://")) {
     return cacheTag ? `${url}?${cacheTag}` : url;
