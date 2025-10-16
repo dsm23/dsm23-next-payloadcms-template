@@ -33,4 +33,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build check
-        run: pnpm build
+        run: pnpm run build
+
+      - name: Storybook build check
+        run: pnpm run build-storybook
