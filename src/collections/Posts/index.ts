@@ -1,3 +1,4 @@
+import { slugField } from "payload";
 import type { CollectionConfig } from "payload";
 import {
   MetaDescriptionField,
@@ -19,7 +20,6 @@ import { authenticatedOrPublished } from "~/access/authenticatedOrPublished";
 import { Banner } from "~/blocks/Banner/config";
 import { Code } from "~/blocks/Code/config";
 import { MediaBlock } from "~/blocks/MediaBlock/config";
-import { slugField } from "~/fields/slug";
 import { generatePreviewPath } from "~/utilities/generate-preview-path";
 import { populateAuthors } from "./hooks/populateAuthors";
 import { revalidateDelete, revalidatePost } from "./hooks/revalidatePost";
@@ -47,19 +47,16 @@ export const Posts: CollectionConfig<"posts"> = {
   admin: {
     defaultColumns: ["title", "slug", "updatedAt"],
     livePreview: {
-      url: ({ data, req }) => {
-        const path = generatePreviewPath({
-          slug: typeof data?.slug === "string" ? data.slug : "",
+      url: ({ data, req }) =>
+        generatePreviewPath({
+          slug: data?.slug,
           collection: "posts",
           req,
-        });
-
-        return path;
-      },
+        }),
     },
     preview: (data, { req }) =>
       generatePreviewPath({
-        slug: typeof data?.slug === "string" ? data.slug : "",
+        slug: data?.slug as string,
         collection: "posts",
         req,
       }),
@@ -216,7 +213,7 @@ export const Posts: CollectionConfig<"posts"> = {
         },
       ],
     },
-    ...slugField(),
+    slugField(),
   ],
   hooks: {
     afterChange: [revalidatePost],

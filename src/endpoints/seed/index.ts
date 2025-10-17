@@ -26,6 +26,15 @@ const collections: CollectionSlug[] = [
 ];
 const globals: GlobalSlug[] = ["header", "footer"];
 
+const categories = [
+  "Technology",
+  "News",
+  "Finance",
+  "Design",
+  "Software",
+  "Engineering",
+];
+
 // Next.js revalidation errors are normal when seeding the database without a server running
 // i.e. running `yarn seed` locally instead of using the admin UI within an active app
 // The app is not running to revalidate the pages and so the API routes are not available
@@ -138,82 +147,15 @@ export const seed = async ({
         file: hero1Buffer,
       }),
 
-      payload.create({
-        collection: "categories",
-        data: {
-          title: "Technology",
-          breadcrumbs: [
-            {
-              label: "Technology",
-              url: "/technology",
-            },
-          ],
-        },
-      }),
-
-      payload.create({
-        collection: "categories",
-        data: {
-          title: "News",
-          breadcrumbs: [
-            {
-              label: "News",
-              url: "/news",
-            },
-          ],
-        },
-      }),
-
-      payload.create({
-        collection: "categories",
-        data: {
-          title: "Finance",
-          breadcrumbs: [
-            {
-              label: "Finance",
-              url: "/finance",
-            },
-          ],
-        },
-      }),
-      payload.create({
-        collection: "categories",
-        data: {
-          title: "Design",
-          breadcrumbs: [
-            {
-              label: "Design",
-              url: "/design",
-            },
-          ],
-        },
-      }),
-
-      payload.create({
-        collection: "categories",
-        data: {
-          title: "Software",
-          breadcrumbs: [
-            {
-              label: "Software",
-              url: "/software",
-            },
-          ],
-        },
-      }),
-
-      payload.create({
-        collection: "categories",
-        data: {
-          title: "Engineering",
-          breadcrumbs: [
-            {
-              label: "Engineering",
-              url: "/engineering",
-            },
-          ],
-        },
-      }),
+      categories.map((category) =>
+        payload.create({
+          collection: "categories",
+          data: {
+            title: category,
+            slug: category,
+          },
+        }),
+      ),
     ]);
 
   payload.logger.info(`— Seeding posts...`);
