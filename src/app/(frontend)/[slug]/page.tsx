@@ -45,12 +45,15 @@ type Args = {
 export default async function Page({ params: paramsPromise }: Args) {
   const { isEnabled: draft } = await draftMode();
   const { slug = "home" } = await paramsPromise;
-  const url = "/" + slug;
+
+  // Decode to support slugs with special characters
+  const decodedSlug = decodeURIComponent(slug);
+  const url = "/" + decodedSlug;
 
   let page: RequiredDataFromCollectionSlug<"pages"> | null;
 
   page = await queryPageBySlug({
-    slug,
+    slug: decodedSlug,
   });
 
   // Remove this code once your website is seeded
@@ -82,8 +85,12 @@ export async function generateMetadata({
   params: paramsPromise,
 }: Args): Promise<Metadata> {
   const { slug = "home" } = await paramsPromise;
+
+  // Decode to support slugs with special characters
+  const decodedSlug = decodeURIComponent(slug);
+
   const page = await queryPageBySlug({
-    slug,
+    slug: decodedSlug,
   });
 
   return generateMeta({ doc: page });
