@@ -71,7 +71,7 @@
     "@eslint/eslintrc": "3.3.1",
     "@fast-check/vitest": "0.2.2",
     "@ianvs/prettier-plugin-sort-imports": "4.7.0",
-    "@playwright/test": "1.56.0",
+    "@playwright/test": "1.56.1",
     "@storybook/addon-a11y": "9.1.13",
     "@storybook/addon-docs": "9.1.13",
     "@storybook/addon-vitest": "9.1.13",
