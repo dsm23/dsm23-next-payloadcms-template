@@ -2,7 +2,6 @@ import { describe, expect, it, vi } from "vitest";
 import { generateMeta } from ".";
 
 vi.mock("~/utilities/get-url", () => ({
-  __esModule: true,
   getServerSideURL: vi.fn(() => "http://localhost:3000"),
 }));
 

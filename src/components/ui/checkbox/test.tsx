@@ -2,17 +2,11 @@ import { render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { Checkbox } from ".";
 
-class ResizeObserver {
-  callback: globalThis.ResizeObserverCallback;
-  constructor(callback: globalThis.ResizeObserverCallback) {
-    this.callback = callback;
-  }
-  observe = vi.fn();
-  unobserve = vi.fn();
-  disconnect = vi.fn();
-}
+const ResizeObserverMock = vi.fn(() => ({
+  observe: vi.fn(),
+}));
 
-window.ResizeObserver = ResizeObserver;
+vi.stubGlobal("ResizeObserver", ResizeObserverMock);
 
 describe("component", () => {
   describe("Checkbox", () => {
