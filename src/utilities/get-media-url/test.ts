@@ -13,7 +13,7 @@ interface LocalTestContext {
 describe("utilities", () => {
   describe("getMediaUrl", () => {
     beforeEach<LocalTestContext>((context) => {
-      const mockFn = vi.fn();
+      const mockFn = vi.fn((input) => input);
 
       vi.stubGlobal("encodeURIComponent", mockFn);
 
@@ -32,8 +32,6 @@ describe("utilities", () => {
     });
 
     it<LocalTestContext>("use full url with cacheTag", ({ mockFn }) => {
-      mockFn.mockReturnValue("tag=tag");
-
       expect(getMediaUrl("http://localhost:3000", "tag=tag")).toBe(
         "http://localhost:3000?tag=tag",
       );
@@ -47,8 +45,6 @@ describe("utilities", () => {
     it<LocalTestContext>("use client browser plus endpoint with cacheTag", ({
       mockFn,
     }) => {
-      mockFn.mockReturnValue("tag=tag");
-
       expect(getMediaUrl("/foo", "tag=tag")).toBe(
         "http://localhost:3000/foo?tag=tag",
       );
