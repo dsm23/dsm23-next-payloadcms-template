@@ -2,9 +2,11 @@ import { render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { Checkbox } from ".";
 
-const ResizeObserverMock = vi.fn(() => ({
-  observe: vi.fn(),
-}));
+class ResizeObserverMock {
+  observe() {
+    return vi.fn();
+  }
+}
 
 vi.stubGlobal("ResizeObserver", ResizeObserverMock);
 
