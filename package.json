@@ -95,7 +95,7 @@
     "eslint": "9.38.0",
     "eslint-config-next": "15.5.6",
     "eslint-plugin-storybook": "9.1.16",
-    "lefthook": "2.0.1",
+    "lefthook": "2.0.2",
     "npm-run-all2": "8.0.4",
     "postcss": "8.5.6",
     "prettier": "3.6.2",
