@@ -118,8 +118,8 @@ importers:
         specifier: 4.11.0
         version: 4.11.0(playwright-core@1.56.1)
       '@chromatic-com/storybook':
-        specifier: 4.1.1
-        version: 4.1.1(storybook@9.1.16(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.0.6(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.77.4)(terser@5.43.1)(tsx@4.20.6)))
+        specifier: 4.1.2
+        version: 4.1.2(storybook@9.1.16(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.0.6(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.77.4)(terser@5.43.1)(tsx@4.20.6)))
       '@commitlint/cli':
         specifier: 20.1.0
         version: 20.1.0(@types/node@24.9.2)(typescript@5.9.3)
@@ -677,11 +677,11 @@ packages:
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
     engines: {node: '>=18'}
 
-  '@chromatic-com/storybook@4.1.1':
-    resolution: {integrity: sha512-+Ib4cHtEjKl/Do+4LyU0U1FhLPbIU2Q/zgbOKHBCV+dTC4T3/vGzPqiGsgkdnZyTsK/zXg96LMPSPC4jjOiapg==}
+  '@chromatic-com/storybook@4.1.2':
+    resolution: {integrity: sha512-QAWGtHwib0qsP5CcO64aJCF75zpFgpKK3jNpxILzQiPK3sVo4EmnVGJVdwcZWpWrGdH8E4YkncGoitw4EXzKMg==}
     engines: {node: '>=20.0.0', yarn: '>=1.22.18'}
     peerDependencies:
-      storybook: ^0.0.0-0 || ^9.0.0 || ^9.1.0-0 || ^9.2.0-0 || ^10.0.0-0
+      storybook: ^0.0.0-0 || ^9.0.0 || ^9.1.0-0 || ^9.2.0-0 || ^10.0.0-0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0
 
   '@commitlint/cli@20.1.0':
     resolution: {integrity: sha512-pW5ujjrOovhq5RcYv5xCpb4GkZxkO2+GtOdBW2/qrr0Ll9tl3PX0aBBobGQl3mdZUbOBgwAexEQLeH6uxL0VYg==}
@@ -7357,7 +7357,7 @@ snapshots:
 
   '@bcoe/v8-coverage@1.0.2': {}
 
-  '@chromatic-com/storybook@4.1.1(storybook@9.1.16(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.0.6(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.77.4)(terser@5.43.1)(tsx@4.20.6)))':
+  '@chromatic-com/storybook@4.1.2(storybook@9.1.16(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.0.6(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.77.4)(terser@5.43.1)(tsx@4.20.6)))':
     dependencies:
       '@neoconfetti/react': 1.0.0
       chromatic: 12.2.0
