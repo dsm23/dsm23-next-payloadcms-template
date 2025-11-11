@@ -3,6 +3,9 @@ import path from "node:path";
 import { defineConfig, devices } from "@playwright/test";
 import dotenv from "dotenv";
 
+const portDev = 3000;
+const portProd = 3001;
+
 const injectFromEnvFile = () => {
   const envDir = ".";
   const envFiles = [
@@ -33,51 +36,68 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: "html",
   use: {
-    baseURL: "http://localhost:3000",
-
     trace: "on-first-retry",
   },
-
   projects: [
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      name: "chromium-dev",
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: `http://localhost:${portDev}`,
+      },
     },
 
     {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] },
+      name: "firefox-dev",
+      use: {
+        ...devices["Desktop Firefox"],
+        baseURL: `http://localhost:${portDev}`,
+      },
     },
 
     {
-      name: "webkit",
-      use: { ...devices["Desktop Safari"] },
+      name: "webkit-dev",
+      use: {
+        ...devices["Desktop Safari"],
+        baseURL: `http://localhost:${portDev}`,
+      },
     },
 
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+    {
+      name: "chromium-prod",
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: `http://localhost:${portProd}`,
+      },
+    },
 
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
+    {
+      name: "firefox-prod",
+      use: {
+        ...devices["Desktop Firefox"],
+        baseURL: `http://localhost:${portProd}`,
+      },
+    },
+
+    {
+      name: "webkit-prod",
+      use: {
+        ...devices["Desktop Safari"],
+        baseURL: `http://localhost:${portProd}`,
+      },
+    },
   ],
 
-  webServer: {
-    command: "pnpm run dev",
-    url: "http://localhost:3000",
-    reuseExistingServer: !process.env.CI,
-  },
+  webServer: [
+    {
+      command: `pnpm run build && pnpm run start --port ${portProd}`,
+      url: `http://localhost:${portProd}`,
+      reuseExistingServer: !process.env.CI,
+    },
+    {
+      command: `pnpm run dev --port ${portDev}`,
+      url: `http://localhost:${portDev}`,
+      reuseExistingServer: !process.env.CI,
+    },
+  ],
 });
