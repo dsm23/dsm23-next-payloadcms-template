@@ -88,8 +88,8 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "@vitejs/plugin-react": "5.1.1",
-    "@vitest/browser-playwright": "4.0.7",
-    "@vitest/coverage-v8": "4.0.7",
+    "@vitest/browser-playwright": "4.0.13",
+    "@vitest/coverage-v8": "4.0.13",
     "copyfiles": "2.4.1",
     "dotenv": "17.2.3",
     "eslint": "9.39.1",
@@ -111,7 +111,7 @@
     "typed-query-selector": "2.12.0",
     "typescript": "5.9.3",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "4.0.7"
+    "vitest": "4.0.13"
   },
   "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
   "engines": {
