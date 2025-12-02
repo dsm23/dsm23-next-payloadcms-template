@@ -22,10 +22,7 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)nextjs_bundle_analysis.yml$/",
-        "/(^|/)unit-testing.yml$/"
-      ],
+      "managerFilePatterns": ["/(^|/)unit-testing.yml$/"],
       "depNameTemplate": "dawidd6/action-download-artifact",
       "datasourceTemplate": "github-releases",
       "matchStrings": [

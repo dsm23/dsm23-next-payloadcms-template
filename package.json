@@ -5,9 +5,9 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "next build --turbopack",
+    "build": "next build --webpack",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "dev:prod": "rm -rf .next && pnpm build && pnpm start",
     "generate:importmap": "payload generate:importmap",
     "generate:types": "payload generate:types",
@@ -15,7 +15,7 @@
     "fmt": "prettier . --write --cache --cache-strategy=content --cache-location=.prettiercache",
     "fmt.check": "prettier . --check --cache --cache-strategy=content --cache-location=.prettiercache",
     "lint:css": "stylelint \"**/*.css\" --max-warnings 0 --allow-empty-input --cache --cache-strategy=content --cache-location=.stylelintcache",
-    "lint:js": "next lint --max-warnings 0",
+    "lint:js": "eslint . --report-unused-disable-directives --max-warnings 0",
     "lint": "run-p lint:js lint:css",
     "lint:fix": "next lint --fix",
     "payload": "payload",
@@ -26,7 +26,6 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "15.5.6",
     "@payloadcms/admin-bar": "3.64.0",
     "@payloadcms/db-mongodb": "3.64.0",
     "@payloadcms/email-nodemailer": "3.64.0",
@@ -51,7 +50,7 @@
     "graphql": "16.12.0",
     "lucide-react": "0.555.0",
     "minio": "8.0.6",
-    "next": "15.5.6",
+    "next": "16.0.6",
     "next-sitemap": "4.2.3",
     "nodemailer": "7.0.11",
     "payload": "3.64.0",
@@ -93,7 +92,7 @@
     "copyfiles": "2.4.1",
     "dotenv": "17.2.3",
     "eslint": "9.39.1",
-    "eslint-config-next": "15.5.6",
+    "eslint-config-next": "16.0.6",
     "eslint-plugin-storybook": "10.1.2",
     "lefthook": "2.0.4",
     "npm-run-all2": "8.0.4",
@@ -116,5 +115,11 @@
   "packageManager": "pnpm@10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a",
   "engines": {
     "node": "18.20.2 || >=20.9.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.2.7",
+      "@types/react-dom": "19.2.3"
+    }
   }
 }
