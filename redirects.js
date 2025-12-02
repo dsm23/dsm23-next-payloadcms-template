@@ -1,3 +1,6 @@
+/**
+ * @type {Required<import("next").NextConfig>["redirects"]}
+ */
 const redirects = async () => {
   const internetExplorerRedirect = {
     destination: "/ie-incompatible.html",
