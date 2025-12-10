@@ -134,8 +134,8 @@ importers:
         specifier: 3.3.3
         version: 3.3.3
       '@fast-check/vitest':
-        specifier: 0.2.3
-        version: 0.2.3(vitest@4.0.15)
+        specifier: 0.2.4
+        version: 0.2.4(vitest@4.0.15)
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.7.0
         version: 4.7.0(prettier@3.7.4)
@@ -1104,8 +1104,8 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@fast-check/vitest@0.2.3':
-    resolution: {integrity: sha512-BBjiZOiCvKRfoeuWz62ZpjFfuaLEKSDWXl7Fkli9FBNJGUzBDv7PZdXPGbrUiaTreIFs9I1INrlQgboRBA3H1Q==}
+  '@fast-check/vitest@0.2.4':
+    resolution: {integrity: sha512-Ilcr+JAIPhb1s6FRm4qoglQYSGXXrS+zAupZeNuWAA3qHVGDA1d1Gb84Hb/+otL3GzVZjFJESg5/1SfIvrgssA==}
     peerDependencies:
       vitest: ^1 || ^2 || ^3 || ^4
 
@@ -7817,7 +7817,7 @@ snapshots:
       react: 19.2.1
       react-dom: 19.2.1(react@19.2.1)
 
-  '@fast-check/vitest@0.2.3(vitest@4.0.15)':
+  '@fast-check/vitest@0.2.4(vitest@4.0.15)':
     dependencies:
       fast-check: 4.1.1
       vitest: 4.0.15(@types/node@24.10.1)(@vitest/browser-playwright@4.0.15)(jiti@2.6.1)(jsdom@26.1.0)(lightningcss@1.30.2)(sass@1.77.4)(terser@5.43.1)(tsx@4.20.6)
