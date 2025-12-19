@@ -100,7 +100,7 @@
     "prettier": "3.7.4",
     "prettier-plugin-css-order": "2.1.2",
     "prettier-plugin-tailwindcss": "0.7.2",
-    "storybook": "10.1.8",
+    "storybook": "10.1.10",
     "stylelint": "16.26.1",
     "stylelint-config-standard": "39.0.1",
     "stylelint-order": "7.0.0",
