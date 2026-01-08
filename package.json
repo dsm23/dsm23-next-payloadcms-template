@@ -31,7 +31,6 @@
     "@payloadcms/email-nodemailer": "3.69.0",
     "@payloadcms/live-preview-react": "3.69.0",
     "@payloadcms/next": "3.69.0",
-    "@payloadcms/payload-cloud": "3.69.0",
     "@payloadcms/plugin-cloud-storage": "3.69.0",
     "@payloadcms/plugin-form-builder": "3.69.0",
     "@payloadcms/plugin-nested-docs": "3.69.0",
