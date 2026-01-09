@@ -1,2 +1,5 @@
 # Enforce Unix newlines
 * text=auto eol=lf
+
+src/app/(payload)/admin/importMap.js linguist-generated=true
+src/payload-types.ts linguist-generated=true
