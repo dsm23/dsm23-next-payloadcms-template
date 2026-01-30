@@ -30,9 +30,17 @@
       ]
     }
   ],
-  "internalChecksFilter": "strict",
-  "minimumReleaseAge": "3 days",
   "packageRules": [
+    {
+      "matchDatasources": [
+        "github-releases",
+        "github-tags",
+        "node-version",
+        "npm"
+      ],
+      "internalChecksFilter": "strict",
+      "minimumReleaseAge": "3 days"
+    },
     {
       "extends": ["packages:eslint"],
       "groupName": "eslint packages"
