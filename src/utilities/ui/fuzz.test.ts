@@ -1,5 +1,5 @@
-import { fc, it } from "@fast-check/vitest";
 import { describe, expect } from "vitest";
+import { fc, it } from "@fast-check/vitest";
 import { cn } from ".";
 
 describe("utils", () => {

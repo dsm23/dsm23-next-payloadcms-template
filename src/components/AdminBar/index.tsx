@@ -8,11 +8,10 @@ import type {
   PayloadAdminBarProps,
   PayloadMeUser,
 } from "@payloadcms/admin-bar";
-import { cn } from "~/utilities/ui";
+import { getClientSideURL } from "~/utilities/get-url";
 
 import "./index.scss";
-
-import { getClientSideURL } from "~/utilities/get-url";
+import { cn } from "~/utilities/ui";
 
 const baseClass = "admin-bar";
 

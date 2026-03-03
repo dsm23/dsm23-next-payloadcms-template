@@ -2,8 +2,8 @@ import type { FunctionComponent } from "react";
 import type { StaticImageData } from "next/image";
 import { Media } from "~/components/Media";
 import RichText from "~/components/RichText";
-import { cn } from "~/utilities/ui";
 import type { MediaBlock as MediaBlockProps } from "~/payload-types";
+import { cn } from "~/utilities/ui";
 
 type Props = MediaBlockProps & {
   breakout?: boolean;
@@ -42,7 +42,7 @@ export const MediaBlock: FunctionComponent<Props> = (props) => {
       {(media || staticImage) && (
         <Media
           imgClassName={cn(
-            "border-border rounded-[0.8rem] border",
+            "rounded-[0.8rem] border border-border",
             imgClassName,
           )}
           resource={media}

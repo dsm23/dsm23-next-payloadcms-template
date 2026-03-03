@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { CollectionConfig } from "payload";
 import type { HandleUpload } from "@payloadcms/plugin-cloud-storage/types";
+import type { CollectionConfig } from "payload";
 import type * as Minio from "minio";
 
 interface Args {

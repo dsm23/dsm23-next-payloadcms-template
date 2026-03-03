@@ -2,8 +2,8 @@
 
 import { createContext, use, useCallback, useState } from "react";
 import type { FunctionComponent, PropsWithChildren } from "react";
-import canUseDOM from "~/utilities/can-use-dom";
 import type { Theme } from "~/providers/Theme/types";
+import canUseDOM from "~/utilities/can-use-dom";
 
 export interface ContextType {
   headerTheme?: Theme | null;

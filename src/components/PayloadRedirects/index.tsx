@@ -1,8 +1,8 @@
 import type { FunctionComponent } from "react";
 import { notFound, redirect } from "next/navigation";
+import type { Page, Post } from "~/payload-types";
 import { getCachedDocument } from "~/utilities/get-document";
 import { getCachedRedirects } from "~/utilities/get-redirects";
-import type { Page, Post } from "~/payload-types";
 
 interface Props {
   disableNotFound?: boolean;

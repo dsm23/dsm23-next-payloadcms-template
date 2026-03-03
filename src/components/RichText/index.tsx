@@ -1,25 +1,25 @@
-import {
-  RichText as ConvertRichText,
-  LinkJSXConverter,
-} from "@payloadcms/richtext-lexical/react";
 import type {
   DefaultNodeTypes,
   DefaultTypedEditorState,
   SerializedBlockNode,
   SerializedLinkNode,
 } from "@payloadcms/richtext-lexical";
+import {
+  RichText as ConvertRichText,
+  LinkJSXConverter,
+} from "@payloadcms/richtext-lexical/react";
 import type { JSXConvertersFunction } from "@payloadcms/richtext-lexical/react";
 import { BannerBlock } from "~/blocks/Banner/Component";
 import { CallToActionBlock } from "~/blocks/CallToAction/Component";
 import { CodeBlock } from "~/blocks/Code/Component";
-import { MediaBlock } from "~/blocks/MediaBlock/Component";
-import { cn } from "~/utilities/ui";
 import type { CodeBlockProps } from "~/blocks/Code/Component";
+import { MediaBlock } from "~/blocks/MediaBlock/Component";
 import type {
   BannerBlock as BannerBlockProps,
   CallToActionBlock as CTABlockProps,
   MediaBlock as MediaBlockProps,
 } from "~/payload-types";
+import { cn } from "~/utilities/ui";
 
 type NodeTypes =
   | DefaultNodeTypes
@@ -79,7 +79,7 @@ export default function RichText(props: Props) {
         {
           container: enableGutter,
           "max-w-none": !enableGutter,
-          "prose md:prose-md dark:prose-invert mx-auto": enableProse,
+          "mx-auto prose md:prose-md dark:prose-invert": enableProse,
         },
         className,
       )}

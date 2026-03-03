@@ -1,6 +1,6 @@
 import { cache } from "react";
-import { draftMode } from "next/headers";
 import type { Metadata } from "next";
+import { draftMode } from "next/headers";
 import { getPayload } from "payload";
 import configPromise from "@payload-config";
 import { RelatedPosts } from "~/blocks/RelatedPosts/Component";
@@ -8,8 +8,8 @@ import { LivePreviewListener } from "~/components/LivePreviewListener";
 import { PayloadRedirects } from "~/components/PayloadRedirects";
 import RichText from "~/components/RichText";
 import { PostHero } from "~/heros/PostHero";
-import { generateMeta } from "~/utilities/generate-meta";
 import type { Post } from "~/payload-types";
+import { generateMeta } from "~/utilities/generate-meta";
 import PageClient from "./page.client";
 
 // export async function generateStaticParams() {

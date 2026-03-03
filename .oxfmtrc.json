@@ -1,0 +1,53 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "ignorePatterns": ["**/payload-types.ts", "pnpm-lock.yaml"],
+  "sortPackageJson": false,
+  "sortImports": {
+    "newlinesBetween": false,
+    "customGroups": [
+      {
+        "groupName": "react-libs",
+        "elementNamePattern": ["react", "react-**"]
+      },
+      {
+        "groupName": "type-react-libs",
+        "elementNamePattern": ["@types/react", "@types/react-**"]
+      },
+      {
+        "groupName": "clsx-libs",
+        "elementNamePattern": ["clsx"]
+      },
+      {
+        "groupName": "payload-libs",
+        "elementNamePattern": ["payload", "@payloadcms/**"]
+      },
+      {
+        "groupName": "next-libs",
+        "elementNamePattern": ["next", "next/**", "@next", "@next-**"]
+      },
+      {
+        "groupName": "vitest-libs",
+        "elementNamePattern": ["vitest", "@vitest-**"]
+      }
+    ],
+    "groups": [
+      "vitest-libs",
+      ["react-libs", "type-react-libs"],
+      "clsx-libs",
+      "next-libs",
+      ["value-builtin", "type-builtin"],
+      "payload-libs",
+      ["value-external", "type-external"],
+      ["value-internal", "type-internal"],
+      ["value-parent", "value-sibling", "value-index"],
+      "unknown",
+      { "newlinesBetween": true },
+      "style"
+    ]
+  },
+  "sortTailwindcss": {
+    "functions": ["clsx", "cn", "cva", "cx"],
+    "stylesheet": "./src/app/(frontend)/globals.css"
+  }
+}

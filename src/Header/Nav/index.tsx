@@ -18,7 +18,7 @@ export const HeaderNav: FunctionComponent<{ data: HeaderType }> = ({
       })}
       <Link href="/search">
         <span className="sr-only">Search</span>
-        <SearchIcon className="text-primary w-5" />
+        <SearchIcon className="w-5 text-primary" />
       </Link>
     </nav>
   );

@@ -1,10 +1,10 @@
-import type { Block } from "payload";
 import {
   FixedToolbarFeature,
   HeadingFeature,
   InlineToolbarFeature,
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
+import type { Block } from "payload";
 import { linkGroup } from "~/fields/linkGroup";
 
 export const CallToAction: Block = {

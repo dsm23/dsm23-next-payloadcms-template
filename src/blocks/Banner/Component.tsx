@@ -1,7 +1,7 @@
 import type { FunctionComponent } from "react";
 import RichText from "~/components/RichText";
-import { cn } from "~/utilities/ui";
 import type { BannerBlock as BannerBlockProps } from "~/payload-types";
+import { cn } from "~/utilities/ui";
 
 type Props = {
   className?: string;
