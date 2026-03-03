@@ -2,8 +2,8 @@
 
 import { useCallback, useState } from "react";
 import type { FunctionComponent } from "react";
-import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import type {
   FormFieldBlock,
   Form as FormType,
@@ -136,7 +136,7 @@ export const FormBlock: FunctionComponent<
           enableGutter={false}
         />
       )}
-      <div className="border-border rounded-[0.8rem] border p-4 lg:p-6">
+      <div className="rounded-[0.8rem] border border-border p-4 lg:p-6">
         <FormProvider {...formMethods}>
           {!isLoading && hasSubmitted && confirmationType === "message" && (
             <RichText data={confirmationMessage} />

@@ -15,7 +15,7 @@ export const Code: FunctionComponent<Props> = ({ code, language = "" }) => {
   return (
     <Highlight code={code} language={language} theme={themes.vsDark}>
       {({ getLineProps, getTokenProps, tokens }) => (
-        <pre className="border-border overflow-x-auto rounded border bg-black p-4 text-xs">
+        <pre className="overflow-x-auto rounded border border-border bg-black p-4 text-xs">
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ className: "table-row", line })}>
               <span className="table-cell text-right text-white/25 select-none">

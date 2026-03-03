@@ -4,9 +4,9 @@ import { Fragment } from "react";
 import type { FunctionComponent } from "react";
 import Link from "next/link";
 import { Media } from "~/components/Media";
+import type { Post } from "~/payload-types";
 import { cn } from "~/utilities/ui";
 import useClickableCard from "~/utilities/use-clickable-card";
-import type { Post } from "~/payload-types";
 
 export type CardPostData = Pick<Post, "slug" | "categories" | "meta" | "title">;
 
@@ -39,7 +39,7 @@ export const Card: FunctionComponent<{
   return (
     <article
       className={cn(
-        "border-border bg-card overflow-hidden rounded-lg border hover:cursor-pointer",
+        "overflow-hidden rounded-lg border border-border bg-card hover:cursor-pointer",
         className,
       )}
       ref={card.ref}

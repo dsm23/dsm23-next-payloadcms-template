@@ -14,7 +14,6 @@ public/sitemap*.xml
 # Cache Files
 .eslintmdcache
 .stylelintcache
-.prettiercache
 
 # Lefthook
 lefthook-local.yml

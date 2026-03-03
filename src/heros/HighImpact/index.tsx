@@ -5,8 +5,8 @@ import type { FunctionComponent } from "react";
 import { CMSLink } from "~/components/Link";
 import { Media } from "~/components/Media";
 import RichText from "~/components/RichText";
-import { useHeaderTheme } from "~/providers/HeaderTheme";
 import type { Page } from "~/payload-types";
+import { useHeaderTheme } from "~/providers/HeaderTheme";
 
 export const HighImpactHero: FunctionComponent<Page["hero"]> = ({
   links,

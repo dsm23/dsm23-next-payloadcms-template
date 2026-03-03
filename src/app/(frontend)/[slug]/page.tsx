@@ -1,6 +1,6 @@
 import { cache } from "react";
-import { draftMode } from "next/headers";
 import type { Metadata } from "next";
+import { draftMode } from "next/headers";
 import { getPayload } from "payload";
 import type { RequiredDataFromCollectionSlug } from "payload";
 import configPromise from "@payload-config";

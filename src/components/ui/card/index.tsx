@@ -9,7 +9,7 @@ const Card: FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
     <div
       data-slot="card"
       className={cn(
-        "bg-card text-card-foreground rounded-xl border shadow-sm",
+        "rounded-xl border bg-card text-card-foreground shadow-sm",
         className,
       )}
       {...props}
@@ -52,7 +52,7 @@ const CardDescription: FunctionComponent<
   return (
     <p
       data-slot="card-description"
-      className={cn("text-muted-foreground text-sm", className)}
+      className={cn("text-sm text-muted-foreground", className)}
       {...props}
     />
   );

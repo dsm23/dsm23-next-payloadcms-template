@@ -1,9 +1,9 @@
 import type { Metadata } from "next/types";
 import { getPayload } from "payload";
 import configPromise from "@payload-config";
+import type { CardPostData } from "~/components/Card";
 import { CollectionArchive } from "~/components/CollectionArchive";
 import { Search } from "~/search/Component";
-import type { CardPostData } from "~/components/Card";
 import PageClient from "./page.client";
 
 type Args = {
@@ -66,7 +66,7 @@ export default async function Page({
     <div className="pt-24 pb-24">
       <PageClient />
       <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none text-center">
+        <div className="prose max-w-none text-center dark:prose-invert">
           <h1 className="mb-8 lg:mb-16">Search</h1>
 
           <div className="mx-auto max-w-[50rem]">

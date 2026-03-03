@@ -1,5 +1,3 @@
-import { slugField } from "payload";
-import type { CollectionConfig } from "payload";
 import {
   MetaDescriptionField,
   MetaImageField,
@@ -15,6 +13,8 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
+import { slugField } from "payload";
+import type { CollectionConfig } from "payload";
 import { authenticated } from "~/access/authenticated";
 import { authenticatedOrPublished } from "~/access/authenticatedOrPublished";
 import { Banner } from "~/blocks/Banner/config";

@@ -1,9 +1,9 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { buildConfig } from "payload";
-import type { PayloadRequest } from "payload";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
+import { buildConfig } from "payload";
+import type { PayloadRequest } from "payload";
 import nodemailer from "nodemailer";
 import sharp from "sharp";
 import { minioStorage } from "~/adapters/storage";
