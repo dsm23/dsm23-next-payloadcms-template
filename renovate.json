@@ -23,14 +23,22 @@
   ],
   "packageRules": [
     {
+      "description": "Apply minimum release age to all relevant datasources with timestamps",
+      "internalChecksFilter": "strict",
       "matchDatasources": [
         "github-releases",
         "github-tags",
         "node-version",
         "npm"
       ],
-      "internalChecksFilter": "strict",
       "minimumReleaseAge": "3 days"
+    },
+    {
+      "description": "Apply minimum release age to docker datasource regardless of timestamps",
+      "internalChecksFilter": "strict",
+      "matchDatasources": ["docker"],
+      "minimumReleaseAge": "3 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
     },
     {
       "extends": ["packages:eslint"],
