@@ -22,8 +22,36 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        shardIndex:
+          - [1, 1]
+          - [2, 2]
+          - [3, 3]
+          - [4, 4]
+          - [5, 5]
+          - [6, 6]
+          - [7, 7]
+          - [8, 8]
+          - [9, 9]
+          - [1, 10]
+          - [2, 11]
+          - [3, 12]
+          - [4, 13]
+          - [5, 14]
+          - [6, 15]
+          - [7, 16]
+          - [8, 17]
+          - [9, 18]
         shardTotal: [9]
+    name: >
+      test-shard (${{ matrix.shardIndex[1] <= matrix.shardTotal && 'dev' || 'prod' }}) -
+      (${{ matrix.shardIndex[0] }}, ${{ matrix.shardTotal }})
+
+    container:
+      image: mcr.microsoft.com/playwright:v1.57.0@sha256:3bed4b1a12f2338642f3d8cba28e291deef3c66bd4a964bbeb3e57bbff511dbd
+      options: >-
+        --user root
+        --network host
+        -v /var/run/docker.sock:/var/run/docker.sock
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
@@ -54,11 +82,34 @@ jobs:
           MINIO_ACCESS_KEY: ${{ secrets.MINIO_ACCESS_KEY }}
           MINIO_SECRET_KEY: ${{ secrets.MINIO_SECRET_KEY }}
 
-      - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
+      - name: Run Playwright tests (dev)
+        if: ${{ matrix.shardIndex[1] <= matrix.shardTotal }}
+        run: >
+          pnpm exec playwright test
+          --shard=${{ matrix.shardIndex[0] }}/${{ matrix.shardTotal }}
+        env:
+          FORCE_COLOR: 1
+          DATABASE_URI: ${{ vars.DATABASE_URI }}
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+          MINIO_ROOT_USER: ${{ vars.MINIO_ROOT_USER }}
+          MINIO_ROOT_PASSWORD: ${{ vars.MINIO_ROOT_PASSWORD }}
+          MINIO_BUCKET: ${{ vars.MINIO_BUCKET }}
+          MINIO_ENDPOINT: ${{ vars.MINIO_ENDPOINT }}
+          MINIO_PORT: ${{ vars.MINIO_PORT }}
+          NEXT_PUBLIC_SERVER_URL: ${{ vars.NEXT_PUBLIC_SERVER_URL }}
+          SMTP_ADMIN_EMAIL: ${{ vars.SMTP_ADMIN_EMAIL }}
+          SMTP_HOST: ${{ vars.SMTP_HOST }}
+          SMTP_PORT: ${{ vars.SMTP_PORT }}
+          SMTP_USER: ${{ vars.SMTP_USER }}
+          SMTP_PASS: ${{ vars.SMTP_PASS }}
+          SMTP_SENDER_NAME: ${{ vars.SMTP_SENDER_NAME }}
 
-      - name: Run Playwright tests
-        run: pnpm exec playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      - name: Run Playwright tests (prod)
+        if: ${{ matrix.shardIndex[1] > matrix.shardTotal }}
+        run: >
+          pnpm exec playwright test
+          --config playwright.prod.config.ts
+          --shard=${{ matrix.shardIndex[0] }}/${{ matrix.shardTotal }}
         env:
           FORCE_COLOR: 1
           DATABASE_URI: ${{ vars.DATABASE_URI }}
@@ -80,8 +131,8 @@ jobs:
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
-          name: blob-report-${{ matrix.shardIndex }}
-          path: blob-report
+          name: blob-report-${{ matrix.shardIndex[1] }}
+          path: blob-report/
           retention-days: 1
 
       - name: Stop services with Docker Compose
@@ -94,3 +145,33 @@ jobs:
     steps:
       - if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
         run: exit 1
+
+      - name: Harden Runner
+        uses: step-security/harden-runner@e3f713f2d8f53843e71c69a996d56f51aa9adfb9 # v2.14.1
+        with:
+          egress-policy: audit
+
+      - name: Git Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Node setup
+        uses: ./.github/actions/setup
+
+      - name: Download blob reports from GitHub Actions Artifacts
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          path: all-blob-reports
+          pattern: blob-report-*
+          merge-multiple: true
+
+      - name: Merge into HTML Report
+        run: pnpm exec playwright merge-reports --reporter html ./all-blob-reports
+
+      - name: Upload HTML report
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: html-report--attempt-${{ github.run_attempt }}
+          path: playwright-report
+          retention-days: 7
