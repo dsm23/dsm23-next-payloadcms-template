@@ -33,7 +33,7 @@ const ONLY_ALLOW_CAMELCASE_SELECTORS = [
 
 const config = {
   extends: ["stylelint-config-standard"],
-  plugins: ["stylelint-order", "stylelint-selector-bem-pattern"],
+  plugins: ["stylelint-order"],
   rules: {
     // Enforces Element Class Names to be kebab-case
     "selector-class-pattern": ONLY_ALLOW_KEBAB_CASE_SELECTORS,
