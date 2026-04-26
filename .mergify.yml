@@ -1,3 +1,23 @@
+shared:
+  common: &common_checks
+    - check-success=amd64
+    - check-success=build
+    - check-success=codeql (actions)
+    - check-success=codeql (javascript)
+    - check-success=codeql (typescript)
+    - check-success=dependency-review
+    - check-success=format
+    - check-success=gitleaks
+    - check-success=lint
+    - check-success=playwright-tests
+    - check-success=renovate
+    - check-success=smoke-test
+    - check-success=unit-testing
+    - check-success=zizmor
+    - or:
+        - check-success = renovate/stability-days
+        - check-pending != renovate/stability-days
+
 merge_protections:
   - name: Do not merge outdated PRs
     description: Make sure PRs are almost up to date before merging
@@ -10,82 +30,61 @@ merge_protections:
     if:
       - base = main
     success_conditions:
-      - "title ~= ^(fix|feat|docs|style|refactor|perf|test|build|ci|chore|revert)(?:\\(.+\\\
-        ))?:"
+      - "title ~= ^(fix|feat|docs|style|refactor|perf|test|build|ci|chore|revert)(?:\\(.+\\))?:"
 
 merge_protections_settings:
-  reporting_method: check-runs
+  auto_merge: true
   post_comment: true
+  reporting_method: check-runs
+
+merge_queue:
+  max_parallel_checks: 5
+
+queue_rules:
+  - name: dep-update
+    allow_queue_branch_edit: true
+    batch_size: 5
+    batch_max_wait_time: 5 min
+    queue_conditions: &queue_conditions
+      - author = renovate[bot]
+      - "#approved-reviews-by >= 1"
+      - and: *common_checks
+    merge_conditions:
+      - label != rebase
+      - and: *queue_conditions
 
 pull_request_rules:
-  # approve
   - name: automatic approval
-    conditions:
-      - author=dsm23
-      - check-success=amd64
-      - check-success=build
-      - check-success=codeql (actions)
-      - check-success=codeql (javascript)
-      - check-success=codeql (typescript)
-      - check-success=dependency-review
-      - check-success=format
-      - check-success=gitleaks
-      - check-success=lint
-      - check-success=playwright-tests
-      - check-success=renovate
-      - check-success=smoke-test
-      - check-success=unit-testing
-      - check-success=zizmor
+    conditions: *common_checks
     actions:
       review:
         type: APPROVE
-        message: Automatically approving dsm23
-  - name: automatic approval for Renovate pull requests
-    conditions:
-      - author=renovate[bot]
-      - check-success=amd64
-      - check-success=build
-      - check-success=codeql (actions)
-      - check-success=codeql (javascript)
-      - check-success=codeql (typescript)
-      - check-success=dependency-review
-      - check-success=format
-      - check-success=gitleaks
-      - check-success=lint
-      - check-success=playwright-tests
-      - check-success=renovate
-      - check-success=smoke-test
-      - check-success=unit-testing
-      - check-success=zizmor
-      - or:
-          - check-success=renovate/stability-days
-          - check-pending!=renovate/stability-days
-    actions:
-      review:
-        type: APPROVE
-        message: Automatically approving renovate
-  # merge
+        message: "Automatically approving {{ author }}"
+
   - name: Automatically merge when GitHub Actions jobs succeed
     conditions:
-      - check-success=amd64
-      - check-success=build
-      - check-success=codeql (actions)
-      - check-success=codeql (javascript)
-      - check-success=codeql (typescript)
-      - check-success=dependency-review
-      - check-success=format
-      - check-success=gitleaks
-      - check-success=lint
-      - check-success=playwright-tests
-      - check-success=renovate
-      - check-success=smoke-test
-      - check-success=unit-testing
-      - check-success=zizmor
-      - "#approved-reviews-by>=1"
-      - or:
-          - check-success=renovate/stability-days
-          - check-pending!=renovate/stability-days
+      - author != renovate[bot]
+      - "#approved-reviews-by >= 1"
+      - and: *common_checks
     actions:
       merge:
         method: merge
-  # delete
+
+  - name: Automatically queue Renovate PRs
+    conditions:
+      - author = renovate[bot]
+    actions:
+      queue:
+
+  - name: Ask Renovate to rebase when out of date
+    conditions:
+      - author = renovate[bot]
+      - queue-name = dep-update
+      - queue-position = 0
+      - or:
+          - "#commits-behind > 0"
+          - conflict
+    actions:
+      label:
+        add:
+          - rebase
