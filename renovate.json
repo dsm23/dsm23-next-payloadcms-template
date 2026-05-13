@@ -2,6 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:best-practices",
+    "customManagers:dockerfileVersions",
     "group:jsUnitTest",
     "group:vite",
     "helpers:pinGitHubActionDigestsToSemver",
@@ -57,12 +58,26 @@
       "matchPackageNames": ["@next/**", "eslint-plugin-next", "next"]
     },
     {
+      "description": "Force pnpm Docker to use GitHub timestamps",
+      "matchPackageNames": ["ghcr.io/pnpm/pnpm"],
+      "matchDatasources": ["docker"],
+      "overrideDatasource": "npm",
+      "overridePackageName": "pnpm"
+    },
+    {
       "groupName": "playwright monorepo",
       "matchPackageNames": [
         "playwright",
         "@playwright/test",
         "mcr.microsoft.com/playwright"
       ]
+    },
+    {
+      "description": "Force Playwright Docker to use GitHub timestamps",
+      "matchPackageNames": ["mcr.microsoft.com/playwright"],
+      "matchDatasources": ["docker"],
+      "overrideDatasource": "github-releases",
+      "overridePackageName": "microsoft/playwright"
     },
     {
       "groupName": "storybook monorepo",
